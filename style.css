@@ -2,3 +2,7 @@
 Theme Name: Projekti
 Author: Team3
 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
