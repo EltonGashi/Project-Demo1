@@ -1,101 +1,140 @@
-header, section.banner{
-    background-color: #ac405a;
+/* Poppins Font imported from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Courgette Font imported from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+
+.bg-img {
+  /* The image used */
+  background-image: url("../images/Banner.jpg");
+
+  min-height: 400px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
 }
-header{
-    width: 100%;
-    height: 70px;
+
+/* Position the navbar container inside the image */
+.container {
+  width: auto;
 }
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding: 0.8%;
+
+header {
+  width: 100%;
+  height: 70px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8%;
 }
 .menu-header-navbar-container {
-    width: 50%;
-    display: flex;
-    align-items: center;
+  width: 50%;
+  display: flex;
+  align-items: center;
 }
 ul#menu-header-navbar {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    color: white;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  color: white;
 }
-.register-login-btn{
-    width: 15%;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 1%;
+.register-login-btn {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1%;
 }
-.registerBtn{
-    background-color: #799f28;
-    padding: 3%;
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
+.registerBtn {
+  background-color: #799f28;
+  padding: 3%;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
 }
-button{
-    color: white;
+button {
+  color: white;
 }
-.search-input{
-    display: flex;
-    justify-content: flex-end;
-    width: 25%;
-    align-items: center;
+
+i {
+  font-family: "Courgette", cursive;
 }
-input#search{
-    width: 60%;
-    background-color: transparent;
+
+.search-input {
+  display: flex;
+  justify-content: flex-end;
+  width: 25%;
+  align-items: center;
 }
-.img-search{
-    width: 22px;
-    height: 22px;
+
+input#search {
+  width: 60%;
+  background-color: transparent;
+  border: 3px solid black;
+  margin-right: 50px;
+  transition: 1.2s;
+  height: 50px;
 }
-section.banner{
-    height: 308px;
+
+input#search:hover {
+  border-radius: 10px;
 }
-.first-banner{
-    width: 100%;
-    height: 100%;
-    max-height: 250px;
-    display: flex;
-    justify-content: center;
+
+.img-search {
+  width: 22px;
+  height: 22px;
 }
-.search-talents{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+section.banner {
+  height: 308px;
 }
-.search-box{
-    width: 80%;
-    position: relative;
-    display: flex;
+.first-banner {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  display: flex;
+  justify-content: center;
 }
-.input-search{
-    width: 60%;
-    padding: 10px;
-    border: 1px solid transparent;
-    border-radius: 10px 0 0 10px;
-    border-right: none;
-    outline: none;
+.search-talents {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -265px;
+  z-index: 1;
+  color: white;
 }
-.searchBtn{
-    /* a po mun me ba najsen */
-    /* e knaqa */
-    text-align: center;
-    height: 51px;
-    width: 20%;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 0 10px 10px 0;
-    border-left: none;
-    outline: none;
-    border-left: 2px solid transparent;
-    background-color: #799f28;
+.search-box {
+  width: 80%;
+  display: flex;
 }
-h2.search-title{
-    font-size: 25px;
-    color: white;
+.input-search {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px 0 0 10px;
+  border-right: none;
+  outline: none;
+}
+.searchBtn {
+  text-align: center;
+  height: 51px;
+  width: 20%;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+  outline: none;
+  border-left: 2px solid transparent;
+  background-color: #799f28;
+}
+h2.search-title {
+  font-size: 25px;
 }
