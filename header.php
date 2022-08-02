@@ -93,5 +93,3 @@
             </p>
         </form>
     </div>
-
-    <h1>Enis Gjini</h1>
