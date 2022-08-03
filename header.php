@@ -8,8 +8,10 @@
     <title>Document</title>
     <link href="/dist/output.css" rel="stylesheet">
     <?php wp_head(); ?>
-    <?php wp_head(); ?>
 </head>
+
+<body>
+
 
 <body>
 
@@ -93,3 +95,6 @@
             </p>
         </form>
     </div>
+    </div>
+
+    <?php include ("services-user-cards/user-cards.php"); ?>
