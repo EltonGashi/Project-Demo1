@@ -13,8 +13,6 @@
 <body>
 
 
-    <body>
 
 
-
-        <?php include("services-user-cards/user-cards.php"); ?>
+    <?php include("services-user-cards/user-cards.php"); ?>
