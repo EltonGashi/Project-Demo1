@@ -1,4 +1,4 @@
-<section>
+<section class="bg-amber-300">
     <div class="headings block text-center justify-self-center bg-zinc-600">
         <h1 class="text-9xl ">One Platform</h1>
         <h1 class="text-9xl">Many Solutions</h1>
