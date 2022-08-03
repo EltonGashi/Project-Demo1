@@ -11,8 +11,4 @@
 </head>
 
 <body>
-
-
-
-
     <?php include("services-user-cards/user-cards.php"); ?>
