@@ -11,4 +11,39 @@
 </head>
 
 <body>
-    <?php include("services-user-cards/user-cards.php"); ?>
+    <div class="bg-img">
+        <div class="container">
+            <header>
+                <div class="header">
+                    <div class="header-logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>./icons/Project-logo.png">
+                    </div>
+                    <!-- Dynamic menuc -->
+                    <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+
+                    <!--Search input-->
+                    <div class="search-input">
+                        <input type="search" name="" id="search">
+                        <img class="img-search" src="<?php echo get_template_directory_uri(); ?>./icons/search.png">
+                    </div>
+
+                    <div class="register-login-btn">
+                        <button class="loginBtn"><a href="#" class="login">Log In</a></button>
+                        <button class="registerBtn"><a href="#" class="register">Register</a></button>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <section class="banner">
+        <div class="first-banner">
+            <div class="search-talents">
+                <h2 class="search-title">Search for best <i>services</i></h2>
+                <div class="search-box">
+                    <input type="text" class="input-search" placeholder="Search for new talents...">
+                    <button class="searchBtn">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
