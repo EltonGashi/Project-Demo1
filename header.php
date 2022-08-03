@@ -10,5 +10,6 @@
 </head>
 <body>
 
-<?php include("section_one_platform/one_platform.php"); ?>
+<?php require "one_platform.php"; ?>
+
 

@@ -10,7 +10,8 @@ module.exports = {
     },
     extend: {
       colors:{
-        
+        'txtGreen': '#799F28',
+        'bg': '#F0F0F0'
       }
     },
   },
