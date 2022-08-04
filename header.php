@@ -21,11 +21,7 @@
                     <!-- Dynamic menuc -->
                     <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
 
-                    <!--Search input-->
-                    <div class="search-input">
-                        <input type="search" name="" id="search">
-                        <img class="img-search" src="<?php echo get_template_directory_uri(); ?>./icons/search.png">
-                    </div>
+
 
                     <div class="register-login-btn">
                         <button class="loginBtn"><a href="#" class="login">Log In</a></button>
