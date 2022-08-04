@@ -51,6 +51,7 @@ ul#menu-header-navbar {
   display: flex;
   justify-content: space-between;
   padding-right: 1%;
+  align-items: center;
 }
 .registerBtn {
   background-color: #799f28;
