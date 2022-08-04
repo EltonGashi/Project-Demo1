@@ -727,7 +727,6 @@ video {
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
-<<<<<<< Updated upstream
 .object-scale-down {
   -o-object-fit: scale-down;
      object-fit: scale-down;
@@ -751,26 +750,12 @@ video {
 
 .p-8 {
   padding: 2rem;
-=======
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-.bg-blue-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
->>>>>>> Stashed changes
 }
 
 .p-4 {
   padding: 1rem;
 }
 
-<<<<<<< Updated upstream
 .p-20 {
   padding: 5rem;
 }
@@ -856,14 +841,11 @@ video {
   line-height: 1rem;
 }
 
-=======
->>>>>>> Stashed changes
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-<<<<<<< Updated upstream
 .font-bold {
   font-weight: 700;
 }
@@ -900,40 +882,3 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-=======
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
-}
-
-.text-blue-700 {
-  --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
-}
-
-@media (prefers-color-scheme: dark) {
-  .dark\:bg-blue-200 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(191 219 254 / var(--tw-bg-opacity));
-  }
-
-  .dark\:text-blue-800 {
-    --tw-text-opacity: 1;
-    color: rgb(30 64 175 / var(--tw-text-opacity));
-  }
-
-  .dark\:text-white {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-}
->>>>>>> Stashed changes
