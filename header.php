@@ -11,18 +11,15 @@
 </head>
 
 <body>
-    <div class="bg-img">
+
+    <div class="background-image">
         <div class="container mx-auto">
             <header>
                 <div class="header">
                     <div class="header-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>./icons/Project-logo.png">
+                        <img src="<?php echo get_template_directory_uri(); ?>./icons/logo-of-project.png">
                     </div>
-                    <!-- Dynamic menuc -->
                     <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
-
-
-
                     <div class="register-login-btn">
                         <button class="loginBtn"><a href="#" class="login">Log In</a></button>
                         <button class="registerBtn"><a href="#" class="register">Register</a></button>
