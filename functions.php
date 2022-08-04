@@ -4,7 +4,10 @@
 function dynamic_menu_enqueue()
 {
 
-    wp_enqueue_style('customstyle', get_template_directory_uri() . '/dist/output.css', array(), '1.0.0', 'all');
+        wp_enqueue_style('customstyle', get_template_directory_uri() . '/dist/output.css', array(), '1.0.0', 'all');
+        	
+        wp_enqueue_script( 'customjs', get_template_directory_uri() . '/services-card-users/load-more.js', array(), '1.0.0', true);
+    
     wp_enqueue_style('menustyle', get_template_directory_uri() . '/css/menu.css', array(), '1.0.0', 'all');
 }
 

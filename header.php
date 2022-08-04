@@ -51,4 +51,5 @@
         </div>
     </section>
     <?php include("services-card-users/user-cards.php"); ?>
+
     <?php include("one_platform.php"); ?>
