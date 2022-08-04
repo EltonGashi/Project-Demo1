@@ -31,7 +31,7 @@ header {
   align-items: center;
 }
 
-.menu ul {
+.menu-header-navigation-container ul {
   /* This design is about ul (unordered list) in Header Menu */
   margin-top: 15px;
   display: flex;
@@ -43,7 +43,7 @@ header {
   margin-right: 50px;
 }
 
-.menu ul li {
+.menu-header-navigation-container ul li {
   padding-right: 50px;
 }
 
