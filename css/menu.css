@@ -1,0 +1,319 @@
+/* Poppins Font imported from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Courgette Font imported from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+
+.bg-img {
+  /* The image used */
+  background-image: url("../images/Banner.jpg");
+
+  min-height: 400px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar*/
+  position: relative;
+}
+
+/* Position the navbar container inside the image */
+.search-input {
+  display: flex;
+  justify-content: flex-end;
+  width: 25%;
+  align-items: center;
+}
+
+input#search {
+  width: 60%;
+  background-color: transparent;
+  border: 3px solid black;
+  margin-right: 50px;
+  transition: 1.2s;
+  height: 50px;
+}
+
+input#search:hover {
+  border-radius: 10px;
+}
+
+section.banner {
+  height: 308px;
+}
+.first-banner {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+.search-talents {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -265px;
+  z-index: 1;
+  color: white;
+  padding: 1%;
+}
+.search-box {
+  width: 80%;
+  display: flex;
+}
+.input-search {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px 0 0 10px;
+  border-right: none;
+  outline: none;
+}
+.searchBtn {
+  text-align: center;
+  height: 51px;
+  width: 20%;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+  outline: none;
+  border-left: 2px solid transparent;
+  background-color: #799f28;
+}
+h2.search-title {
+  font-size: 25px;
+}
+@media (max-width: 1065px) {
+  .search-input {
+    width: 18%;
+  }
+  .register-login-btn {
+    width: 20%;
+  }
+}
+
+.container-header {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8%;
+  width: 100%;
+}
+
+.menu-header-navbar-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+ul#menu-header-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.register-login-btn {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  padding-right: 1%;
+  gap: 2rem;
+}
+
+.registerBtn {
+  background-color: #799f28;
+  padding: 3%;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+}
+.burger {
+  display: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 1rem;
+  border: none;
+  outline: none;
+  opacity: 0;
+  visibility: hidden;
+  background: none;
+  transform: rotate(0deg);
+  transition: 0.35s ease-in-out;
+}
+.burger-line {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  border: none;
+  outline: none;
+  opacity: 1;
+  border-radius: 0.25rem;
+  background: rgb(255, 255, 255);
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.header .burger-line:nth-child(1) {
+  top: 0;
+}
+
+.header .burger-line:nth-child(2),
+.header .burger-line:nth-child(3) {
+  top: 0.5rem;
+}
+
+.header .burger-line:nth-child(4) {
+  top: 1rem;
+}
+
+.header .burger.is-active .burger-line:nth-child(1),
+.header .burger.is-active .burger-line:nth-child(4) {
+  top: 2rem;
+  width: 0%;
+  left: 50%;
+}
+
+.header .burger.is-active .burger-line:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.header .burger.is-active .burger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.header #menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 90%;
+}
+.header a {
+  font-family: inherit;
+  line-height: inherit;
+  border: none;
+  color: rgb(255, 255, 255);
+  transition: all 0.35s ease-in-out;
+}
+hr {
+  display: none;
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    #ffffffc2,
+    rgba(0, 0, 0, 0)
+  );
+}
+@media (max-width: 1128px) {
+  .register-login-btn {
+    gap: 1rem;
+  }
+}
+@media (max-width: 1065px) {
+  .header #menu {
+    width: 96%;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .container-header {
+    height: 80%;
+  }
+  .header {
+    height: 100%;
+  }
+  #menu {
+    height: 80%;
+  }
+  ul#menu-header-navbar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 3%;
+  }
+  li.menu-item {
+    padding: 0.3%;
+  }
+  .menu-header-navbar-container {
+    width: 100%;
+  }
+  .register-login-btn {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    padding-right: 1%;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  .registerBtn {
+    padding: 0;
+  }
+  .header .burger {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header #menu {
+    width: 100%;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 0.35s ease;
+  }
+
+  .header #menu.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header #menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 0;
+  }
+  hr {
+    display: block;
+  }
+  .search-talents {
+    margin-top: -176px;
+  }
+}
+
+@media (max-width: 849px) {
+}
+@media (max-width: 472px) {
+  .register-login-btn {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+}
