@@ -8,7 +8,6 @@
     <title>Document</title>
     <link href="/dist/output.css" rel="stylesheet">
     <?php wp_head(); ?>
-    <?php wp_head(); ?>
 </head>
 
 <body>
