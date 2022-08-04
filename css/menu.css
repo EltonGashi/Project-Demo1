@@ -33,13 +33,20 @@ header {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 0.8%;
-}
-.menu-header-navbar-container {
-  width: 50%;
-  display: flex;
+  padding: 2%;
   align-items: center;
 }
+
+/* This design is about ul (unordered list) in Header Menu */
+ul.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
 ul#menu-header-navbar {
   display: flex;
   width: 100%;

@@ -12,7 +12,7 @@
 
 <body>
     <div class="bg-img">
-        <div class="container">
+        <div class="container mx-auto">
             <header>
                 <div class="header">
                     <div class="header-logo">
