@@ -242,8 +242,8 @@
   </div>
 </div>
 <!--- pjesa e hidden --->
-<div class="flex justify-center">
-<div class=" lista grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4 hidden">
+<div class="flex">
+<div class="lista grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4 hidden">
 
 <div class=" lista-element rounded-lg  max-w-sm >
     <a href="#!">
