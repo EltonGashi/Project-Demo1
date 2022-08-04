@@ -11,30 +11,33 @@
 </head>
 
 <body>
-    <div class="bg-img">
-        <div class="container">
-            <header>
-                <div class="header">
-                    <div class="header-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>./icons/Project-logo.png">
-                    </div>
-                    <!-- Dynamic menuc -->
+    <header class="bg-img">
+        <div class="container-header">
+            <div class="header">
+                <div class="header-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>./icons/logo-of-project.png">
+                </div>
+                <div id="menu">
                     <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
-
-                    <!--Search input-->
-                    <div class="search-input">
-                        <input type="search" name="" id="search">
-                        <img class="img-search" src="<?php echo get_template_directory_uri(); ?>./icons/search.png">
-                    </div>
-
+                    <hr>
                     <div class="register-login-btn">
                         <button class="loginBtn"><a href="#" class="login">Log In</a></button>
                         <button class="registerBtn"><a href="#" class="register">Register</a></button>
                     </div>
                 </div>
-            </header>
+                <div id="burger">
+                    <button type="button" class="burger" id="burger">
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
+
+
 
     <section class="banner">
         <div class="first-banner">
