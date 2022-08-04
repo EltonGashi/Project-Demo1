@@ -55,3 +55,5 @@
 
     <?php include("one_platform.php"); ?>
 
+
+    <?php get_template_part('section_one_platform'); ?>

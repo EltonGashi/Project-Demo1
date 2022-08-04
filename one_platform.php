@@ -3,16 +3,16 @@
 
 
 <section class="bg-bg p-20">
-    <div id="headings" class="block text-center py-8">
+    <div id="headings" class="block text-center py-8 xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl">
         <div class="txt-1">
-            <h1 class="text-5xl ">One Platform</h1>
+            <h1 class="">One Platform</h1>
         </div> 
-        <div class="txt-2 inline-flex">
-            <h1 class="text-5xl px-5">Many</h1>
-            <small class="text-5xl text-txtGreen">Solutions</small>
+        <div id="txt-2" class="inline-flex">
+            <h1 class="px-5 ">Many</h1>
+            <h1 class="text-txtGreen ">Solutions</h1>
         </div>
     </div>
-    <div id ="services" class="grid grid-cols-4  gap-24 py-8 ">
+    <div id ="services" class="grid xl:grid-cols-4  gap-24 py-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         <button class="bg-white py-8 rounded-lg hover:bg-txtGreen hover:text-white shadow shadow-black-900 transition duration-300 ">
             <div id="services-card" class="flex text-left ">
                 <div id="services-card-img " class="mx-5 ">
