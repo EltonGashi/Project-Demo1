@@ -17,3 +17,11 @@ function menu_setup()
     register_nav_menu('primary', 'Primary Header Navigation');
 }
 add_action('init', 'menu_setup');
+
+function font_awesome_cdn()
+{
+    wp_register_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+    wp_enqueue_style('fontawesome');
+}
+
+add_action('wp_print_styles', 'font_awesome_cdn');
