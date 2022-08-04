@@ -38,7 +38,7 @@ header {
 }
 
 /* This design is about ul (unordered list) in Header Menu */
-ul.menu {
+.menu {
   display: flex;
   align-items: center;
   justify-content: center;
