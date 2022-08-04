@@ -47,7 +47,7 @@ header {
   padding-right: 50px;
 }
 
-ul#menu-header-navbar {
+.menu-header-navigation-container ul {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
