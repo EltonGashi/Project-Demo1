@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -22,7 +19,7 @@
 <!-- For 4 columns - https://www.section.io/engineering-education/using-tailwind-css-grid-classes/  -->
 
 <h1 class="mt-4">Services from users</h1>
-<div class="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4" class="container">
+<div class="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4">
   <div class="rounded-lg  max-w-sm">
     <a href="#!">
       <img class="rounded-t-lg" src="<?php echo get_template_directory_uri(); ?>./services-card-users/img/main.png" alt=""/>
@@ -245,9 +242,10 @@
   </div>
 </div>
 <!--- pjesa e hidden --->
-<div class=" lista grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4 ">
+<div class="flex justify-center">
+<div class=" lista grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4 hidden">
 
-<div class=" lista-element hidden rounded-lg  max-w-sm >
+<div class=" lista-element rounded-lg  max-w-sm >
     <a href="#!">
       <img class="rounded-t-lg" src="<?php echo get_template_directory_uri(); ?>./services-card-users/img/main.png" alt=""/>
     </a>
@@ -275,7 +273,8 @@
 </div>
 
 
-<div class=" lista-element hidden rounded-lg  max-w-sm">
+
+<div class=" lista-element  rounded-lg  max-w-sm">
     <a href="#!">
       <img class="rounded-t-lg" src="<?php echo get_template_directory_uri(); ?>./services-card-users/img/main.png" alt=""/>
     </a>
@@ -303,7 +302,7 @@
 </div>
 
 
-<div class=" lista-element hidden rounded-lg  max-w-sm ">
+<div class=" lista-element  rounded-lg  max-w-sm ">
     <a href="#!">
       <img class="rounded-t-lg" src="<?php echo get_template_directory_uri(); ?>./services-card-users/img/main.png" alt=""/>
     </a>
@@ -331,7 +330,7 @@
 </div>
 
 
-<div class= " lista-element hidden rounded-lg  max-w-sm ">
+<div class= " lista-element  rounded-lg  max-w-sm ">
     <a href="#!">
       <img class="rounded-t-lg" src="<?php echo get_template_directory_uri(); ?>./services-card-users/img/main.png" alt=""/>
     </a>
@@ -357,8 +356,7 @@
        </div>
     </div>
 </div>
-
-
+</div>
 </div>
 <!----     ---->
 <br>
@@ -367,24 +365,8 @@
   <button class="loadmore border border-green-700">Find more creators</button>
 </div>
 
-<script>
-const loadmore = document.querySelector('.loadmore');
-    let currentItems = 4;
-    loadmore.addEventListener('click', (e) => {
-        const elementList = [...document.querySelectorAll('.lista .lista-element')];
-        for (let i = currentItems; i < currentItems + 4; i++) {
-            if (elementList[i]) {
-                elementList[i].style.display = 'block';
-            }
-        }
-        currentItems += 4;
 
-        // Load more button will be hidden after list fully loaded
-        if (currentItems >= elementList.length) {
-            event.target.style.display = 'none';
-        }
-    })
-</script>
+
 
 <br>
 <!-- 
