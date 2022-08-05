@@ -12,13 +12,13 @@
 
 <body>
     <header class="bg-img">
-        <div class="container-header">
+        <div class="container">
             <div class="header">
                 <div class="header-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>./icons/logo-of-project.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>./images/Project-logo.png">
                 </div>
                 <div id="menu">
-                    <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+                    <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
                     <hr>
                     <div class="register-login-btn">
                         <button class="loginBtn"><a href="#" class="login">Log In</a></button>
@@ -51,7 +51,5 @@
         </div>
     </section>
     <?php include("services-card-users/user-cards.php"); ?>
-
-
     <?php include("one_platform.php"); ?>
 
