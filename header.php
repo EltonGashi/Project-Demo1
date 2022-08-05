@@ -15,7 +15,7 @@
         <div class="container">
             <div class="header">
                 <div class="header-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>./images/Project-logo.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>./icons/logo-of-project.png">
                 </div>
                 <div id="menu">
                     <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
@@ -52,4 +52,3 @@
     </section>
     <?php include("services-card-users/user-cards.php"); ?>
     <?php include("one_platform.php"); ?>
-
