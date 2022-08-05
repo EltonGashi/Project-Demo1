@@ -40,13 +40,8 @@ input#search:hover {
   border-radius: 10px;
 }
 
-section.banner {
-  height: 308px;
-}
 .first-banner {
   width: 100%;
-  height: 100%;
-  max-height: 250px;
   display: flex;
   justify-content: space-between;
 }
@@ -64,6 +59,9 @@ section.banner {
 .search-box {
   width: 80%;
   display: flex;
+}
+.search-talents {
+  width: 50%;
 }
 .input-search {
   width: 60%;
@@ -100,8 +98,6 @@ h2.search-title {
 .container-header {
   width: 100%;
   height: auto;
-  margin: 0 auto;
-  padding: 0 1rem;
 }
 
 header {
@@ -113,13 +109,16 @@ header {
 
 .header {
   display: flex;
-  justify-content: space-between;
-  padding: 0.8%;
+  padding: 0.5%;
   width: 100%;
+}
+.header-logo {
+  width: 10%;
+  padding-left: 2%;
 }
 
 .menu-header-navbar-container {
-  width: 80%;
+  width: 65%;
   display: flex;
   align-items: center;
 }
@@ -130,19 +129,22 @@ ul#menu-header-navbar {
   justify-content: space-evenly;
 }
 .register-login-btn {
-  width: 20%;
+  width: 35%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   padding-right: 1%;
   gap: 2rem;
 }
 
 .registerBtn {
   background-color: #799f28;
-  padding: 3%;
-  width: 100px;
+  width: 160px;
   height: 40px;
   border-radius: 10px;
+}
+div#burger {
+  padding-right: 2%;
+  display: none;
 }
 .burger {
   display: none;
@@ -163,6 +165,7 @@ ul#menu-header-navbar {
   width: 100%;
   height: 3px;
   left: 0;
+  margin-top: 0.3rem;
   border: none;
   outline: none;
   opacity: 1;
@@ -203,9 +206,9 @@ ul#menu-header-navbar {
 .header #menu {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  gap: 2rem;
+  /* gap: 2rem; */
   width: 90%;
 }
 .header a {
@@ -227,19 +230,13 @@ hr {
     rgba(0, 0, 0, 0)
   );
 }
-@media (max-width: 1128px) {
-  .register-login-btn {
-    gap: 1rem;
-  }
-}
-@media (max-width: 1065px) {
-  .header #menu {
-    width: 96%;
-  }
-}
+
 @media only screen and (max-width: 991px) {
+  div#burger {
+    display: block;
+  }
   .container-header {
-    height: 80%;
+    height: 90%;
   }
   .header {
     height: 100%;
@@ -255,22 +252,26 @@ hr {
     margin-top: 3%;
   }
   li.menu-item {
-    padding: 0.3%;
+    padding: 0.5%;
   }
   .menu-header-navbar-container {
     width: 100%;
   }
   .register-login-btn {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     padding-right: 1%;
-    justify-content: space-around;
+    justify-content: center;
     margin: 0 auto;
   }
 
   .registerBtn {
     padding: 0;
+    width: 100px;
+  }
+  button.loginBtn {
+    width: 100px;
   }
   .header .burger {
     display: block;
@@ -305,11 +306,27 @@ hr {
   }
   .search-talents {
     margin-top: -176px;
+    width: 100%;
+  }
+  h2.search-title {
+    font-size: 22px;
+  }
+  .search-box {
+    width: 80%;
   }
 }
 
 @media (max-width: 849px) {
+  h2.search-title {
+    font-size: 20px;
+  }
 }
+@media (max-width: 657px) {
+  .search-box {
+    width: 100%;
+  }
+}
+
 @media (max-width: 472px) {
   .register-login-btn {
     flex-direction: column;
