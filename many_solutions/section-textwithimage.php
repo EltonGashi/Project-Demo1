@@ -1,6 +1,6 @@
 <?php 
 $title = get_sub_field('title');
-$content = get_sub_field('content');
+$content = get_sub_field('content_section_one');
 $image = get_sub_field('image');
 $picture = $image['sizes']['large'];
 $side = get_sub_field('image_side');
