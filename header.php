@@ -16,7 +16,7 @@
             <div class="header">
                 <div class="header-logo">
                     <img src="<?php echo get_template_directory_uri(); ?>./icons/logo-of-project.png">
-                </div>s
+                </div>
                 <div id="menu">
                     <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
                     <hr>
