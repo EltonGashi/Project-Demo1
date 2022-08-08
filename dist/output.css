@@ -568,6 +568,24 @@ video {
   }
 }
 
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 976px) {
+  .container {
+    max-width: 976px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+
+
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -756,5 +774,6 @@ video {
   .xl\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+
   }
 }
