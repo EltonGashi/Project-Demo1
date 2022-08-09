@@ -5,6 +5,7 @@ module.exports = {
 		content: [
 			'./src/**/*.php',
 			'./many_solutions/**/*.php',
+			'./services-card-users/**/*.php',
 			'./*.php',
 			'./inc/**/*.php',
 			'./inc/*.php',
