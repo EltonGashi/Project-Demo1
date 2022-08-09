@@ -7,10 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services</title>
 
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -21,7 +17,7 @@
 
   <!-- For 4 columns - https://www.section.io/engineering-education/using-tailwind-css-grid-classes/  -->
 
-  <div>
+  <div class="p-6">
     <h1 class="mt-6 px-6 text-2xl font-normal">Services from users</h1>
     <div class=" px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4">
       <div class="rounded-lg  max-w-sm">
@@ -134,7 +130,7 @@
 
       </div>
     </div>
-    <div class="px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5">
+    <div class=" p-6 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 ">
       <div class="rounded-lg  max-w-sm">
         <a href="#!">
           <img class="rounded-t-lg" src="<?php echo get_template_directory_uri(); ?>./services-card-users/img/main.png" alt="" />
