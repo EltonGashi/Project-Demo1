@@ -608,9 +608,6 @@ video {
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 .flex-row {
   flex-direction: row;
 }
@@ -684,9 +681,6 @@ video {
 }
 .p-20 {
   padding: 5rem;
-}
-.p-12 {
-  padding: 3rem;
 }
 .p-5 {
   padding: 1.25rem;
