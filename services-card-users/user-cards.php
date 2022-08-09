@@ -17,7 +17,7 @@
 
   <!-- For 4 columns - https://www.section.io/engineering-education/using-tailwind-css-grid-classes/  -->
 
-  <div class="p-6">
+  <div class="p-20">
     <h1 class="mt-6 px-6 text-2xl font-normal">Services from users</h1>
     <div class=" px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4">
       <div class="rounded-lg  max-w-sm">
