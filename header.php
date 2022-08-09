@@ -50,6 +50,8 @@
             </div>
         </div>
     </section>
-    <?php include("services-card-users/user-cards.php"); ?>
-
-    <?php include("login.php"); ?>
+   
+    <?php get_template_part('/components/services-card-users/user','cards');?>
+    <?php get_template_part('/components/login');?>
+ 
+    <?php get_template_part('/components/front','page');?>
