@@ -1,4 +1,4 @@
-<section id="login" class=" p-12 ">
+<section id="login" class=" p-20 ">
     <div class="login rounded-xl flex border-2 border-black">
         <div class="left-side w-2/4 h-96 rounded-xl items-center">
             <div class="top">
