@@ -24,15 +24,13 @@ $subtitle= get_field('sub_title');
 
                         <?php if(get_row_layout() == 'image_with_text'): ?>
 
-                             <?php get_template_part('many_solutions/section' , 'imagewithtext');?>
+                             <?php get_template_part('/components/many_solutions/section' , 'imagewithtext');?>
 
                         <?php endif;?>
 
                 <?php endwhile;?>
 
-
         <?php endif;?>
-
     </div>
 </section>
 <?php get_footer();?>
