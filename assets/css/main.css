@@ -688,14 +688,11 @@ video {
 .p-12 {
   padding: 3rem;
 }
-.p-6 {
-  padding: 1.5rem;
-}
 .p-5 {
   padding: 1.25rem;
 }
-.p-2 {
-  padding: 0.5rem;
+.p-6 {
+  padding: 1.5rem;
 }
 .py-8 {
   padding-top: 2rem;
@@ -754,10 +751,6 @@ video {
 .text-customGreen {
   --tw-text-opacity: 1;
   color: rgb(121 159 40 / var(--tw-text-opacity));
-}
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
