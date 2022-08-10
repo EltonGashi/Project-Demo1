@@ -7,6 +7,7 @@ module.exports = {
 			'./components/services-card-users/**/*.php',
 			'./components/**/*.php',
 			'./*.php',
+			'./**.php',
 			'./components/service-card-users/**/*.js',
 		],
 	},
@@ -23,6 +24,7 @@ module.exports = {
 				lg: '976px',
 				xl: '1440px'
 			  },
+			  
 		},
 	},
 	variants: {},

@@ -1,4 +1,4 @@
-<section id="login" class="h-auto bg-white rounded-xl">
+<section id="login" class="h-auto bg-white rounded-xl ">
     <div class="login border border-black rounded-xl flex">
         <div class="left-side w-2/4 p-36">
             <div class="top pb-20">
@@ -10,7 +10,7 @@
                     <label for="email">Email</label>
                     <input type="text" class="rounded-3xl py-2 px-2 border border-black">
                     <label for="password">Password</label>
-                    <input type="text" class="rounded-3xl py-2 px-2 border border-black">
+                    <input type="password" class="rounded-3xl py-2 px-2 border border-black">
                     <small class="text-customGreen text-center">
                         <a href="#">Forgot Password?</a>
                     </small>
