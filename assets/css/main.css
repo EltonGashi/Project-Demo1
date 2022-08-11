@@ -556,6 +556,10 @@ video {
   bottom: 0px;
   left: 0px;
 }
+.inset-x-0 {
+  left: 0px;
+  right: 0px;
+}
 .top-32 {
   top: 8rem;
 }
@@ -873,13 +877,13 @@ video {
 .font-medium {
   font-weight: 500;
 }
-.text-customGreen {
-  --tw-text-opacity: 1;
-  color: rgb(121 159 40 / var(--tw-text-opacity));
-}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-customGreen {
+  --tw-text-opacity: 1;
+  color: rgb(121 159 40 / var(--tw-text-opacity));
 }
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
