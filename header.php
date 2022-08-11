@@ -173,36 +173,8 @@
     <?php get_template_part('/components/front','page');?>
 
 
-    <script>
+    <!--/* <form method="get" action="<?php print site_url(); ?>">
+        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
+        <input type="submit" value="Search Our Site...">
+    </form> */-->
 
-        window.addEventListener('DOMContentLoaded', () =>{
-                    /*Login MODAL*/
-                    const overlayLogin = document.querySelector('#overlay-login');
-                    const loginBtn = document.querySelector('#login-btn');
-                    const closeLogin = document.querySelector('#close-lglogin');
-                    
-
-                    const loginModal = () => {
-                        overlayLogin.classList.toggle('hidden');
-                        overlayLogin.classList.toggle('flex');
-                    };
-                    loginBtn.addEventListener('click', loginModal);
-
-                    closeLogin.addEventListener('click', loginModal);
-
-                    /*Register MODAL*/
-
-                    const overlayRegister = document.querySelector('#overlay-register');
-                    const registerBtn = document.querySelector('#register-btn');
-                    const closeRegister = document.querySelector('#close-lgregister');
-
-                    const registerModal = () => {
-                        overlayRegister.classList.toggle('hidden');
-                        overlayRegister.classList.toggle('flex');
-                    };
-                    registerBtn.addEventListener('click', registerModal);
-
-                    closeRegister.addEventListener('click', registerModal);
-                });
-
-    </script>
