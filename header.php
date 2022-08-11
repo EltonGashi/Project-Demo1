@@ -95,7 +95,7 @@
                 
                 </div>
 
-                <button class="close-btn absolute -right-1 -top-1 bg-white rounded-xl " id="close-login">
+                <button class="close-btn absolute -right-1 -top-1 bg-white rounded-xl " id="close-lglogin">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg> 
@@ -156,7 +156,7 @@
                 
                 </div>
 
-                <button class="close-btn absolute -right-1 -top-1 bg-white rounded-xl md:hidden" id="close-lgregister">
+                <button class="close-btn absolute -right-1 -top-1 bg-white rounded-xl " id="close-lgregister">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg> 
@@ -179,7 +179,7 @@
                     /*Login MODAL*/
                     const overlayLogin = document.querySelector('#overlay-login');
                     const loginBtn = document.querySelector('#login-btn');
-                    const closeLogin = document.querySelector('#close-login');
+                    const closeLogin = document.querySelector('#close-lglogin');
                     
 
                     const loginModal = () => {
@@ -194,7 +194,7 @@
 
                     const overlayRegister = document.querySelector('#overlay-register');
                     const registerBtn = document.querySelector('#register-btn');
-                    const closeLgRegister = document.querySelector('#close-lgregister');
+                    const closeRegister = document.querySelector('#close-lgregister');
 
                     const registerModal = () => {
                         overlayRegister.classList.toggle('hidden');
@@ -202,7 +202,7 @@
                     };
                     registerBtn.addEventListener('click', registerModal);
 
-                    closeLgRegister.addEventListener('click', registerModal);
+                    closeRegister.addEventListener('click', registerModal);
                 });
 
     </script>
