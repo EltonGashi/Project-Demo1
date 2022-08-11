@@ -2,8 +2,8 @@
 
 <footer class=" flex justify-evenly items-center absolute inset-x-0  bg-black h-48 text-white font-sans">
 
-    <div class="footer-icon bg-white">
-        <img class="w-10 h-10" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img/ellipse1.png">
+    <div class="footer-icon ">
+        <img class="w-42 h-10  object-fit" src="<?php echo get_template_directory_uri(); ?>./components/HeaderImages/Repeat Grid 8.png">
     </div>
 
    <div class="footer-address">
