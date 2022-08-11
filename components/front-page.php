@@ -7,7 +7,7 @@ $subtitle= get_field('sub_title');
 
 
 
-<section class="bg-bg p-20">
+<section class="bg-bg ">
     <div id="headings" class="block text-center py-8 xl:text-5xl lg:text-4xl md:text-3xl sm:text-3xl">
         <div class="txt-1">
             <h1 class=""><?php echo $title; ?></h1>
