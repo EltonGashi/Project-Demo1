@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <?php wp_head(); ?>
-</head>
+</head >
 
-<body>
+<body <?php body_class(array('container')); ?>>
     <header class="bg-img">
         <div class="container">
             <div class="header">
                 <div class="header-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>./icons/logo-of-project.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>./components/HeaderImages/Repeat Grid 8.png">
                 </div>
                 <div id="menu">
                     <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
@@ -34,21 +34,14 @@
                 </div>
             </div>
         </div>
-    </header>
-
-
-
-    <section class="banner">
-        <div class="first-banner">
-            <div class="search-talents">
-                <h2 class="search-title">Search for best <i>services</i></h2>
-                <div class="search-box">
-                    <input type="text" class="input-search" placeholder="Search for new talents...">
-                    <button class="searchBtn">Search</button>
-                </div>
+        <div class="search-talents">
+            <h2 class="search-title">Search for best <i>services</i></h2>
+            <div class="search-box">
+                <input type="text" class="input-search" placeholder="Search for new talents...">
+                <button class="searchBtn">Search</button>
             </div>
         </div>
-    </section>
+    </header>
 
 
     <!--LOGIN MODAL  -->
@@ -173,36 +166,8 @@
     <?php get_template_part('/components/front','page');?>
 
 
-    <script>
+    <!--/* <form method="get" action="<?php print site_url(); ?>">
+        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
+        <input type="submit" value="Search Our Site...">
+    </form> */-->
 
-        window.addEventListener('DOMContentLoaded', () =>{
-                    /*Login MODAL*/
-                    const overlayLogin = document.querySelector('#overlay-login');
-                    const loginBtn = document.querySelector('#login-btn');
-                    const closeLogin = document.querySelector('#close-lglogin');
-                    
-
-                    const loginModal = () => {
-                        overlayLogin.classList.toggle('hidden');
-                        overlayLogin.classList.toggle('flex');
-                    };
-                    loginBtn.addEventListener('click', loginModal);
-
-                    closeLogin.addEventListener('click', loginModal);
-
-                    /*Register MODAL*/
-
-                    const overlayRegister = document.querySelector('#overlay-register');
-                    const registerBtn = document.querySelector('#register-btn');
-                    const closeRegister = document.querySelector('#close-lgregister');
-
-                    const registerModal = () => {
-                        overlayRegister.classList.toggle('hidden');
-                        overlayRegister.classList.toggle('flex');
-                    };
-                    registerBtn.addEventListener('click', registerModal);
-
-                    closeRegister.addEventListener('click', registerModal);
-                });
-
-    </script>

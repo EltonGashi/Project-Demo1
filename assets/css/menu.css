@@ -1,35 +1,17 @@
-.bg-img {
-  /* The image used /
-  background-image: url("../images/Banner.jpg");
-
-  min-height: 400px;
-
-  / Center and scale the image nicely /
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  / Needed to position the navbar */
-  position: relative;
-}
-
 /* Poppins Font imported from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 /* Courgette Font imported from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
-.bg-img {
-  /* The image used */
-  background-image: url("../components/images/Banner.jpg");
-
-  min-height: 400px;
-
-  /* Center and scale the image nicely */
+header.bg-img {  
+  /* Center and scale the image nicely */ 
+  /* background-image: url("/components/HeaderImages/Repeat\ Grid\ 9.png"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color:#B0425D;
+  background-color: #B0425D;
+  min-height: 500px;
 
   /* Needed to position the navbar*/
   position: relative;
@@ -63,22 +45,19 @@ input#search:hover {
 }
 .search-talents {
   width: 50%;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -265px;
   z-index: 1;
   color: white;
-  padding: 1%;
+  padding: 2%;
 }
 .search-box {
   width: 80%;
   display: flex;
 }
-.search-talents {
-  width: 50%;
-}
+
 .input-search {
   width: 60%;
   padding: 10px;
@@ -102,11 +81,11 @@ input#search:hover {
 h2.search-title {
   font-size: 25px;
 }
-@media (max-width: 1065px) {
-  .search-input {
+@media(max-width:1065px){
+  .search-input{
     width: 18%;
   }
-  .register-login-btn {
+  .register-login-btn{
     width: 20%;
   }
 }
@@ -129,7 +108,7 @@ header {
   width: 100%;
 }
 .header-logo {
-  width: 10%;
+  width: 25%;
   padding-left: 2%;
 }
 
@@ -144,6 +123,9 @@ ul#menu-header-navbar {
   display: flex;
   justify-content: space-evenly;
 }
+.menu-item a{
+  font-size: 18px;
+}
 .register-login-btn {
   width: 35%;
   display: flex;
@@ -151,12 +133,15 @@ ul#menu-header-navbar {
   padding-right: 1%;
   gap: 2rem;
 }
-
+.loginBtn{
+  font-size: 18px;
+}
 .registerBtn {
   background-color: #799f28;
   width: 160px;
   height: 40px;
   border-radius: 10px;
+  font-size: 18px;
 }
 div#burger {
   padding-right: 2%;
@@ -225,7 +210,7 @@ div#burger {
   /* justify-content: center; */
   align-items: center;
   /* gap: 2rem; */
-  width: 90%;
+  width: 85%;
 }
 .header a {
   font-family: inherit;
@@ -234,33 +219,28 @@ div#burger {
   color: rgb(255, 255, 255);
   transition: all 0.35s ease-in-out;
 }
-hr {
+hr{
   display: none;
   border: 0;
-  height: 1px;
-  width: 100%;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    #ffffffc2,
-    rgba(0, 0, 0, 0)
-  );
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ffffffc2, rgba(0, 0, 0, 0));
 }
 
 @media only screen and (max-width: 991px) {
-  div#burger {
+  div#burger{
     display: block;
   }
-  .container-header {
+  .container-header{
     height: 90%;
   }
-  .header {
+  .header{
     height: 100%;
   }
-  #menu {
+  #menu{
     height: 80%;
   }
-  ul#menu-header-navbar {
+  ul#menu-header-navbar{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -269,8 +249,8 @@ hr {
   }
   li.menu-item {
     padding: 0.5%;
-  }
-  .menu-header-navbar-container {
+  } 
+  .menu-header-navbar-container{
     width: 100%;
   }
   .register-login-btn {
@@ -282,13 +262,13 @@ hr {
     margin: 0 auto;
   }
 
-  .registerBtn {
+  .registerBtn{
     padding: 0;
     width: 100px;
   }
   button.loginBtn {
     width: 100px;
-  }
+}
   .header .burger {
     display: block;
     opacity: 1;
@@ -317,36 +297,36 @@ hr {
     gap: 0.75rem;
     padding: 1rem 0;
   }
-  hr {
+  hr{
     display: block;
   }
-  .search-talents {
+  .search-talents{
     margin-top: -176px;
     width: 100%;
   }
-  h2.search-title {
+  h2.search-title{
     font-size: 22px;
   }
-  .search-box {
+  .search-box{
     width: 80%;
   }
 }
 
-@media (max-width: 849px) {
-  h2.search-title {
+@media(max-width:849px){
+  h2.search-title{
     font-size: 20px;
   }
 }
-@media (max-width: 657px) {
-  .search-box {
+@media(max-width:657px){
+  .search-box{
     width: 100%;
   }
 }
 
-@media (max-width: 472px) {
+@media(max-width:472px){
   .register-login-btn {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
   }
 }
