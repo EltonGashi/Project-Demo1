@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<!-- ////////////// CONTAINER ////////////// -->
+</div>
+<!-- ////////////// CONTAINER ////////////// -->
+
 <footer class=" flex  justify-evenly items-center  inset-x-0  bg-black h-48 text-white font-sans">
 
     <div class="footer-icon ">

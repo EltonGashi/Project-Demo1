@@ -9,7 +9,8 @@
     <?php wp_head(); ?>
 </head >
 
-<body <?php body_class(array('container' ,)); ?>>
+<body <?php body_class(array('container')); ?>>
+
     <header class="bg-img">
         <div class="container">
             <div class="header">
@@ -169,6 +170,11 @@
       
     </div>
 
+    <!-- ////////////// CONTAINER ////////////// -->
+    <div class="container bg-bg p-20">
+    <!-- ////////////// CONTAINER ////////////// -->
+
+    
     <?php get_template_part('/components/services-card-users/user','cards');?>
 
     <?php get_template_part('/components/front','page');?>
