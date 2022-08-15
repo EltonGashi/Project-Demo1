@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name:  Services
+    Template Name: Find Talents
 
 */
 

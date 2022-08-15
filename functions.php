@@ -3,7 +3,7 @@
 // Enqueuing
 function dynamic_menu_enqueue()
 {
-    wp_enqueue_script( 'customjs', get_template_directory_uri() . '/components/services-card-users/load-more.js', array(), '1.0.0', true);
+    wp_enqueue_script( 'customjs', get_template_directory_uri() . '/components1/home/assets/home.js', array(), '1.0.0', true);
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/end-game.js', array(), '1.0.0', true);
     
     wp_enqueue_style('menustyle', get_template_directory_uri() . '/assets/css/menu.css', array(), '1.0.0', 'all');
