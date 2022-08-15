@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
-<footer class=" flex justify-evenly items-center absolute inset-x-0  bg-black h-48 text-white font-sans">
+<!-- ////////////// CONTAINER ////////////// -->
+</div>
+<!-- ////////////// CONTAINER ////////////// -->
+
+<footer class=" flex  justify-evenly items-center  inset-x-0  bg-black h-48 text-white font-sans">
 
     <div class="footer-icon ">
         <img class="w-42 h-10  object-fit" src="<?php echo get_template_directory_uri(); ?>./components/HeaderImages/Repeat Grid 8.png">

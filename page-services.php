@@ -1,7 +1,19 @@
+<?php
+/*
+    Template Name:  Services
+
+*/
+
+get_header();?>
+
+    <?php if(have_posts()):
+    
+        while( have_posts()): the_post(); ?>
 
 
   <!-- For 4 columns - https://www.section.io/engineering-education/using-tailwind-css-grid-classes/  -->
 
+  <div class="container p-20 bg-bg">
     <h1 class="mt-6 px-6 text-2xl font-normal">Services from users</h1>
     <div class=" px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6 p-5 mt-4">
       <div class="rounded-lg  max-w-sm">
@@ -357,3 +369,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+        <?php endwhile;
+
+    endif;
+    ?>
+
+<?php get_footer();?>

@@ -10,6 +10,7 @@
 </head >
 
 <body <?php body_class(array('container')); ?>>
+
     <header class="bg-img">
         <div class="container">
             <div class="header">
@@ -42,6 +43,14 @@
             </div>
         </div>
     </header>
+
+    /* Vetem vendose ket form ne button */
+    <form class="" method="get" action="<?php print site_url(); ?>">
+        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
+        <input type="submit" value="Search Our Site...">
+    </form> 
+    
+     
 
 
     <!--LOGIN MODAL  -->
@@ -161,13 +170,11 @@
       
     </div>
 
+    <!-- ////////////// CONTAINER ////////////// -->
+    <div class="container bg-bg p-20">
+    <!-- ////////////// CONTAINER ////////////// -->
+
+    
     <?php get_template_part('/components/services-card-users/user','cards');?>
 
     <?php get_template_part('/components/front','page');?>
-
-
-    <!--/* <form method="get" action="<?php print site_url(); ?>">
-        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
-        <input type="submit" value="Search Our Site...">
-    </form> */-->
-
