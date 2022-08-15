@@ -1,7 +1,11 @@
 <div class="container">
-    <h1 class="font-semibold flex justify-center">Your work can be done in over 700 different categories</h1>
+    <h1 class="font-medium flex justify-center text-3xl">Your work can be done in over 700 different categories</h1>
+    
+    
     <br>
-    <div class="flex justify-between">
+    <br>
+    
+    <div class="flex justify-evenly">
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/sql-server.png" alt="" />
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/wordpress.png" alt="" />
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/html-5.png" alt="" />
@@ -17,7 +21,7 @@
     <br>
 
 
-   <div class="flex justify-between">
+   <div class="flex justify-evenly">
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/monitor(1).png" alt="" />
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/android.png" alt="" />
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/apple.png" alt="" />
