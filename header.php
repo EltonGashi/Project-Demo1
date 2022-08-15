@@ -163,6 +163,8 @@
 
     <?php get_template_part('/components/services-card-users/user','cards');?>
 
+    <?php get_template_part('/components/services-card-users/section','categories');?>
+
     <?php get_template_part('/components/front','page');?>
 
 
