@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<!-- ////////////// CONTAINER ////////////// -->
+<!-- ////////////// CONTAINER-END ////////////// -->
 </div>
-<!-- ////////////// CONTAINER ////////////// -->
+<!-- ////////////// CONTAINER-END ////////////// -->
 
 <footer class=" flex  justify-evenly items-center  inset-x-0  bg-black h-48 text-white font-sans">
 
