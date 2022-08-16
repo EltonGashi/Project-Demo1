@@ -168,7 +168,21 @@
     </div>
     
 
+<<<<<<< HEAD
+    <?php get_template_part('/components/services-card-users/user','cards');?>
+
+    <?php get_template_part('/components/services-card-users/section','categories');?>
+
+    <?php get_template_part('/components/front','page');?>
+
+
+    <!--/* <form method="get" action="<?php print site_url(); ?>">
+        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
+        <input type="submit" value="Search Our Site...">
+    </form> */-->
+=======
     <!-- ////////////// CONTAINER-START ////////////// -->
     <div class="container bg-bg p-20">
     <!-- ////////////// CONTAINER-START ////////////// -->
+>>>>>>> master
 
