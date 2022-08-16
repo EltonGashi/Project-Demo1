@@ -1,11 +1,11 @@
 <div class="container">
-    <h1 class="font-medium flex justify-center text-3xl">Your work can be done in over 700 different categories</h1>
+    <h1 class="font-medium flex justify-center text-3xl ">Your work can be done in over 700 different categories</h1>
     
     
     <br>
     <br>
     
-    <div class=" flex justify-evenly w-14 h-14">
+    <div class=" flex justify-evenly w-14 h-14 ">
       
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/sql-server.png" alt="" />
     <img class="" src="<?php echo get_template_directory_uri(); ?>./components/services-card-users/img2/wordpress.png" alt="" />
