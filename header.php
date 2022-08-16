@@ -55,7 +55,7 @@
 
     <!--LOGIN MODAL  -->
 
-<div class="bg-black bg-opacity-50 fixed inset-0 hidden justify-center items-center p-20" id="overlay-login">
+<div class="bg-black bg-opacity-50 fixed inset-0 hidden  p-20" id="overlay-login">
 
     <div class="login-modal bg-white rounded-xl shadow-black shadow-lg flex lg:flex-row  lg:w-5/6 lg:h-5/6 md:flex-col md:h-5/6 md:w-5/6 md:flex-col-reverse sm:h-5/6">
 
