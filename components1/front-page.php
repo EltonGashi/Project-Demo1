@@ -34,3 +34,10 @@ $subtitle= get_field('sub_title');
     </div>
 </section>
 <?php get_footer();?>
+
+
+
+ 
+<?php get_template_part('/components/services-card-users/user','cards');?>
+
+<?php get_template_part('/components/front','page');?>

@@ -1,3 +1,14 @@
+<?php
+/*
+    Template Name: Find Talents
+
+*/
+
+get_header();?>
+
+    <?php if(have_posts()):
+    
+        while( have_posts()): the_post(); ?>
 
 
   <!-- For 4 columns - https://www.section.io/engineering-education/using-tailwind-css-grid-classes/  -->
@@ -357,3 +368,10 @@
     <br>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <?php endwhile;
+
+    endif;
+    ?>
+
+<?php get_footer();?>

@@ -6,7 +6,7 @@
 
 header.bg-img {  
   /* Center and scale the image nicely */ 
-  /* background-image: url("/components/HeaderImages/Repeat\ Grid\ 9.png"); */
+  background-image: url("/assets/HeaderImages/Repeat-Grid-9.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
