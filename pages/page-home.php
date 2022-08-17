@@ -63,8 +63,15 @@ $subtitle= get_field('sub_title');
             <?php endif;?>
         </div>
     </section>
+    <section id="NeedSomethingDone">
+    <?php get_template_part('/components/home/NeedSomethingDone/dynamic' , 'cards');?>
+    </section>
 
+    <section id="categories">
+    <?php get_template_part('/components/home/categories/section' , 'categories');?>
+    </section>
 </div>
+
 <!-- /////////// END OF CONTAINER ///////// -->
 
 <?php get_footer(); ?>

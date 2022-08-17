@@ -6,6 +6,7 @@ module.exports = {
 			'./components/home/many_solutions/**/*.php',
 			'./components/home/card_users/**/*.php',
 			'./components/home/categories/**/*.php',
+			'./components/home/NeedSomethingDone/**/*.php',
 			'./components/home/**/*.php',
 			'./components/**/*.php',
 			'./*.php',

@@ -1,4 +1,4 @@
-<div class="container">
+
     <h1 class="font-medium flex justify-center text-3xl ">Your work can be done in over 700 different categories</h1>
     
     
@@ -34,5 +34,5 @@
    </div>
 
 
-</div>
+
 

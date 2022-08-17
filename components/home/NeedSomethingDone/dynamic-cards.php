@@ -1,4 +1,3 @@
-</div>
 <section class="bg-bg">
     <div class="container relative text-center w-full">
         <div class="background-img w-full">

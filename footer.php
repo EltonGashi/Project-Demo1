@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <!-- ////////////// CONTAINER-END ////////////// -->
-</div>
+
 <!-- ////////////// CONTAINER-END ////////////// -->
 
 <footer class="bg-black ">
