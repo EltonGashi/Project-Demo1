@@ -1,6 +1,6 @@
 <?php
 
-// Enqueuing
+// Enqueuing Template css,js
 function dynamic_menu_enqueue()
 {
     wp_enqueue_script( 'customjs', get_template_directory_uri() . '/components/home/assets/home.js', array(), '1.0.0', true);
@@ -12,6 +12,11 @@ function dynamic_menu_enqueue()
 add_action('wp_enqueue_scripts', 'dynamic_menu_enqueue');
 
 
+//Theme Support
+add_theme_support('post-thumbnails');
+
+
+//Custom Menus
 function menu_setup(){
     add_theme_support('menus');
     register_nav_menu('primary', 'Primary Header Navigation');
@@ -29,6 +34,8 @@ function font_awesome_cdn()
 add_action('wp_print_styles', 'font_awesome_cdn');
 
 
+
+//Tailwind CSS
 add_action( 'wp_enqueue_scripts', 'enqueue_function', 10 );
 function enqueue_function() {
 	$version = ( wp_get_environment_type() === 'development' ) ? time() : define( 'BIIIRD_THEME_VERSION', '1.0.2' );

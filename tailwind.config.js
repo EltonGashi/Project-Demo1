@@ -3,12 +3,12 @@ module.exports = {
 	mode: 'jit',
 	purge: {
 		content: [
-			'./components1/home/many_solutions/**/*.php',
-			'./components1/home/card_users/**/*.php',
-			'./components1/home/**/*.php',
-			'./components1/**/*.php',
+			'./components/home/many_solutions/**/*.php',
+			'./components/home/card_users/**/*.php',
+			'./components/home/**/*.php',
+			'./components/**/*.php',
 			'./*.php',
-			'./**.php',
+			'./pages/**.php',
 			'./components1/home/assets/**/*.js',
 		],
 	},
