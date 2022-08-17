@@ -36,19 +36,19 @@
             </div>
         </div>
         <div class="search-talents">
-            <h2 class="search-title">Search for best <i>services</i></h2>
-            <div class="search-box">
-                <input type="text" class="input-search" placeholder="Search for new talents...">
-                <button class="searchBtn">Search</button>
-            </div>
+            <h2 class="search-title">Search for best <i class="font-courgette">services</i></h2>
+            <form class="search-box"  method="get" action="<?php print site_url(); ?>">
+                <input type="text" class="input-search" placeholder="Search for new talents..." name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
+                <button class="searchBtn" type="submit" value="Search Our Site...">Search</button>
+            </form>
         </div>
     </header>
 
-    /* Vetem vendose ket form ne button */
+    <!-- /* Vetem vendose ket form ne button */
     <form class="" method="get" action="<?php print site_url(); ?>">
         <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
         <input type="submit" value="Search Our Site...">
-    </form> 
+    </form>  -->
     
      
 
@@ -168,21 +168,6 @@
     </div>
     
 
-<<<<<<< HEAD
-    <?php get_template_part('/components/services-card-users/user','cards');?>
-
-    <?php get_template_part('/components/services-card-users/section','categories');?>
-
-    <?php get_template_part('/components/front','page');?>
-
-
-    <!--/* <form method="get" action="<?php print site_url(); ?>">
-        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
-        <input type="submit" value="Search Our Site...">
-    </form> */-->
-=======
     <!-- ////////////// CONTAINER-START ////////////// -->
     <div class="container bg-bg p-20">
     <!-- ////////////// CONTAINER-START ////////////// -->
->>>>>>> master
-
