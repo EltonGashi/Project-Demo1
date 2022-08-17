@@ -168,6 +168,3 @@
     </div>
     
 
-    <!-- ////////////// CONTAINER-START ////////////// -->
-    <div class="container bg-bg p-20">
-    <!-- ////////////// CONTAINER-START ////////////// -->
