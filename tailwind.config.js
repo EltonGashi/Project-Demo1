@@ -10,7 +10,7 @@ module.exports = {
 			'./components/pages/**/*.php',
 			'./components/home/**/*.php',
 			'./components/**/*.php',
-			'./*.php',
+			'./**.php',
 			'./pages/**.php',
 			'./components1/home/assets/**/*.js',
 		],
