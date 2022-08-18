@@ -11,11 +11,11 @@
 
 <body <?php body_class(array('container')); ?>>
 
-    <header class="bg-img">
+    <header class="bg-img  px-20">
         <div class="container">
             <div class="header">
                 <div class="header-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Repeat Grid 8.png">
+                    <img  src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Repeat Grid 8.png">
                 </div>
                 <div id="menu">
                     <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
@@ -43,15 +43,6 @@
             </form>
         </div>
     </header>
-
-    <!-- /* Vetem vendose ket form ne button */
-    <form class="" method="get" action="<?php print site_url(); ?>">
-        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
-        <input type="submit" value="Search Our Site...">
-    </form>  -->
-    
-     
-
 
     <!--LOGIN MODAL  -->
 

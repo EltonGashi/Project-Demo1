@@ -7,6 +7,7 @@ module.exports = {
 			'./components/home/card_users/**/*.php',
 			'./components/home/categories/**/*.php',
 			'./components/home/NeedSomethingDone/**/*.php',
+			'./components/pages/**/*.php',
 			'./components/home/**/*.php',
 			'./components/**/*.php',
 			'./*.php',
@@ -27,7 +28,12 @@ module.exports = {
 				lg: '976px',
 				xl: '1440px'
 			  },
-			  
+			  fontFamily:{
+				'courgette':['Courgette', 'cursive'],
+			},
+			dropShadow:{
+				'2lg':'0 10px 8px rgb(0 0 0 / 0.22)',
+			},
 		},
 	},
 	variants: {},
