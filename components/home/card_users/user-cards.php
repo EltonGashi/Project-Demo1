@@ -25,20 +25,12 @@
                         <p class="text-xs text-slate-500">(49)</p>
                     </div>
                 </div>
-                
-                <div class="hr w-full border border-black mb-5"></div>
-
                 <div class="flex items-center justify-between mt-4">
-                    <img class="w-5 h-5 mt-4" src="<?php echo get_template_directory_uri(); ?>./assets/img/UserImages/Heart.png">
                     <button type="button" class="text-white bg-green-700 hover:bg-green-800  rounded-full text-xs px-4 py-2 text-center flex items-center ">
-                    Like and start talk
-                    <img src="<?php echo get_template_directory_uri(); ?>./assets/img/UserImages/like.png">
+                    More Info...
                     </button>
                 </div>
-                
-
             </div>
         </div>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 

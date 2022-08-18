@@ -7,6 +7,7 @@ module.exports = {
 			'./components/home/card_users/**/*.php',
 			'./components/home/categories/**/*.php',
 			'./components/home/NeedSomethingDone/**/*.php',
+			'./components/pages/**/*.php',
 			'./components/home/**/*.php',
 			'./components/**/*.php',
 			'./*.php',
