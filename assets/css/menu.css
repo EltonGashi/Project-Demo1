@@ -1,101 +1,18 @@
 /* Poppins Font imported from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
 /* Courgette Font imported from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
 header.bg-img {  
-  /* Center and scale the image nicely */ 
-  background-image: url("../img/HeaderImages/imageBanner.png");
+  background-image: url(../img/HeaderImages/imageBanner.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #B0425D;
-  min-height: 500px;
   max-width: 100%;
   width: 100%;
-
-  /* Needed to position the navbar*/
   position: relative;
-}
-
-/* Position the navbar container inside the image */
-.search-input {
-  display: flex;
-  justify-content: flex-end;
-  width: 25%;
-  align-items: center;
-}
-
-input#search {
-  width: 60%;
-  background-color: transparent;
-  border: 3px solid black;
-  margin-right: 50px;
-  transition: 1.2s;
-  height: 50px;
-}
-::placeholder{
-  color: black;
-  opacity: 1;
-}
-input#search:hover {
-  border-radius: 10px;
-}
-
-.first-banner {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.search-talents {
-  width: 50%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 1;
-  color: rgb(0, 0, 0);
-  /* padding: 2%; */
-  margin-top: 7%;
-}
-.search-box {
-  width: 80%;
-  display: flex;
-}
-
-.input-search {
-  width: 60%;
-  padding: 10px;
-  border: 1px solid transparent;
-  border-radius: 10px 0 0 10px;
-  border-right: none;
-  outline: none;
-}
-button.searchBtn {
-  text-align: center;
-  height: 51px;
-  width: 20%;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 0 10px 10px 0;
-  border-left: none;
-  outline: none;
-  border-left: 2px solid transparent;
-  background-color: #799f28;
-  color: white;
-}
-h2.search-title {
-  color: white;
-  font-size: 25px;
-}
-@media(max-width:1065px){
-  .search-input{
-    width: 18%;
-  }
-  .register-login-btn{
-    width: 20%;
-  }
+  height: auto;
+  padding-bottom: 10rem;
 }
 
 .container{
@@ -108,7 +25,6 @@ header {
   height: 70px;
   color: white;
   font-family: "Poppins", sans-serif;
-  padding: 0rem 5rem 0rem 5rem;
 }
 
 .header {
@@ -119,7 +35,6 @@ header {
 .header-logo {
   width: 25%;
   flex-shrink: 0;
-  /* padding-left: 2%; */
 }
 
 .menu-header-navbar-container {
@@ -140,7 +55,6 @@ ul#menu-header-navbar {
   width: 35%;
   display: flex;
   justify-content: flex-end;
-  padding-right: 1%;
   gap: 2rem;
 }
 .loginBtn{
@@ -154,7 +68,6 @@ ul#menu-header-navbar {
   font-size: 18px;
 }
 div#burger {
-  /* padding-right: 2%; */
   display: none;
 }
 .burger {
@@ -217,10 +130,8 @@ div#burger {
 .header #menu {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   align-items: center;
-  /* gap: 2rem; */
-  width: 85%;
+  width: 75%;
 }
 .header a {
   font-family: inherit;
@@ -236,26 +147,145 @@ hr{
     width: 100%;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ffffffc2, rgba(0, 0, 0, 0));
 }
+.search-input {
+  display: flex;
+  justify-content: flex-end;
+  width: 25%;
+  align-items: center;
+}
 
+input#search {
+  width: 60%;
+  background-color: transparent;
+  border: 3px solid black;
+  margin-right: 50px;
+  transition: 1.2s;
+  height: 50px;
+}
+::placeholder{
+  color: black;
+  opacity: 1;
+}
+input#search:hover {
+  border-radius: 10px;
+}
+
+.first-banner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.search-talents {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  margin-top: 10%;
+
+}
+.search-box {
+  width: 80%;
+  display: flex;
+}
+
+.input-search {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px 0 0 10px;
+  border-right: none;
+  outline: none;
+}
+button.searchBtn {
+  text-align: center;
+  height: 51px;
+  width: 20%;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+  outline: none;
+  border-left: 2px solid transparent;
+  background-color: #799f28;
+  color: white;
+}
+h2.search-title {
+  color: white;
+  font-size: 25px;
+}
+@media(max-width:1170px){
+  .search-talents{
+    width: 50%
+  }
+  .search-box{
+    width: 100%;
+  }
+  .input-search{
+    width: 70%;
+  }
+  button.searchBtn{
+    width: 30%;
+  }
+}
+@media(max-width:1117px){
+  .header-logo{
+    width: 20%;
+    height: 20%;
+  }
+  .header #menu{
+    width: 80%;
+  }
+  .menu-item a{
+    font-size: 16px;
+  }
+  .loginBtn , .registerBtn{
+    font-size: 16px;
+  }
+  .registerBtn{
+    width: 100px;
+  }
+}
+@media(max-width:1065px){
+  .register-login-btn{
+    width: 20%;
+  }
+  .menu-header-navbar-container{
+    width: 70%;
+  }
+  .register-login-btn{
+    width: 30%;
+  }
+}
 @media only screen and (max-width: 991px) {
+  header.bg-img{
+    padding-bottom: 5rem;
+  }
+  .header-logo{
+    width: 120px;
+    height: 50px;
+  }
   div#burger{
-    display: block;
+    display: flex;
+    /* align-items: center; */
+    height: 50px;
   }
   .container{
-    height: 90%;
-  }
-  .header{
     height: 100%;
   }
-  #menu{
+  .header{
     height: 80%;
+  }
+  #menu{
+    height: 100%;
   }
   ul#menu-header-navbar{
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin-top: 3%;
+    margin-top: 10%;
   }
   li.menu-item {
     padding: 0.5%;
@@ -311,8 +341,7 @@ hr{
     display: block;
   }
   .search-talents{
-    margin-top: -30%;
-    width: 100%;
+    width: 90%;
   }
   h2.search-title{
     font-size: 22px;
@@ -327,25 +356,26 @@ hr{
     font-size: 20px;
   }
   .search-talents{
-    margin-top: -40%;
+    width: 70%;
   }
-}
-@media(max-width:657px){
   .search-box{
     width: 100%;
   }
-  .search-talents{
-    margin-top: -60%;
+  .input-search{
+    width: 70%;
+  }
+  button.searchBtn{
+    width: 30%;
   }
 }
 
 @media(max-width:472px){
+  .header #menu.is-active {
+    margin-top: 10%;
+  }
   .register-login-btn {
       flex-direction: column;
       display: flex;
       align-items: center;
-  }
-  .search-talents{
-    margin-top: -90%;
   }
 }
