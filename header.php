@@ -44,15 +44,6 @@
         </div>
     </header>
 
-    <!-- /* Vetem vendose ket form ne button */
-    <form class="" method="get" action="<?php print site_url(); ?>">
-        <input type="text" name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
-        <input type="submit" value="Search Our Site...">
-    </form>  -->
-    
-     
-
-
     <!--LOGIN MODAL  -->
 
 <div class="bg-black bg-opacity-50 fixed inset-0 hidden  p-20" id="overlay-login">
