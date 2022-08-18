@@ -27,7 +27,12 @@ module.exports = {
 				lg: '976px',
 				xl: '1440px'
 			  },
-			  
+			  fontFamily:{
+				'courgette':['Courgette', 'cursive'],
+			},
+			dropShadow:{
+				'2lg':'0 10px 8px rgb(0 0 0 / 0.22)',
+			},
 		},
 	},
 	variants: {},
