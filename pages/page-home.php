@@ -95,7 +95,7 @@
 
 </div>
 
-    <section id="NeedSomethingDone">
+    <section id="NeedSomethingDone" class="bg-bg">
         <?php get_template_part('/components/home/NeedSomethingDone/dynamic' , 'cards');?>
     </section>
 
@@ -104,7 +104,6 @@
     <section id="categories">
         <?php get_template_part('/components/home/categories/section' , 'categories');?>
     </section>
-
 </div>
 <!-- /////////// END OF CONTAINER ///////// -->
 
