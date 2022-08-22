@@ -25,6 +25,7 @@ header {
   height: 70px;
   color: white;
   font-family: "Poppins", sans-serif;
+  padding: 0 5rem 0;
 }
 
 .header {
@@ -147,6 +148,10 @@ hr{
     width: 100%;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #ffffffc2, rgba(0, 0, 0, 0));
 }
+/* .banner{
+  width: 100%;
+  display: flex;
+} */
 .search-input {
   display: flex;
   justify-content: flex-end;
@@ -229,7 +234,7 @@ h2.search-title {
     width: 30%;
   }
 }
-@media(max-width:1117px){
+@media(max-width:1439px){
   .header-logo{
     width: 20%;
     height: 20%;
