@@ -1,7 +1,6 @@
 <?php
 /*
     Template Name: Find Talents
-
 */
 
 get_header();?>

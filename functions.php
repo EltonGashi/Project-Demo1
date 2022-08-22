@@ -41,3 +41,49 @@ function enqueue_function() {
 	$version = ( wp_get_environment_type() === 'development' ) ? time() : define( 'BIIIRD_THEME_VERSION', '1.0.2' );
 	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/assets/css/main.css', $version, true );
 }
+
+//Load More Function
+
+add_action('wp_footer', 'my_action_javascript');
+
+function my_action_javascript() { ?>
+
+    <script type="text/javascript" >
+        jQuery(document).ready(function($){
+
+            var page= 2;
+
+            var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
+
+
+            jQuery('.loadmore').click(function(){
+
+                var data ={
+                    'action': 'my_action',
+                    'page': page,
+                };
+
+                jQuery.post(ajaxurl , data , function(response) {
+                    
+                    console.log(page++);
+
+                });
+            });
+        });
+        </script> <?php
+
+}
+
+add_action('wp_ajax_my_action', 'my_action');
+
+function my_action(){
+    global $wpdb;
+
+    $whatever = intval( $_POST['whatever'] );
+
+    $whatever += 10;
+
+    echo $whatever;
+
+    wp_die();
+}

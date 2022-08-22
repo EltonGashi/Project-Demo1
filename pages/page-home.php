@@ -3,57 +3,44 @@
  * Template Name: Home
  * Template Post Type: post, page, product
  */
+
+
    
- get_header();  ?>
+ get_header(); 
+  ?>
 
     <!-- ////////////// CONTAINER-START ////////////// -->
 <div class="container bg-bg p-20">
     <h1 class="text-4xl py-5">Services from Users</h1>
-    <section id="users">
+    <section id="users" class="py-20">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
-
+        
             <?php 
 
-            $args_cat = array(
-                'include' => '1 , 11, 10'
+            $args =array(
+                'post_type' => 'post',
+                'paged' => 1,
+                
             );
+            $the_query = new WP_Query( $args); ?>
+            <?php if( $the_query->have_posts() ): ?>
 
-            $categories = get_categories($args_cat);
-            foreach($categories as $category):
+                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-                $args = array(
-                    'type'=>'post',
-                    'posts_per_page' => 5,
-                    // 'offset' =>1,
-                    /*'category' ='1'*/
-                    'category__in' => $category->term_id ,
-                    // 'category__not_in' => array(1),
-                );
-    
-                $lastBlog = new WP_Query($args);
-    
-                if( $lastBlog->have_posts()):
-    
-                    while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
-                        
-                        <?php get_template_part('/components/home/card_users/user' , 'cards');?>
-                        
-                    <?php endwhile;
-    
-                    wp_reset_postdata();
-    
-                endif;
-            endforeach;
-            ?>
+                    <?php get_template_part('/components/home/card_users/user' , 'cards');?>
+                <?php endwhile; ?>
+
+                <?php wp_reset_postdata(); ?>
+
+            <?php else: ?>
+                <p><?php _e('sorry no post'); ?></p>
+            <?php endif; ?>
+
         </div>
-        <div class=" flex items-center justify-center ">
+        
+        <div class="findMore flex items-center justify-center pt-5">
             <button class="loadmore border-green-700">Find more creators</button>
         </div>
-
-
-
-
-            <br>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </section>
@@ -66,7 +53,7 @@
 
 
 
-    <section id="services" class="">
+    <section id="services" class="py-20">
         <div id="headings" class="block text-center py-8 xl:text-5xl lg:text-4xl md:text-3xl sm:text-3xl">
             <div class="txt-1">
                 <h1 class=""><?php echo $title; ?></h1>
@@ -95,13 +82,13 @@
 
 </div>
 
-    <section id="NeedSomethingDone">
+    <section id="NeedSomethingDone" class=" bg-bg">
         <?php get_template_part('/components/home/NeedSomethingDone/dynamic' , 'cards');?>
     </section>
 
 <div class="container bg-bg p-20">
 
-    <section id="categories">
+    <section id="categories " class="py-20">
         <?php get_template_part('/components/home/categories/section' , 'categories');?>
     </section>
 
