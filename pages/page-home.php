@@ -20,7 +20,7 @@
             $args =array(
                 'post_type' => 'post',
                 'paged' => 1,
-                
+
             );
             $the_query = new WP_Query( $args); ?>
             <?php if( $the_query->have_posts() ): ?>
@@ -82,7 +82,8 @@
 
 </div>
 
-    <section id="NeedSomethingDone" class=" bg-bg">
+
+    <section id="NeedSomethingDone" class="bg-bg">
         <?php get_template_part('/components/home/NeedSomethingDone/dynamic' , 'cards');?>
     </section>
 
@@ -91,7 +92,6 @@
     <section id="categories " class="py-20">
         <?php get_template_part('/components/home/categories/section' , 'categories');?>
     </section>
-
 </div>
 <!-- /////////// END OF CONTAINER ///////// -->
 

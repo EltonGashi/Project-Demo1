@@ -15,7 +15,7 @@
         <div class="container">
             <div class="header">
                 <div class="header-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Repeat Grid 8.png">
+                    <img  src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Repeat Grid 8.png">
                 </div>
                 <div id="menu">
                     <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
@@ -35,13 +35,18 @@
                 </div>
             </div>
         </div>
-        <div class="search-talents">
-            <h2 class="search-title">Search for best <i class="font-courgette">services</i></h2>
-            <form class="search-box"  method="get" action="<?php print site_url(); ?>">
-                <input type="text" class="input-search" placeholder="Search for new talents..." name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
-                <button class="searchBtn" type="submit" value="Search Our Site...">Search</button>
-            </form>
-        </div>
+        <!-- <div class="banner"> -->
+            <div class="search-talents">
+                <h2 class="search-title">Search for best <i class="font-courgette">services</i></h2>
+                <form class="search-box"  method="get" action="<?php print site_url(); ?>">
+                    <input type="text" class="input-search" placeholder="Search for new talents..." name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
+                    <button class="searchBtn" type="submit" value="Search Our Site...">Search</button>
+                </form>
+            </div>
+            <!-- <div class="image-banner">
+            <img  src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Group 11.png">
+            </div>
+        </div> -->
     </header>
 
     <!--LOGIN MODAL  -->
