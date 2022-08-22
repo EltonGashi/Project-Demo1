@@ -11,7 +11,7 @@ module.exports = {
 			'./components/pages/**/*.php',
 			'./components/FindTalents/Developers/**/*.php',
 			'./components/**/*.php',
-			'./*.php',
+			'./**.php',
 			'./pages/**.php',
 			'./components1/home/assets/**/*.js',
 		],
