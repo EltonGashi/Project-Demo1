@@ -8,6 +8,7 @@ module.exports = {
 			'./components/home/categories/**/*.php',
 			'./components/home/NeedSomethingDone/**/*.php',
 			'./components/home/**/*.php',
+			'./components/find-talents/Developers/**/*.php',
 			'./components/pages/**/*.php',
 			'./components/FindTalents/Developers/**/*.php',
 			'./components/**/*.php',

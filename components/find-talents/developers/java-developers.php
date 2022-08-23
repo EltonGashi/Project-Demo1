@@ -1,5 +1,5 @@
 <div class="user-card bg-white rounded-3xl">
-            <div class="user-thumbnail">
+            <div class="user-thumbnail h-52 w-52">
                 <?php the_post_thumbnail('large'); ?>
             </div>
             <div class="user p-2 ">
@@ -25,13 +25,12 @@
                         <p class="text-xs text-slate-500">(49)</p>
                     </div>
                 </div>
-                
-                <button type="button" class="ml-48 text-white bg-green-700 hover:bg-green-800  rounded-full text-xs px-4 py-2 text-center justify-self-end">
-                    <?php $link = get_permalink();  ?>
-                    <p><?php print '<a href="'.$link.'">More Info ...</a>' ?></p>  
-                </button>
-                
+                <div class="flex items-center justify-between mt-4">
+                    <button type="button" class="text-white bg-green-700 hover:bg-green-800  rounded-full text-xs px-4 py-2 text-center flex items-center ">
+                    More Info...
+                    </button>
+                </div>
             </div>
         </div>
 
-
+ 
