@@ -13,30 +13,44 @@
 <div class="container bg-bg p-20">
     <h1 class="text-4xl py-5">Services from Users</h1>
     <section id="users" class="py-20">
-        <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
+        
         
             <?php 
 
+            $args1 =array(
+                'post_type' => 'post',
+                'posts_per_page' => -1,
+
+            );
+            $the_query1 = new WP_Query( $args1); 
+
             $args =array(
                 'post_type' => 'post',
-                'paged' => 1,
+                'paged' => get_query_var('paged',1),
+                'posts_per_page' => 8,
+                // 'offset' =>1,
+                /*'category' ='1'*/
+                //'paged'=> 1,
+                //'post_status' => 'publish',
+                //'category__in' => $category->term_id ,
+                // 'category__not_in' => array(1),
 
             );
             $the_query = new WP_Query( $args); ?>
+            <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>">
             <?php if( $the_query->have_posts() ): ?>
 
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
                     <?php get_template_part('/components/home/card_users/user' , 'cards');?>
+                    
                 <?php endwhile; ?>
 
                 <?php wp_reset_postdata(); ?>
 
-            <?php else: ?>
-                <p><?php _e('sorry no post'); ?></p>
             <?php endif; ?>
 
-        </div>
+            </div>
         
         <div class="findMore flex items-center justify-center pt-5">
             <button class="loadmore border-green-700">Find more creators</button>

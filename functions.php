@@ -53,6 +53,8 @@ function my_action_javascript() { ?>
 
             var page= 2;
 
+            var post_count = jQuery('.users').data('count');
+
             var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
 
 
@@ -60,12 +62,18 @@ function my_action_javascript() { ?>
 
                 var data ={
                     'action': 'my_action',
-                    'page': page,
+                    'page': page
                 };
 
                 jQuery.post(ajaxurl , data , function(response) {
+
+                    jQuery('.users').append(response);
+
+                    if(post_count == page){
+                        jQuery('.loadmore').text("No more Data");
+                    }
                     
-                    console.log(page++);
+                    page++;
 
                 });
             });
@@ -77,13 +85,24 @@ function my_action_javascript() { ?>
 add_action('wp_ajax_my_action', 'my_action');
 
 function my_action(){
-    global $wpdb;
 
-    $whatever = intval( $_POST['whatever'] );
+    $args =array(
+        'post_type' => 'post',
+        'paged' => $_POST['page'],
 
-    $whatever += 10;
+    );
+    $the_query = new WP_Query( $args); ?>
+        <?php if( $the_query->have_posts() ): ?>
 
-    echo $whatever;
+        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> 
+
+            <?php get_template_part('/components/home/card_users/user' , 'cards');?>
+
+        <?php endwhile; ?>
+
+            <?php wp_reset_postdata(); ?>
+
+        <?php endif; 
 
     wp_die();
 }
