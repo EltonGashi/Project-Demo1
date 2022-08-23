@@ -77,7 +77,6 @@
             </div>
         </div>
           
-         
         
         <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
         <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="<?php echo get_template_directory_uri(); ?>./assets/img/UserImages/main.png">
