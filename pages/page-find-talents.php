@@ -22,6 +22,7 @@ get_header();?>
                     'category_name' => 'Java Developer',
                     'posts_per_page' => 4,
                 );
+
                 
                 $lastBlog = new WP_Query($args);
                 if( $lastBlog->have_posts()):
@@ -82,6 +83,11 @@ get_header();?>
             endforeach;
             ?>
             </div>
+
+            <div class="findMore flex items-center justify-center pt-5">
+                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+            </div>
+
         
     </section>
 </div>
@@ -121,6 +127,9 @@ get_header();?>
             endforeach;
             ?>
         </div>
+        <div class="findMore flex items-center justify-center pt-5">
+            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+        </div>
     </section>
 </div>
 
@@ -148,6 +157,7 @@ get_header();?>
                 if( $lastBlog->have_posts()):
 
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+                    
                         
                         <?php get_template_part('./components/find-talents/developers/php-developer');?>
                         
@@ -159,6 +169,9 @@ get_header();?>
             endforeach;
             ?>
         </div>
+        <div class="findMore flex items-center justify-center pt-5">
+                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+            </div>
     </section>
 </div>
 
@@ -198,6 +211,9 @@ get_header();?>
             endforeach;
             ?>
         </div>
+        <div class="findMore flex items-center justify-center pt-5">
+                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+            </div>
     </section>
 </div>
 
@@ -236,6 +252,9 @@ get_header();?>
             endforeach;
             ?>
         </div>
+        <div class="findMore flex items-center justify-center pt-5">
+                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+            </div>
     </section>
 </div>
 
@@ -274,6 +293,9 @@ get_header();?>
             endforeach;
             ?>
         </div>
+        <div class="findMore flex items-center justify-center pt-5">
+                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+            </div>
     </section>
 </div>
 
