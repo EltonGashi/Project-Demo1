@@ -12,7 +12,7 @@
     <!-- ////////////// CONTAINER-START ////////////// -->
 <div class="container bg-bg p-20">
     <h1 class="text-4xl py-5">Services from Users</h1>
-    <section id="users" class="py-20">
+    <section id="users" class="py-10">
         
         
             <?php 
@@ -53,10 +53,10 @@
             </div>
         
         <div class="findMore flex items-center justify-center pt-5">
-            <button class="loadmore border-green-700">Find more creators</button>
+            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
     </section>
         
 
