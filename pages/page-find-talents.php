@@ -5,12 +5,12 @@
 
 get_header();?>
 <div class="container bg-bg p-20">
-    <h1 class="text-3xl py-5">Java Developers</h1>
+    <h1 class="text-3xl py-5">Java Developer</h1>
     <section id="java-developer">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
             $args_cat = array(
-                'include' => '1 11 10',
+                'include' => '15',
             );
 
             $categories = get_categories($args_cat);
@@ -22,14 +22,16 @@ get_header();?>
                     'category_name' => 'Java Developer',
                     'posts_per_page' => 4,
                 );
-
+                
                 $lastBlog = new WP_Query($args);
-
                 if( $lastBlog->have_posts()):
 
+
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+                    
+                    
                         
-                        <?php get_template_part('/components/FindTalents/Developers/java','developer');?>
+                        <?php get_template_part('/components/find-talents/developers/java','developer');?>
                         
                     <?php endwhile;
 
@@ -39,16 +41,19 @@ get_header();?>
             endforeach;
             ?>
         </div>
+        <div class="findMore flex items-center justify-center pt-5">
+            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+        </div>
     </section>
 </div>
 
 <div class="container bg-bg p-20">
-    <h1 class="text-3xl py-5">Web Developers</h1>
-    <section id="java-developer">
+    <h1 class="text-3xl py-5">It Technichian</h1>
+    <section id="java-developer ">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
             $args_cat = array(
-                'include' => '1 11 10',
+                'include' => '16',
             );
 
             $categories = get_categories($args_cat);
@@ -57,7 +62,7 @@ get_header();?>
                 $args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'Web Developer',
+                    'category_name' => 'it-technichian',
                     'posts_per_page' => 4,
                 );
 
@@ -66,8 +71,8 @@ get_header();?>
                 if( $lastBlog->have_posts()):
 
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
-                        
-                        <?php get_template_part('./components/FindTalents/Developers/web','developer');?>
+
+                        <?php get_template_part('./components/find-talents/it/it','technician');?>
                         
                     <?php endwhile;
 
@@ -76,7 +81,8 @@ get_header();?>
                 endif;
             endforeach;
             ?>
-        </div>
+            </div>
+        
     </section>
 </div>
 
@@ -86,7 +92,7 @@ get_header();?>
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
             $args_cat = array(
-                'include' => '1 11 10',
+                'include' => '10',
             );
 
             $categories = get_categories($args_cat);
@@ -95,7 +101,7 @@ get_header();?>
                 $args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'Software Developers',
+                    'category_name' => 'software-developer',
                     'posts_per_page' => 4,
                 );
 
@@ -105,7 +111,7 @@ get_header();?>
 
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
                         
-                        <?php get_template_part('./components/FindTalents/Developers/software-developer');?>
+                        <?php get_template_part('./components/find-talents/developers/software-developer');?>
                         
                     <?php endwhile;
 
@@ -124,7 +130,7 @@ get_header();?>
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
             $args_cat = array(
-                'include' => '1 11 10',
+                'include' => '16',
             );
 
             $categories = get_categories($args_cat);
@@ -136,14 +142,14 @@ get_header();?>
                     'category_name' => 'PHP developer',
                     'posts_per_page' => 4,
                 );
-
+                
                 $lastBlog = new WP_Query($args);
 
                 if( $lastBlog->have_posts()):
 
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
                         
-                        <?php get_template_part('./components/FindTalents/Developers/php-developer');?>
+                        <?php get_template_part('./components/find-talents/developers/php-developer');?>
                         
                     <?php endwhile;
 
@@ -162,7 +168,7 @@ get_header();?>
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
             $args_cat = array(
-                'include' => '1 11 10',
+                'include' => '18',
             );
 
             $categories = get_categories($args_cat);
@@ -180,8 +186,9 @@ get_header();?>
                 if( $lastBlog->have_posts()):
 
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+                    
                         
-                        <?php get_template_part('./components/FindTalents/Developers/front-end-developer');?>
+                        <?php get_template_part('./components/find-talents/developers/front-end-developer');?>
                         
                     <?php endwhile;
 
@@ -195,12 +202,12 @@ get_header();?>
 </div>
 
 <div class="container bg-bg p-20">
-    <h1 class="text-3xl py-5">Back End Developer</h1>
+    <h1 class="text-3xl py-5">Python Developer</h1>
     <section id="java-developer">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
             $args_cat = array(
-                'include' => '1 11 10',
+                'include' => '18',
             );
 
             $categories = get_categories($args_cat);
@@ -209,7 +216,7 @@ get_header();?>
                 $args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'Back End Developer',
+                    'category_name' => 'python-developer',
                     'posts_per_page' => 4,
                 );
 
@@ -219,7 +226,7 @@ get_header();?>
 
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
                         
-                        <?php get_template_part('./components/FindTalents/Developers/back-end-developer');?>
+                        <?php get_template_part('./components/find-talents/developers/python-developer');?>
                         
                     <?php endwhile;
 
@@ -238,7 +245,7 @@ get_header();?>
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
             $args_cat = array(
-                'include' => '1 11 10',
+                'include' => '17',
             );
 
             $categories = get_categories($args_cat);
@@ -247,7 +254,7 @@ get_header();?>
                 $args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'Graphic Design',
+                    'category_name' => 'graphic-designer',
                     'posts_per_page' => 4,
                 );
 
@@ -257,7 +264,7 @@ get_header();?>
 
                     while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
                         
-                        <?php get_template_part('./components/FindTalents/Developers/graphic','designers');?>
+                        <?php get_template_part('./components/find-talents/designers/graphic','designers');?>
                         
                     <?php endwhile;
 

@@ -1,16 +1,17 @@
 <?php
 
-// Enqueuing Template css,js
+// Enqueuing Template css,js,jquery
 function dynamic_menu_enqueue()
 {
     wp_enqueue_script( 'customjs', get_template_directory_uri() . '/components/home/assets/home.js', array(), '1.0.0', true);
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/end-game.js', array(), '1.0.0', true);
-    
+    wp_enqueue_script( 'customScript', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
     wp_enqueue_style('menustyle', get_template_directory_uri() . '/assets/css/menu.css', array(), '1.0.0', 'all');
 }
 
 add_action('wp_enqueue_scripts', 'dynamic_menu_enqueue');
 
+    
 
 //Theme Support
 add_theme_support('post-thumbnails');
@@ -43,44 +44,6 @@ function enqueue_function() {
 }
 
 //Load More Function
-
-add_action('wp_footer', 'my_action_javascript');
-
-function my_action_javascript() { ?>
-
-    <script type="text/javascript" >
-        jQuery(document).ready(function($){
-
-            var page= 2;
-
-            var post_count = jQuery('.users').data('count');
-
-            var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
-
-
-            jQuery('.loadmore').click(function(){
-
-                var data ={
-                    'action': 'my_action',
-                    'page': page
-                };
-
-                jQuery.post(ajaxurl , data , function(response) {
-
-                    jQuery('.users').append(response);
-
-                    if(post_count == page){
-                        jQuery('.loadmore').text("No more Data");
-                    }
-                    
-                    page++;
-
-                });
-            });
-        });
-        </script> <?php
-
-}
 
 add_action('wp_ajax_my_action', 'my_action');
 
