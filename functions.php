@@ -45,6 +45,7 @@ function enqueue_function() {
 
 //Load More Function
 
+
 add_action('wp_footer', 'my_action_javascript');
 
 function my_action_javascript() { ?>
