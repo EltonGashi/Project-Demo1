@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="user-content text-basic mb-5">
-                    <?php the_content();?>
+                    <?php echo wp_trim_words( get_the_content(), 5 ); ?>
                 </div>
 
                 <div class="rating flex items-center mb-5">
@@ -22,7 +22,6 @@
                     </div>
                     <div class="rating flex items-center">
                         <p class="text-sm font-semibold">5.0</p>
-                        <p class="text-xs text-slate-500">(49)</p>
                     </div>
                 </div>
                 
