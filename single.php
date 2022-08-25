@@ -79,7 +79,6 @@
                 </a>
             </div>
         </div>
-          
         
         <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
         <div class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex">  <?php the_post_thumbnail('large'); ?> 
@@ -110,36 +109,18 @@
                 
                 <!---<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="./images/feature-1.png" alt="dashboard feature image">-->
         </div>
-    
-                
-                <div class="user-post">
-                
+        
+        <div id="actual-article">
+                <?php comments_template();?>
 
-
-                 <?php if(has_post_thumbnail() ):?>
-                     
-                <?php endif; ?>
-
-                <small class=""><?php the_category(' '); ?>|| <?php the_tags(); ?> || <?php edit_post_link(); ?></small>
-
-                
-
-                <hr>
-
-                <br>
-
-                <?php if(comments_open() ){
-                    ?> <br> 
-                    <div class="">
-                    <div class="  flex justify-center  "> <?php
-                     comments_template(); ?> </div> <?php
-                     } else {
-                        echo '<h5 class ="text-center my-16"> Sorry , Comments are Closed!</h5>';
-                     } ?>
+                <div class="card-comments">
+                    <h1 class="comments-title">Comments</h1>
+                    <ul class="commentlist">
+                    <?php wp_list_comments( 'type=comment&callback=mytheme_comment' ); ?>
+                    </ul>
                 </div>
-                </div>
+            </div>
             <?php endwhile;
-
         endif;
         ?>
 

@@ -10,45 +10,41 @@
 </head >
 
 <body <?php body_class(array('container')); ?>>
-
-    <header class="bg-img">
-        <div class="container">
-            <div class="header">
-                <div class="header-logo">
-                    <img  src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Repeat Grid 8.png">
-                </div>
-                <div id="menu">
-                    <?php wp_nav_menu(array('theme_location'=>'primary')); ?>
-                    <hr>
-                    <div class="register-login-btn">
-                        <button class="loginBtn" id="login-btn"><a href="#" class="login">Log In</a></button>
-                        <button class="registerBtn" id="register-btn"> <a href="#" class="register">Register</a></button>
-                    </div>
-                </div>
-                <div id="burger">
-                    <button type="button" class="burger" id="burger">
-                        <span class="burger-line"></span>
-                        <span class="burger-line"></span>
-                        <span class="burger-line"></span>
-                        <span class="burger-line"></span>
-                    </button>
+<header class="header">
+    <div class="container">
+        <nav class="topnav" id="topnav">
+            <div class="header-logo">
+            <?php
+                if ( function_exists( 'the_custom_logo' ) ) {
+                the_custom_logo();
+                }
+            ?>
+            </div>
+            <div class="menu-container">
+                <?php wp_nav_menu(array('theme_location'=>'primary')); ?>  
+                <div class="register-login-btn">
+                    <button class="loginBtn" id="login-btn"><a href="#" class="login">Log In</a></button>
+                    <button class="registerBtn" id="register-btn"> <a href="#" class="register">Register</a></button>
                 </div>
             </div>
-        </div>
-        <!-- <div class="banner"> -->
+            <div class="navbar-toggler">
+                <button class="icon" onclick="toggle()"><i class="fa fa-bars"></i></button>
+            </div>
+        </nav>
+        <div class="banner">
             <div class="search-talents">
                 <h2 class="search-title">Search for best <i class="font-courgette">services</i></h2>
-                <form class="search-box"  method="get" action="<?php print site_url(); ?>">
-                    <input type="text" class="input-search" placeholder="Search for new talents..." name="s" value="<?php if(isset($_GET['s'])){print $_GET['s'];} ?>">
+                <form class="search-box"  method="get" action="http://localhost/wordpress">
+                    <input type="text" class="input-search" placeholder="Search for new talents..." name="s" value="">
                     <button class="searchBtn" type="submit" value="Search Our Site...">Search</button>
                 </form>
             </div>
-            <!-- <div class="image-banner">
-            <img  src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Group 11.png">
+            <div class="img-banner">
+                <img class="bannerImg" src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Group 11.png">
             </div>
-        </div> -->
-    </header>
-
+        </div>
+    </div>
+</header>
     <!--LOGIN MODAL  -->
 
 <div class="bg-black bg-opacity-50 fixed inset-0 hidden  p-20" id="overlay-login">
