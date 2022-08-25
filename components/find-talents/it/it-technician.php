@@ -3,7 +3,7 @@
                 <?php the_post_thumbnail('large'); ?>
             </div>
             <div class="user p-2 ">
-                <div class="user-info flex mb-2">
+                <div class="user-info flex mb-2 tems-center">
                     <div class="img pr-5">
                         <img class="w-10 h-10" src="<?php echo get_template_directory_uri(); ?>./assets/img/UserImages/ellipse1.png">
                     </div>

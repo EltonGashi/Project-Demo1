@@ -49,21 +49,14 @@ get_header();?>
 </div>
 
 <div class="container bg-bg p-20">
-    <h1 class="text-3xl py-5">It Technichian</h1>
+    <h1 class="text-3xl py-5">It Technician</h1>
     <section id="java-developer ">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
-            $args_cat = array(
-                'include' => '16',
-            );
-
-            $categories = get_categories($args_cat);
-            foreach($categories as $category):
-
                 $args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'it-technichian',
+                    'category_name' => 'it-technician',
                     'posts_per_page' => 4,
                 );
 
@@ -80,7 +73,6 @@ get_header();?>
                     wp_reset_postdata();
 
                 endif;
-            endforeach;
             ?>
             </div>
 
@@ -97,12 +89,6 @@ get_header();?>
     <section id="java-developer">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
-            $args_cat = array(
-                'include' => '10',
-            );
-
-            $categories = get_categories($args_cat);
-            foreach($categories as $category):
 
                 $args = array(
                     'post_type' => 'post',
@@ -124,7 +110,6 @@ get_header();?>
                     wp_reset_postdata();
 
                 endif;
-            endforeach;
             ?>
         </div>
         <div class="findMore flex items-center justify-center pt-5">
@@ -180,13 +165,6 @@ get_header();?>
     <section id="java-developer">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
-            $args_cat = array(
-                'include' => '18',
-            );
-
-            $categories = get_categories($args_cat);
-            foreach($categories as $category):
-
                 $args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
@@ -208,7 +186,6 @@ get_header();?>
                     wp_reset_postdata();
 
                 endif;
-            endforeach;
             ?>
         </div>
         <div class="findMore flex items-center justify-center pt-5">
@@ -263,13 +240,6 @@ get_header();?>
     <section id="java-developer">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
             <?php
-            $args_cat = array(
-                'include' => '17',
-            );
-
-            $categories = get_categories($args_cat);
-            foreach($categories as $category):
-
                 $args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
@@ -290,7 +260,6 @@ get_header();?>
                     wp_reset_postdata();
 
                 endif;
-            endforeach;
             ?>
         </div>
         <div class="findMore flex items-center justify-center pt-5">
