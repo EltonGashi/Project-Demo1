@@ -60,7 +60,47 @@ function enqueue_function() {
 
 //Load More Function
 
-add_action('wp_ajax_my_action', 'my_action');
+
+add_action('wp_footer', 'my_action_javascript');
+
+function my_action_javascript() { ?>
+
+    <script type="text/javascript" >
+        jQuery(document).ready(function($){
+
+            var page= 2;
+
+            var post_count = jQuery('.users').data('count');
+
+            var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
+
+
+            jQuery('.loadmore').click(function(){
+
+                var data ={
+                    'action': 'my_action',
+                    'page': page
+                };
+
+                jQuery.post(ajaxurl , data , function(response) {
+
+                    jQuery('.users').append(response);
+
+                    if(post_count == page){
+                        jQuery('.loadmore').text("No more Data");
+                    }
+                    
+                    page++;
+
+                });
+            });
+        });
+        </script> <?php
+
+}
+
+add_action('wp_ajax_nopriv_my_action', 'my_action');
+
 
 function my_action(){
 
