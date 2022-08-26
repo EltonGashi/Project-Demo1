@@ -1,6 +1,5 @@
 <?php 
 
-/* Template Name: Custom Login Page */
 
 if(isset($_POST['submit'])) {
 

@@ -143,15 +143,21 @@
         endif;
         ?>
 
-<div class="my-16 font-extrabold text-2xl"><?php the_category(); ?></div>
+<div class="my-16 font-extrabold text-2xl"><?php $cat = the_category(); ?></div>
 
 <section id="users">
         <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
+    
+        <?php
+            $categories1 = get_the_category();
+            $category_id = $categories1[0]->cat_ID;
+       ?>
 
             <?php 
-
+            
             $args_cat = array(
-                'include' => 11,
+                'include' => $category_id,
+                
             );
 
             $categories = get_categories($args_cat);
@@ -159,10 +165,12 @@
 
                 $args = array(
                     'type'=>'post',
+                    
                     'posts_per_page' => 4,
                     // 'offset' =>1,
                     /*'category' ='1'*/
                     'category__in' => $category->term_id ,
+                    'orderby' =>'rand',
                     // 'category__not_in' => array(1),
                 );
     

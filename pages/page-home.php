@@ -10,14 +10,13 @@
 <div class="container bg-bg p-20">
     <h1 class="text-4xl py-5">Services from Users</h1>
     <section id="users" class="py-10">
-        
-        
             <?php 
 
             $args1 =array(
                 'post_type' => 'post',
+                
                 'posts_per_page' => -1,
-
+                'category__not_in' => 11,
             );
             $the_query1 = new WP_Query( $args1); 
 
@@ -48,11 +47,11 @@
             <?php endif; ?>
 
             </div>
+            
         
-        <div class="findMore flex items-center justify-center pt-5">
-            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Find more creators</button>
+        <div class="findMore flex items-center justify-center pt-12">
+            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
         </div>
-
         
     </section>
         

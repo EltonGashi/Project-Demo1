@@ -7,7 +7,7 @@
                     <div class="img pr-5">
                         <img class="w-10 h-10" src="<?php echo get_template_directory_uri(); ?>./assets/img/UserImages/ellipse1.png">
                     </div>
-                    <div class="user-name text-basic">
+                    <div class="user-name text-basic font-semibold">
                         <?php the_title(); ?>
                     </div>
                 </div>
