@@ -181,8 +181,6 @@ add_role(
     )
 );
 
-    wp_die();
-}
 function mytheme_comment($comment, $args, $depth) {
     if ( 'div' === $args['style'] ) {
         $tag       = 'div';
