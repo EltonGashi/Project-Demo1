@@ -157,8 +157,6 @@ function my_action(){
             <?php wp_reset_postdata(); ?>
 
         <?php endif;
-        wp_die();  
-
 
 }
 

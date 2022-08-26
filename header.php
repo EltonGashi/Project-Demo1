@@ -47,6 +47,7 @@
         </div>
     </div>
 </header>
+
     <!--LOGIN MODAL  -->
     <?php 
 
@@ -251,4 +252,4 @@ if(count($erorr) ==0) {
       
     </div>
     
-
+<?php ob_flush();?>
