@@ -1,3 +1,5 @@
+<?php ob_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php wp_head(); ?>
+    <?php wp_head();?>
 </head >
 
 <body <?php body_class(array('container')); ?>>
@@ -46,6 +48,28 @@
     </div>
 </header>
     <!--LOGIN MODAL  -->
+    <?php 
+
+
+if(isset($_POST['submit'])) {
+
+    $redirect_to = ! empty ($_POST['redirect_to']) ? $_POST['redirect_go'] : '/';
+    $user_login = sanitize_user($_POST['username']);
+    $user_password = sanitize_text_field($_POST['password']);
+
+
+    $user = wp_authenticate( $user_login, $user_password );
+
+    if (!is_wp_error($user)) {
+      wp_set_auth_cookie($user->data->ID);
+      wp_safe_redirect(site_url());
+      exit();
+    } else {
+    }
+  }
+
+  ?>
+
 
 <div class="bg-black bg-opacity-50 fixed inset-0 hidden  p-20" id="overlay-login">
 
@@ -57,21 +81,23 @@
                     <h1 class="pt-4">How do i get started lorem ispum dolor at?</h1>
             </div>
             <div class="mid">
-                <form action="#" class="flex flex-col">
+                <form method="POST" class="flex flex-col">
                     <label for="email">Email</label>
-                    <input type="text" class="rounded-3xl py-2 px-2 border border-black">
+                    <input type="text" id="username" name="username" placeholder="example@example.com " class="mt-5 rounded-3xl py-2 px-2 border border-black">
                     <label for="password">Password</label>
-                    <input type="password" class="rounded-3xl py-2 px-2 border border-black">
+                    <input type="password" id="password" name="password" placeholder="********"  class="mt-5 rounded-3xl py-2 px-2 border border-black">
                     <small class="text-customGreen text-center">
                         <a href="#">Forgot Password?</a>
                     </small>
-                </form>
+               
+                
             </div>
 
             <div class="bottom flex flex-col pt-4 mt-4">
-                <button class="bg-customGreen rounded-3xl py-3 px-2 text-white text-sm">Login</button>
+            <button type="submit" name="submit" id="submit" class="bg-customGreen rounded-3xl py-3 px-2 text-white text-sm">Login</button>
                 <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
             </div>
+            </form>
                 
         </div>
 
@@ -92,7 +118,7 @@
                 
             </div>
 
-            <button class="close-btn absolute -right-1 -top-1 bg-white rounded-xl " id="close-lglogin">
+            <button   class="close-btn absolute -right-1 -top-1 bg-white rounded-xl " id="close-lglogin">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg> 
@@ -102,33 +128,99 @@
     </div>
 </div>
 
+
     <!-- REGISTER MODAL -->
+    <?php
+
+
+global $wpdb;
+
+if($_POST)  {
+  $username = $wpdb->escape($_POST['username']);
+  $email = $wpdb->escape($_POST['email']);
+  $password = $wpdb->escape($_POST['password']);
+  $confirmpassword = $wpdb->escape($_POST['confirmpassword']);
+
+  $erorr = array();
+
+  // nese username ka hapsir
+  if(strpos($username, ' ')!==FALSE) {
+    $erorr['username_space'] =  "";
+    
+  }
+
+   // nese username osht i zbrazt
+  if(empty($username)) {
+    $erorr['username_empty'] =  "";
+  
+  
+  }
+
+     // nese username egziston n databaz
+if(username_exists( $username )) {
+ 
+  $erorr['username_exists'] =  "";
+ 
+  
+
+}
+
+    // nese email osht valid
+if(!is_email($email)) {
+
+  $erorr['email_valid'] =  "";
+
+  
+  
+}
+
+// nese egziston email n databaz
+if(email_exists( $email )) {
+
+  $erorr['email_exists'] =  "";
+
+ 
+}
+
+if(strcmp($password, $confirmpassword) !==0) {
+  
+  $erorr['password'] =  "";
+
+  
+} 
+if(count($erorr) ==0) {
+  wp_create_user( $username, $password, $email );
+  echo "You have successfully registered.";
+  exit();
+}
+} 
+?> 
+
+
+
+
     <div class="bg-black bg-opacity-50 fixed inset-0 hidden justify-center items-center" id="overlay-register">
         
-        <div class="register-modal h-5/6 bg-white w-5/6 rounded-xl flex shadow-black shadow-lg">
-            
+        <div class="login-modal h-5/6 bg-white w-5/6 rounded-xl flex shadow-black shadow-lg">
             <div class="left-side w-2/4 p-24">
+            <h1 class="text-xsm pt-4">NOTE: If you are a company please add @company as your email domain name</h1>
                 <h1 class="text-2xl">Register</h1>
-                <form action="#" class="flex flex-col pt-2">
+                <form method="POST"  class="flex flex-col pt-2">
                     <label class="text-sm"for="name">Name</label>
-                    <input type="text" class="rounded-3xl px-2 py-1  border border-black">
-                    <label class="text-sm"for="lastname">Lastname</label>
-                    <input type="text" class="rounded-3xl px-2 py-1 border border-black">
+                    <input type="text" id="username" name="username" placeholder="example " class="rounded-3xl px-2 py-1  border border-black">
                     <label class="text-sm"for="email">Email</label>
-                    <input type="email" class="rounded-3xl px-2 py-1 border border-black">
-                    <label class="text-sm"for="username">Username</label>
-                    <input type="text" class="rounded-3xl  px-2 py-1 border border-black">
+                    <input type="email" id="email" name="email" placeholder="example@example.com"  class="rounded-3xl px-2 py-1 border border-black">
                     <label class="text-sm"for="password">Password</label>
-                    <input type="password" class="rounded-3xl px-2 py-1 border border-black">
+                    <input type="password" id="password" name="password" placeholder="********" class="rounded-3xl px-2 py-1 border border-black">
                     <label class="text-sm"for="email">Confirm Password</label>
-                    <input type="password" class="rounded-3xl px-2 py-1 border border-black">
-                    
-                </form>
+                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********"  class="rounded-3xl px-2 py-1 border border-black">
+                
                 <div class="bottom flex flex-col pt-8">
-                        <button class="bg-customGreen rounded-3xl py-3 px-2 text-white text-sm">Register</button>
+                <button type="submit" name="submit" id="submit" class="bg-customGreen rounded-3xl py-3 px-2 text-white text-sm">Register</button>
                         <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
                 </div>
-                    
+                </form>
+
             </div>
             <div class="right-side w-2/4 bg-customGreen rounded-r-xl p-24 relative">
                 <div class="right-side-icon bg-gradient-to-b from-[#e6e6e6]  shadow shadow-black h-full w-full rounded-xl p-14 relative">

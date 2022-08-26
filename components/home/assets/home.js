@@ -56,10 +56,3 @@
 //     });
 // });
 
-
-
-
-
-const ajaxLoadMore = () => {
-    console.log('hello');
-};
