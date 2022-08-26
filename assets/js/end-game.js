@@ -32,20 +32,41 @@ window.addEventListener('DOMContentLoaded', () =>{
 });
 
 
-const burgerMenu = document.getElementById("burger");
-const navbarMenu = document.getElementById("menu");
+const toggle = () => {
+    const nav = document.getElementById("topnav");
+    nav.className === "topnav" ? nav.className += " responsive" : nav.className = "topnav";
+};
 
-// Show and Hide Navbar Menu
-burgerMenu.addEventListener("click", () => {
-    burgerMenu.classList.toggle("is-active");
-    navbarMenu.classList.toggle("is-active");
 
-    if (navbarMenu.classList.contains("is-active")) {
-        navbarMenu.style.maxHeight = navbarMenu.scrollHeight + "px";
+//Load More
+jQuery(document).ready(function($){
 
-    } else {
-        navbarMenu.removeAttribute("style");
-    }
+    var page= 2;
+
+    var post_count = jQuery('.users').data('count');
+
+    var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
+
+
+    jQuery('.loadmore').click(function(){
+        console.log('works');
+
+        var data ={
+            'action': 'my_action',
+            'page': page
+        };
+
+        jQuery.post(ajaxurl , data , function(response) {
+
+            jQuery('.users').append(response);
+
+            if(post_count == page){
+                jQuery('.loadmore').text("No more Data");
+            }
+            
+            page++;
+
+        });
+    });
 });
-
 

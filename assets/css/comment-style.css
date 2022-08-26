@@ -1,0 +1,134 @@
+div#actual-article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 5%;
+}
+div#respond {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+h3#reply-title {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 1%;
+    margin-top: 1%;
+    border-bottom: 1px solid black;
+}
+form#commentform {
+    margin-top: 3%;
+    border: 1px solid transparent;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    padding: 3%;
+}
+p{
+    margin-left: 1%;
+}
+h1.comments-title {
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+.card-comments {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-height: 366px;
+    width: 50%;
+    background-color: transparent;
+    margin-top: 5%;
+}
+ul.commentlist {
+    width: 100%;
+    margin-left: 0;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: scroll;
+    border: 1px solid transparent;
+    margin-top: 3.5%;
+}
+ul.children {
+    margin-top: 6%;
+    margin-bottom: 10%;
+    margin-left: 6%;
+}
+li.comment.byuser {
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    height:200px;
+    padding: 2%;
+    margin-bottom: 35%;
+}
+.comment-author.vcard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+cite.fn {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-style: normal;
+}
+.comment-meta.commentmetadata {
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+.comment-body p{
+    margin-top: 3%;
+}
+.reply a {
+    font-weight: bold;
+    margin-top: 2%;
+    width: 20%;
+    height: 30px;
+    background-color: #c084fc;
+    border-radius: 6px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2%;
+}
+textarea#comment {
+    resize: none;
+    background-color: #efefef;
+}
+p.form-submit {
+    font-weight: bold;
+    margin-top: 3%;
+    width: 30%;
+    height: 40px;
+    background-color: #c084fc;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width:1439px) {
+    div#respond{
+        width: 90%;
+    }
+    .card-comments{
+        width: 90%;
+    }
+}
+@media (max-width:991px) {
+    div#respond{
+        width: 100%;
+    }
+    .card-comments{
+        width: 100%;
+    }
+}
