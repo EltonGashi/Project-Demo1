@@ -23,14 +23,7 @@ get_header();?>
                 <div class="users java-developer grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>" data-label="Java Developer"><?php
                 if( $the_query->have_posts()):
 
-
                     while( $the_query->have_posts() ): $the_query->the_post(); ?>
-
-                
-                $lastBlog = new WP_Query($args);
-                if( $lastBlog->have_posts()):
-
-                    while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
 
                         <?php get_template_part('/components/find-talents/developers/java','developer');?>
                         
