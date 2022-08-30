@@ -12,7 +12,9 @@
     <div class="user p-2 ">
         <div class="user-info flex mb-2 items-center">
             <div class="img pr-5 ">
-                <img src="<?php echo $image['url'];?>" class="w-10 h-10" />
+
+                <img src="<?php echo $image['url'];?>" class="w-10 h-10 rounded-full" />
+
             </div>
             <div class="user-name text-basic font-semibold">
                 <?php the_title(); ?>
