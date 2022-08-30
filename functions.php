@@ -27,12 +27,12 @@ function menu_setup(){
     add_theme_support('menus');
     register_nav_menu('primary', 'Primary Header Navigation');
     register_nav_menu('secondary', 'Footer Navigation');
+    register_nav_menu('social media','Social Media Menu');
     
 }
 add_action('init', 'menu_setup');
 
-function font_awesome_cdn()
-{
+function font_awesome_cdn(){
     wp_register_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
     wp_enqueue_style('fontawesome');
 }
@@ -381,7 +381,7 @@ function mytheme_comment($comment, $args, $depth) {
             if ( $args['avatar_size'] != 0 ) {
                 echo get_avatar( $comment, $args['avatar_size'] ); 
             } 
-            printf( __( '<cite class="fn">%s</cite> <span class="says">commented:</span>' ), get_comment_author_link() ); ?>
+            printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
         </div><?php 
         if ( $comment->comment_approved == '0' ) { ?>
             <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 
@@ -397,22 +397,59 @@ function mytheme_comment($comment, $args, $depth) {
             </a><?php 
             edit_comment_link( __( 'Edit' ), '  ', '' ); ?>
         </div>
-
         <?php comment_text(); ?>
-        <div class="reply"><?php 
-                comment_reply_link( 
-                    array_merge( 
-                        $args, 
-                        array( 
-                            'add_below' => $add_below, 
-                            'depth'     => $depth, 
-                            'max_depth' => $args['max_depth'] 
-                        ) 
-                    ) 
-                ); ?>
+        <div class="reply">
+            <?php comment_reply_link( array_merge($args, array(
+    'reply_text' => __('Reply <span>&darr;</span>', 'textdomain'),
+    'depth'      => $depth,
+    'max_depth'  => $args['max_depth']
+    )
+)); ?>
         </div><?php 
     if ( 'div' != $args['style'] ) : ?>
         </div><?php 
     endif;
 }
 
+if (function_exists('register_sidebar')) {
+    register_sidebar(array(
+        'name' => 'Footer Left',
+        'id'   => 'footer-left-widget',
+        'description'   => 'Left Footer widget position.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+    register_sidebar(array(
+        'name' => 'Footer Left Center',
+        'id'   => 'footer-left-center-widget',
+        'description'   => 'Left Center Footer widget position.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+
+    register_sidebar(array(
+        'name' => 'Footer Right Center',
+        'id'   => 'footer-center-widget',
+        'description'   => 'Centre Footer widget position.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+
+    register_sidebar(array(
+        'name' => 'Footer Right',
+        'id'   => 'footer-right-widget',
+        'description'   => 'Right Footer widget position.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2>',
+        'after_title'   => '</h2>'
+    ));
+
+
+}

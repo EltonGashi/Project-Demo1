@@ -314,3 +314,8 @@ img.attachment-large.size-large.wp-post-image {
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
 }
+#nav_menu-2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
