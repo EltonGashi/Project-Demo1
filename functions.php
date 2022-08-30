@@ -69,6 +69,12 @@ function my_action_javascript() { ?>
         jQuery(document).ready(function($){
             
             var page= 2;
+            page1 = 2;
+            page2 = 2;
+            page3 = 2;
+            page4 = 2;
+            page5 = 2; 
+            page6 = 2;
 
 
             var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
@@ -93,70 +99,236 @@ function my_action_javascript() { ?>
                 jQuery.post(ajaxurl , data , function(response) {
                     jQuery(sibling).append(response);
 
-                    if(count == page){
-                        btn.textContent="no more data";
-                    };
-                    page++;
+                    
+                    console.log(count);
+                    if(category =='Java Developer'){
+                        
+                        if(count == page1){
+                            $(btn).text("No more data");
+                        };
+                        page1++;
+                    }else if(category == 'it-technichian'){
+                        page2++;
+                        if(count == page2){
+                            $(btn).text("No more data");
+                        };
 
-                });
+                    }else if(category == 'software-developer'){
+                        page3++;
+                        if(count == page3){
+                            $(btn).text("No more data");
+                        };
+
+                    }else if(category == 'PHP developer'){
+                        page4++;
+                        if(count == page4){
+                            $(btn).text("No more data");
+                        };
+
+                    }else if(category == 'Front End Developer'){
+                        page5++;
+                        if(count == page5){
+                            $(btn).text("No more data");
+                        };
+
+                    }else if(category == 'python-developer'){
+                        page6++;
+                        if(count == page6){
+                            $(btn).text("No more data");
+                        };
+
+                    }else if(category == 'graphic-designer'){
+                        page7++;
+                        if(count == page7){
+                            $(btn).text("No more data");
+                        };
+
+                    }else {
+                        page++;
+                        if(count == page){
+                            $(btn).text("No more data");
+                        };
+                    }
+
+                }); 
+
                 });
             });
-            // jQuery('.findMore').each(function(){
-            //     jQuery('.findMore').click(function() {
-            //         var cat = jQuery('.users').data('label');
 
-            //         var post_count = jQuery('.users').data('count');
-                    
+        });
 
-            //         var data ={
-            //             'action': 'my_action',
-            //             'cat': cat,
-            //             'page': page
-            //         };
-
-            //         jQuery.post(ajaxurl , data , function(response) {
-
-            //             jQuery('.users').append(response);
-
-            //             if(post_count == page){
-            //                 $('.loadmore').text("No more Data");
-            //             }
-                        
-            //             page++;
-
-            //         });
-            //         });
-            //     });
-             });
-
-            </script><?php
+    </script><?php
 }
 add_action('wp_footer', 'my_action_javascript');
 
 
 function my_action(){
 
-    
-    $args =array(
-        'post_type' => 'post',
-        'category_name' =>$_POST['cat'],
-        'paged' => $_POST['page'],
+        $cat = $_POST['cat'];
 
-    );  
+        if($cat == 'Java Developer'){
 
-    $the_query = new WP_Query( $args); ?>
-        <?php if( $the_query->have_posts() ): ?>
+        $args1 =array(
+            'post_type' => 'post',
+            'category_name' =>$_POST['cat'],
+            'paged' => $_POST['page'],
+        ); 
+        $the_query1 = new WP_Query( $args1); ?>
+        <?php if( $the_query1->have_posts() ): ?>
 
-        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> 
+        <?php while ( $the_query1->have_posts() ) : $the_query1->the_post(); ?> 
 
-            <?php get_template_part('/components/home/card_users/user' , 'cards');?>
-            
+            <?php get_template_part('/components/find-talents/developers/java','developer');?>
+
 
         <?php endwhile; ?>
 
             <?php wp_reset_postdata(); ?>
 
         <?php endif;
+        }else if($cat == 'it-technichian'){
+            $args2 =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+            
+            $the_query2 = new WP_Query( $args2); ?>
+            
+            <?php if( $the_query2->have_posts() ): ?>
+    
+            <?php while ( $the_query2->have_posts() ) : $the_query2->the_post(); ?> 
+    
+                <?php get_template_part('./components/find-talents/it/it','technician');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'software-developer'){
+            $args3 =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query3 = new WP_Query( $args3); ?>
+            
+            <?php if( $the_query3->have_posts() ): ?>
+    
+            <?php while ( $the_query3->have_posts() ) : $the_query3->the_post(); ?> 
+    
+                <?php get_template_part('./components/find-talents/developers/software-developer');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'PHP developer'){
+            $args4 =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query4 = new WP_Query( $args4); ?>
+            
+            <?php if( $the_query4->have_posts() ): ?>
+    
+            <?php while ( $the_query4->have_posts() ) : $the_query4->the_post(); ?> 
+    
+                <?php get_template_part('./components/find-talents/developers/php-developer');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'Front End Developer'){
+            $args5 =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query5 = new WP_Query( $args5); ?>
+            
+            <?php if( $the_query5->have_posts() ): ?>
+    
+            <?php while ( $the_query5->have_posts() ) : $the_query5->the_post(); ?> 
+    
+                <?php get_template_part('./components/find-talents/developers/front-end-developer');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'python-developer'){
+            $args6 =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query6 = new WP_Query( $args6); ?>
+            
+            <?php if( $the_query6->have_posts() ): ?>
+    
+            <?php while ( $the_query6->have_posts() ) : $the_query6->the_post(); ?> 
+    
+                <?php get_template_part('./components/find-talents/developers/python-developer');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'graphic-designer'){
+            $args7 =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query7 = new WP_Query( $args7); ?>
+            
+            <?php if( $the_query7->have_posts() ): ?>
+    
+            <?php while ( $the_query7->have_posts() ) : $the_query7->the_post(); ?> 
+    
+                <?php get_template_part('./components/find-talents/designers/graphic','designers');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else{
+            $args =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+            
+            $the_query = new WP_Query( $args); ?>
+            
+            <?php if( $the_query->have_posts() ): ?>
+    
+            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> 
+    
+                <?php get_template_part('/components/home/card_users/user' , 'cards');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+
+        }
+        wp_die();
 
 }
 
@@ -178,6 +350,19 @@ add_role(
         'moderate_comments'=> true, // 
     )
 );
+
+function post_published_limit( $ID, $post ) {
+    $max_posts = 1; // change this or set it as an option that you can retrieve.
+    $author = $post->post_author; // Post author ID.
+    $count = count_user_posts( $author, 'post'); // get author post count
+
+    if ( $count > $max_posts ) {
+        // count too high, let's set it to draft.
+        $post->post_status = 'draft';
+        wp_update_post( $post);
+    }
+}
+add_action( 'publish_post', 'post_published_limit', 10, 2 );
 
 function mytheme_comment($comment, $args, $depth) {
     if ( 'div' === $args['style'] ) {

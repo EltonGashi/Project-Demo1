@@ -13,15 +13,16 @@
             <?php 
 
             $args1 =array(
-                'post_type' => 'post',
-                
+                'post_type' => 'post',  
                 'posts_per_page' => -1,
                 'category__not_in' => 11,
+                'offset' =>4,
             );
             $the_query1 = new WP_Query( $args1); 
 
             $args =array(
                 'post_type' => 'post',
+                
                 'paged' => get_query_var('paged',1),
                 'posts_per_page' => 8,
                 // 'offset' =>1,

@@ -156,9 +156,9 @@ get_header();?>
                     'category_name' => 'Front End Developer',
                     'posts_per_page' => 4,
                 );
-
+                ?> <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query4->found_posts/2); ?>" data-label="Front End Developer"><?php
                 $the_query4 = new WP_Query($args4);?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query4->found_posts/2); ?>" data-label="Front End Developer"><?php
+                <?php
 
                 if( $the_query4->have_posts()):
 
