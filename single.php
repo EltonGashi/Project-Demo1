@@ -138,7 +138,7 @@
         
         <div id="actual-article">
                 <?php comments_template();?>
-
+                
                 <div class="card-comments">
                     <h1 class="comments-title">Comments</h1>
                     <ul class="commentlist">

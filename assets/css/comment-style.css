@@ -37,7 +37,7 @@ h1.comments-title {
     display: flex;
     flex-direction: column;
     height: auto;
-    max-height: 366px;
+    max-height: 700px;
     width: 50%;
     background-color: transparent;
     margin-top: 5%;
@@ -48,22 +48,24 @@ ul.commentlist {
     margin: auto;
     flex-direction: column;
     justify-content: center;
-    overflow-y: scroll;
+    overflow-y: auto;
     border: 1px solid transparent;
     margin-top: 3.5%;
+    list-style-position: inside;
 }
 ul.children {
     margin-top: 6%;
     margin-bottom: 10%;
-    margin-left: 6%;
+    margin-left: 3%;
+    border-top: 1px solid black;
 }
 li.comment.byuser {
     background-color: #ffffff;
     border: 1px solid transparent;
     border-radius: 10px;
-    height:200px;
+    height:auto;
     padding: 2%;
-    margin-bottom: 35%;
+    margin-bottom: 10%;
 }
 .comment-author.vcard {
     display: flex;
@@ -94,6 +96,13 @@ cite.fn {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.reply-btn {
+    display: flex;
+    color: #0000ff;
+    cursor: pointer;
+    justify-content: flex-end;
+    width: 100%;
 }
 .form-inputs {
     display: flex;
