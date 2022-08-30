@@ -1,14 +1,10 @@
-
-   
-<div class="div ">
-   
    <h1 class="font-medium flex justify-center text-3xl ">Your work can be done in over 700 different categories</h1>
     
     
     <br>
     <br>
     
-    <div class=" flex justify-evenly h-14 w-full">
+    <div class=" flex justify-evenly h-14 w-full ">
       
     <img class="" src="<?php echo get_template_directory_uri(); ?>./assets/img/CategoriesImages/sql-server.png" alt="" />
     <img class="" src="<?php echo get_template_directory_uri(); ?>./assets/img/CategoriesImages/wordpress.png" alt="" />
@@ -34,6 +30,5 @@
          <img class="" src="<?php echo get_template_directory_uri(); ?>./assets/img/CategoriesImages/smartphone-call.png" alt="" /> 
          </div>
 
-</div>
 
 
