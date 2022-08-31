@@ -1,10 +1,12 @@
 <?php
 /*
-    Template Name: Find Talents
+    Template Name: Find Jobs
 */
 
 get_header();?>
 
+
+<div>UNCER CONSTRUction</div>
 <?php 
 
 $args_cat = array(
@@ -29,7 +31,6 @@ foreach($categories as $category):
 
         while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
             
-            <?php get_template_part('/components/home/card_users/user' , 'cards');?>
             
         <?php endwhile;
 

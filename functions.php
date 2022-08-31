@@ -134,7 +134,7 @@ function my_action_javascript() { ?>
                     var data = {
                         'action': 'my_action',
                         'cat': category,
-                        'page': page6,
+                        'page': page7,
                     };
                 }else{
                     var data = {
@@ -150,50 +150,64 @@ function my_action_javascript() { ?>
 
                     if(category =='Java Developer'){
                         page1++;
-                        console.log(page1);
                         if(count == page1){
                             $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
                         
                     }else if(category == 'It Technichian'){
                         page2++;
                         if(count == page2){
                             $(btn).text("No more data");
-                            $(btn).addClass("disabled");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
 
                     }else if(category == 'Software Developer'){
                         page3++;
                         if(count == page3){
                             $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
 
                     }else if(category == 'PHP developer'){
                         page4++;
                         if(count == page4){
                             $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
 
                     }else if(category == 'Front End Developer'){
                         page5++;
                         if(count == page5){
                             $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
 
                     }else if(category == 'Python Developer'){
                         page6++;
                         if(count == page6){
                             $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
 
                     }else if(category == 'Graphic Designer'){
                         page7++;
                         if(count == page7){
                             $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
                     }else {
                         if(count == page){
                             $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
                         };
                         page++;
                     }
@@ -215,26 +229,25 @@ function my_action(){
         $cat = $_POST['cat'];
 
         if($cat == 'Java Developer'){
-            
-        $args1 =array(
-            'post_type' => 'post',
-            'category_name' =>$_POST['cat'],
-            'paged' => $_POST['page'],
-        ); 
-        $the_query1 = new WP_Query( $args1); 
-        ?>
-        <?php if( $the_query1->have_posts() ): ?>
+            $args1 =array(
+                'post_type' => 'post',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+            $the_query1 = new WP_Query( $args1); 
+            ?>
+            <?php if( $the_query1->have_posts() ): ?>
 
-        <?php while ( $the_query1->have_posts() ) : $the_query1->the_post(); ?> 
+            <?php while ( $the_query1->have_posts() ) : $the_query1->the_post(); ?> 
 
-            <?php get_template_part('/components/find-talents/developers/java','developer');?>
+                <?php get_template_part('/components/find-talents/developers/java','developer');?>
 
 
-        <?php endwhile; ?>
+            <?php endwhile; ?>
 
-            <?php wp_reset_postdata(); ?>
+                <?php wp_reset_postdata(); ?>
 
-        <?php endif;
+            <?php endif;
         }else if($cat == 'It Technichian'){
             $args2 =array(
                 'post_type' => 'post',

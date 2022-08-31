@@ -26,10 +26,7 @@
 
             );
             $the_query = new WP_Query( $args); 
-            
-            $max = $the_query->max_num_pages;
-            echo $max;
-            
+
             ?>
             <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>">
             <?php if( $the_query->have_posts() ): ?>
@@ -45,11 +42,7 @@
             <?php endif; ?>
 
             </div>
-            
-        
-        <div class="findMore flex items-center justify-center pt-12">
-            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-        </div>
+            <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
         
     </section>
         
