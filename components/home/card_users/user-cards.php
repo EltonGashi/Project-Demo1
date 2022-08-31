@@ -9,7 +9,7 @@
 
             <?php endwhile;?>
         <?php endif;?>
-    <div class="user p-2 ">
+    <div class="user p-2 w-">
         <div class="user-info flex mb-2 items-center">
             <div class="img pr-5 ">
 
@@ -39,9 +39,9 @@
                     <?php endwhile;?>
                     <?php endif;?>
 
-        <button type="button" class="ml-48 text-white bg-green-700 hover:bg-green-800  rounded-full text-xs px-4 py-2 text-center justify-self-end">
+        <button type="button" class="flex w-full text-white text-xs justify-end p-1 ">
             <?php $link = get_permalink();  ?>
-            <p class="w-full"><?php print '<a href="'.$link.'">More Info ...</a>' ?></p>  
+            <p class="bg-green-700 hover:bg-green-800  rounded-full px-4 py-2 text-center"><?php print '<a href="'.$link.'">More Info ...</a>' ?></p>  
         </button>
                 
     </div>
