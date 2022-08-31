@@ -20,7 +20,7 @@ get_header();?>
                 );
 
                 $the_query1 = new WP_Query($args1);?>
-                <div class="users grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="Java Developer"><?php
+                <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="Java Developer"><?php
                 if( $the_query1->have_posts()):
 
                     while( $the_query1->have_posts() ): $the_query1->the_post(); ?>
@@ -53,7 +53,7 @@ get_header();?>
                 );
 
                 $the_query2 = new WP_Query($args2); ?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query2->found_posts/2); ?>" data-label="It Technichian"><?php
+                <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query2->found_posts/2); ?>" data-label="It Technichian"><?php
 
                 if( $the_query2->have_posts()):
 
@@ -86,7 +86,7 @@ get_header();?>
                 );
 
                 $the_query3 = new WP_Query($args3);?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query3->found_posts/2); ?>" data-label="Software Developer"><?php
+                <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query3->found_posts/2); ?>" data-label="Software Developer"><?php
 
                 if( $the_query3->have_posts()):
 
@@ -118,7 +118,7 @@ get_header();?>
                 );
                 
                 $the_query4 = new WP_Query($args4);?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query4->found_posts/2); ?>" data-label="PHP developer"><?php
+                <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query4->found_posts/2); ?>" data-label="PHP developer"><?php
 
                 if( $the_query4->have_posts()):
 
@@ -150,9 +150,8 @@ get_header();?>
                     'posts_per_page' => 4,
                 );
                 $the_query5 = new WP_Query($args5);?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query5->found_posts/2); ?>" data-label="Front End Developer">
+                <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query5->found_posts/2); ?>" data-label="Front End Developer">
                 <?php
-
                 if( $the_query5->have_posts()):
 
                     while( $the_query5->have_posts() ): $the_query5->the_post(); ?>
@@ -184,7 +183,7 @@ get_header();?>
                 );
 
                 $the_query6 = new WP_Query($args6); ?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query6->found_posts/2); ?>" data-label="Python Developer">
+                <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query6->found_posts/2); ?>" data-label="Python Developer">
                 <?php
                 if( $the_query6->have_posts()):
 
@@ -217,7 +216,7 @@ get_header();?>
 
                 $the_query7 = new WP_Query($args7);
                 ?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query7->found_posts/2); ?>" data-label="Graphic Designer"><?php
+                <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query7->found_posts/2); ?>" data-label="Graphic Designer"><?php
 
                 if( $the_query7->have_posts()):
 
