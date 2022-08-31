@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="user-content text-basic mb-5">
-                                    <?php print wp_trim_words($qv->post_content,40,'... <a href="'.$link.'">Continue Reading</a>'); ?>
+                                    <?php print wp_trim_words($qv->post_content,5,'... '); ?>
                                 </div>
                                 <div class="rating flex items-center mb-5">
                                     <div class="star pr-2">

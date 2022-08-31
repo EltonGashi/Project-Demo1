@@ -7,18 +7,10 @@
   ?>
 
     <!-- ////////////// CONTAINER-START ////////////// -->
-<div class="container bg-bg p-20">
+<div class="container w-full bg-bg p-20">
     <h1 class="text-4xl py-5">Services from Users</h1>
     <section id="users" class="py-10">
             <?php 
-
-            $args1 =array(
-                'post_type' => 'post',  
-                'posts_per_page' => -1,
-                'category__not_in' => 11,
-                'offset' =>4,
-            );
-            $the_query1 = new WP_Query( $args1); 
 
             $args =array(
                 'post_type' => 'post',
@@ -33,8 +25,13 @@
                 // 'category__not_in' => array(1),
 
             );
-            $the_query = new WP_Query( $args); ?>
-            <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>">
+            $the_query = new WP_Query( $args); 
+            
+            $max = $the_query->max_num_pages;
+            echo $max;
+            
+            ?>
+            <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>">
             <?php if( $the_query->have_posts() ): ?>
 
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -74,7 +71,7 @@
             </div>
         </div>
             
-        <div id ="services" class="grid xl:grid-cols-4  gap-24 py-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-8">
+        <div id ="services" class="grid xl:grid-cols-4  gap-8 py-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-8">
             <?php if( have_rows('content_section_one') ): ?>
 
                 <?php while( have_rows('content_section_one') ): the_row();?>

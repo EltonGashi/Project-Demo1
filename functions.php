@@ -68,13 +68,14 @@ function my_action_javascript() { ?>
     <script type="text/javascript" >
         jQuery(document).ready(function($){
             
-            var page= 2;
-            page1 = 2;
-            page2 = 2;
-            page3 = 2;
-            page4 = 2;
-            page5 = 2; 
-            page6 = 2;
+            var page  = 2;
+            var page1 = 2;
+            var page2 = 2;
+            var page3 = 2;
+            var page4 = 2;
+            var page5 = 2; 
+            var page6 = 2;
+            var page7 = 2;
 
 
             var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
@@ -89,31 +90,79 @@ function my_action_javascript() { ?>
 
                 var category = sibling.dataset.label;
                 
+                if(category=='Java Developer'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page1,
+                    };
+                }else if(category=='It Technichian'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page2,
+                    };
 
-                var data = {
-                    'action': 'my_action',
-                    'cat': category,
-                    'page': page,
-                };
+                }else if(category=='Software Developer'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page3,
+                    };
+
+                }else if(category=='PHP developer'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page4,
+                    };
+
+                }else if(category=='Front End Developer'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page5,
+                    };
+                }else if(category=='Python Developer'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page6,
+                    };
+                }
+                else if(category=='Graphic Designer'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page6,
+                    };
+                }else{
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page,
+                    };
+                }
+                    
 
                 jQuery.post(ajaxurl , data , function(response) {
                     jQuery(sibling).append(response);
 
-                    
-                    console.log(count);
                     if(category =='Java Developer'){
-                        
+                        page1++;
+                        console.log(page1);
                         if(count == page1){
                             $(btn).text("No more data");
                         };
-                        page1++;
-                    }else if(category == 'it-technichian'){
+                        
+                    }else if(category == 'It Technichian'){
                         page2++;
                         if(count == page2){
                             $(btn).text("No more data");
+                            $(btn).addClass("disabled");
                         };
 
-                    }else if(category == 'software-developer'){
+                    }else if(category == 'Software Developer'){
                         page3++;
                         if(count == page3){
                             $(btn).text("No more data");
@@ -131,23 +180,22 @@ function my_action_javascript() { ?>
                             $(btn).text("No more data");
                         };
 
-                    }else if(category == 'python-developer'){
+                    }else if(category == 'Python Developer'){
                         page6++;
                         if(count == page6){
                             $(btn).text("No more data");
                         };
 
-                    }else if(category == 'graphic-designer'){
+                    }else if(category == 'Graphic Designer'){
                         page7++;
                         if(count == page7){
                             $(btn).text("No more data");
                         };
-
                     }else {
-                        page++;
                         if(count == page){
                             $(btn).text("No more data");
                         };
+                        page++;
                     }
 
                 }); 
@@ -167,13 +215,14 @@ function my_action(){
         $cat = $_POST['cat'];
 
         if($cat == 'Java Developer'){
-
+            
         $args1 =array(
             'post_type' => 'post',
             'category_name' =>$_POST['cat'],
             'paged' => $_POST['page'],
         ); 
-        $the_query1 = new WP_Query( $args1); ?>
+        $the_query1 = new WP_Query( $args1); 
+        ?>
         <?php if( $the_query1->have_posts() ): ?>
 
         <?php while ( $the_query1->have_posts() ) : $the_query1->the_post(); ?> 
@@ -186,7 +235,7 @@ function my_action(){
             <?php wp_reset_postdata(); ?>
 
         <?php endif;
-        }else if($cat == 'it-technichian'){
+        }else if($cat == 'It Technichian'){
             $args2 =array(
                 'post_type' => 'post',
                 'category_name' =>$_POST['cat'],
@@ -206,7 +255,7 @@ function my_action(){
                 <?php wp_reset_postdata(); ?>
     
             <?php endif;
-        }else if($cat == 'software-developer'){
+        }else if($cat == 'Software Developer'){
             $args3 =array(
                 'post_type' => 'post',
                 'category_name' =>$_POST['cat'],
@@ -266,7 +315,7 @@ function my_action(){
                 <?php wp_reset_postdata(); ?>
     
             <?php endif;
-        }else if($cat == 'python-developer'){
+        }else if($cat == 'Python Developer'){
             $args6 =array(
                 'post_type' => 'post',
                 'category_name' =>$_POST['cat'],
@@ -286,14 +335,14 @@ function my_action(){
                 <?php wp_reset_postdata(); ?>
     
             <?php endif;
-        }else if($cat == 'graphic-designer'){
+        }else if($cat == 'Graphic Designer'){
             $args7 =array(
                 'post_type' => 'post',
                 'category_name' =>$_POST['cat'],
                 'paged' => $_POST['page'],
             ); 
 
-            $the_query7 = new WP_Query( $args7); ?>
+            $the_query7 = new WP_Query( $args7 ); ?>
             
             <?php if( $the_query7->have_posts() ): ?>
     
@@ -310,7 +359,7 @@ function my_action(){
             $args =array(
                 'post_type' => 'post',
                 'category_name' =>$_POST['cat'],
-                'paged' => $_POST['page'],
+                'paged' => $_POST['page']+1,
             ); 
             
             $the_query = new WP_Query( $args); ?>
@@ -329,7 +378,6 @@ function my_action(){
 
         }
         wp_die();
-
 }
 
 add_action('wp_ajax_nopriv_my_action', 'my_action');
