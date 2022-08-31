@@ -31,7 +31,7 @@
             echo $max;
             
             ?>
-            <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>">
+            <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>">
             <?php if( $the_query->have_posts() ): ?>
 
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>

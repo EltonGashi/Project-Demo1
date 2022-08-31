@@ -153,7 +153,7 @@
 <div class="my-16 font-extrabold text-2xl"><?php $cat = the_category(); ?></div>
 
 <section id="users">
-        <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
+        <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
     
         <?php
             $categories1 = get_the_category();
