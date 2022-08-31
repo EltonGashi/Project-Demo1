@@ -85,6 +85,7 @@ if(isset($_POST['submit'])) {
                 <form method="POST" class="flex flex-col ">
                     <label for="email md:text-sm">Email</label>
                     <input type="text" id="username" name="username" placeholder="example@example.com " class="xl:mt-5 xl:h-full lg:h-full md:h-full lg:mt-5 md:mt-5 sm:mt-0 sm:h-5  rounded-3xl py-2 px-2 border border-black ">
+                    <br>
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="********"  class="xl:mt-5 xl:h-full lg:h-full md:h-full lg:mt-5 md:mt-5 sm:mt-0 sm:h-5 rounded-3xl py-2 px-2 border border-black">
                     <small class="text-customGreen text-center">
@@ -204,16 +205,16 @@ if(count($erorr) ==0) {
             <div class="left-side xl:h-full lg:h-full md:h-full xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full sm:h-auto xl:p-20 lg:p-12 md:p-5 sm:p-4 ">
 
             <h1 class="text-sm xl:pt-4 lg:pt-4 md:pt-4 sm:pt-0 sm:text-xs ">NOTE: If you are a company please add @company as your email domain name</h1>
-                <h1 class="xl:text-2xl lg:text-xl md:text-basic sm:text-sm  font-semibold xl:pt-5 lg:pt-5 md:pt-5 sm:pt-2">Register</h1>
-                <form method="POST"  class="flex flex-col pt-2">
+                <h1 class="xl:text-2xl lg:text-xl md:text-basic sm:text-sm  font-semibold xl:pt-5 lg:pt-5 md:pt-5 sm:pt-2 mb-2">Register</h1>
+                <form method="POST"  class="flex flex-col">
                     <label class="text-sm"for="name">Name</label>
-                    <input type="text" id="username" name="username" placeholder="example " class="rounded-3xl px-2 py-1  border border-black  xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
+                    <input type="text" id="username" name="username" placeholder="example " class="rounded-3xl px-2 py-1  border border-black  xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6 mb-2">
                     <label class="text-sm "for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="example@example.com"  class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
+                    <input type="email" id="email" name="email" placeholder="example@example.com"  class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6 mb-2">
                     <label class="text-sm"for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="********" class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
+                    <input type="password" id="password" name="password" placeholder="********" class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6 mb-2">
                     <label class="text-sm"for="email">Confirm Password</label>
-                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********"  class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
+                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********"  class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6 mb-2">
                     <div class="bottom flex flex-col pt-8">
                     <button type="submit" name="submit" id="submit" class="bg-customGreen rounded-3xl xl:py-3 lg:py-1 px-2 text-white text-sm xl:h-full lg:h-5/6 md:h-full">Register</button>
                     <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
