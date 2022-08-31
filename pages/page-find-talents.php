@@ -6,24 +6,24 @@
 get_header();?>
 <div class="container bg-bg p-20">
     
-    <section id="java-developer" class="py-10">
+    <section id="Java Developer" class="py-10">
 
         <h1 class="text-3xl py-5">Java Developer</h1>
         
             <?php
 
-                $args = array(
+                $args1 = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
                     'category_name' => 'Java Developer',
                     'posts_per_page' => 4,
                 );
 
-                $the_query = new WP_Query($args);?>
-                <div class="users java-developer grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>" data-label="Java Developer"><?php
-                if( $the_query->have_posts()):
+                $the_query1 = new WP_Query($args1);?>
+                <div class="users grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="Java Developer"><?php
+                if( $the_query1->have_posts()):
 
-                    while( $the_query->have_posts() ): $the_query->the_post(); ?>
+                    while( $the_query1->have_posts() ): $the_query1->the_post(); ?>
 
                         <?php get_template_part('/components/find-talents/developers/java','developer');?>
                         
@@ -41,24 +41,24 @@ get_header();?>
     </section>
 
     
-    <section id="it-technician" class="py-10">
+    <section id="It Technichian" class="py-10">
         <h1 class="text-3xl py-5">It Technichian</h1>
         
             <?php
 
-                $args1 = array(
+                $args2 = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'it-technichian',
+                    'category_name' => 'It Technichian',
                     'posts_per_page' => 4,
                 );
 
-                $the_query1 = new WP_Query($args1); ?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="it-technichian"><?php
+                $the_query2 = new WP_Query($args2); ?>
+                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query2->found_posts/2); ?>" data-label="It Technichian"><?php
 
-                if( $the_query1->have_posts()):
+                if( $the_query2->have_posts()):
 
-                    while( $the_query1->have_posts() ): $the_query1->the_post(); ?>
+                    while( $the_query2->have_posts() ): $the_query2->the_post(); ?>
 
                         <?php get_template_part('./components/find-talents/it/it','technician');?>
                         
@@ -76,24 +76,24 @@ get_header();?>
     </section>
 
     
-    <section id="software-developer" class="py-10">
+    <section id="Software Developer" class="py-10">
         <h1 class="text-3xl py-5">Software Developer</h1>
         
             <?php
 
-                $args2 = array(
+                $args3 = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'software-developer',
+                    'category_name' => 'Software Developer',
                     'posts_per_page' => 4,
                 );
 
-                $the_query2 = new WP_Query($args2);?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query2->found_posts/2); ?>" data-label="software-developer"><?php
+                $the_query3 = new WP_Query($args3);?>
+                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query3->found_posts/2); ?>" data-label="Software Developer"><?php
 
-                if( $the_query2->have_posts()):
+                if( $the_query3->have_posts()):
 
-                    while( $the_query2->have_posts() ): $the_query2->the_post(); ?>
+                    while( $the_query3->have_posts() ): $the_query3->the_post(); ?>
                         
                         <?php get_template_part('./components/find-talents/developers/software-developer');?>
                         
@@ -110,24 +110,24 @@ get_header();?>
     </section>
 
     
-    <section id="php-developer" class="py-10">
+    <section id="PHP Developer" class="py-10">
     <h1 class="text-3xl py-5">PHP Developer</h1>
         
             <?php
 
-                $args3 = array(
+                $args4 = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
                     'category_name' => 'PHP developer',
                     'posts_per_page' => 4,
                 );
                 
-                $the_query3 = new WP_Query($args3);?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query3->found_posts/2); ?>" data-label="PHP developer"><?php
+                $the_query4 = new WP_Query($args4);?>
+                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query4->found_posts/2); ?>" data-label="PHP developer"><?php
 
-                if( $the_query3->have_posts()):
+                if( $the_query4->have_posts()):
 
-                    while( $the_query3->have_posts() ): $the_query3->the_post(); ?>
+                    while( $the_query4->have_posts() ): $the_query4->the_post(); ?>
                     
                         
                         <?php get_template_part('./components/find-talents/developers/php-developer');?>
@@ -145,24 +145,24 @@ get_header();?>
     </section>
 
     
-    <section id="front-end-developer" class="py-10">
+    <section id="fFront End Developer" class="py-10">
     <h1 class="text-3xl py-5">Front End Developer</h1>
         
             <?php
 
-                $args4 = array(
+                $args5 = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
                     'category_name' => 'Front End Developer',
                     'posts_per_page' => 4,
                 );
-                ?> <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query4->found_posts/2); ?>" data-label="Front End Developer"><?php
-                $the_query4 = new WP_Query($args4);?>
+                $the_query5 = new WP_Query($args5);?>
+                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query5->found_posts/2); ?>" data-label="Front End Developer">
                 <?php
 
-                if( $the_query4->have_posts()):
+                if( $the_query5->have_posts()):
 
-                    while( $the_query4->have_posts() ): $the_query4->the_post(); ?>
+                    while( $the_query5->have_posts() ): $the_query5->the_post(); ?>
                     
                         
                         <?php get_template_part('./components/find-talents/developers/front-end-developer');?>
@@ -180,24 +180,24 @@ get_header();?>
     </section>
 
     
-    <section id="python-developer" class="py-10">
+    <section id="Python Developer" class="py-10">
     <h1 class="text-3xl py-5">Python Developer</h1>
         
             <?php
 
-                $args5 = array(
+                $args6 = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'python-developer',
+                    'category_name' => 'Python Developer',
                     'posts_per_page' => 4,
                 );
 
-                $the_query5 = new WP_Query($args5); ?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query5->found_posts/2); ?>" data-label="python-developer">
+                $the_query6 = new WP_Query($args6); ?>
+                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query6->found_posts/2); ?>" data-label="Python Developer">
                 <?php
-                if( $the_query5->have_posts()):
+                if( $the_query6->have_posts()):
 
-                    while( $the_query5->have_posts() ): $the_query5->the_post(); ?>
+                    while( $the_query6->have_posts() ): $the_query6->the_post(); ?>
                         
                         <?php get_template_part('./components/find-talents/developers/python-developer');?>
                         
@@ -214,25 +214,25 @@ get_header();?>
     </section>
 
     
-    <section id="graphic-designer" class="py-10">
+    <section id="Graphic Designer" class="py-10">
     <h1 class="text-3xl py-5" >Graphic Designers</h1>
         
             <?php
 
-                $args6 = array(
+                $args7 = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
-                    'category_name' => 'graphic-designer',
+                    'category_name' => 'Graphic Designer',
                     'posts_per_page' => 4,
                 );
 
-                $the_query6 = new WP_Query($args6);
+                $the_query7 = new WP_Query($args7);
                 ?>
-                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query6->found_posts/2); ?>" data-label="graphic-designer"><?php
+                <div class="users  grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query7->found_posts/2); ?>" data-label="Graphic Designer"><?php
 
-                if( $the_query6->have_posts()):
+                if( $the_query7->have_posts()):
 
-                    while( $the_query6->have_posts() ): $the_query6->the_post(); ?>
+                    while( $the_query7->have_posts() ): $the_query7->the_post(); ?>
                         
                         <?php get_template_part('./components/find-talents/designers/graphic','designers');?>
                         

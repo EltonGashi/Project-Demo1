@@ -22,7 +22,7 @@
         </div>
 
         <div class="user-content text-basic mb-5">
-            <?php echo wp_trim_words( get_the_content(), 10 ); ?>
+            <?php echo wp_trim_words( get_the_content(), 5); ?>
         </div>
 
                 <!--- Rating --->
