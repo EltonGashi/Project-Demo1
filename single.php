@@ -118,9 +118,7 @@
         
         <div class=" gap-8 xl:grid xl:grid-cols-2 lg:gap-16 ">
         <div class=" w-96 h-auto mb-4 rounded-xl xl:mb-0 xl:flex sm:hidden md:hidden ">  <?php the_post_thumbnail('large'); ?> 
-                    
-    
-         </div>
+        </div>
                 <div class="text-gray-500 sm:text-xl dark:text-gray-400 sm:col-span-6">
                     <p class="mb-8 dark:text-gray-800 xl:text-xl"></p>
                     <!-- List -->
