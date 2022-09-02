@@ -12,8 +12,8 @@
 
                 
         <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto xl:gap-8 lg:gap-0 xl:py-16 xl:grid-cols-12 xl:pt-28 ">
-            <div class="mr-auto place-self-center xl:col-span-7 sm:col-span-6">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Hi , my name is  <br><?php the_title(); ?></h1>
+            <div class="mr-auto place-self-center xl:col-span-7 sm:items-center ">
+                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl sm:justify-center">Hi , my name is  <br><?php the_title(); ?></h1>
                 <p class="max-w-2xl mb-6 font-light text-gray-500 xl:mb-8 md:text-lg xl:text-xl dark:text-gray-800 sm:col-span-6"><?php the_content(); ?></p>
             <br>
                 <div class=" xl:flex xl:space-x-4 sm:space-y-0 sm:space-x-4">  
@@ -116,8 +116,8 @@
             </div>
         </div>
         
-        <div class=" gap-8 xl:grid xl:grid-cols-2 lg:gap-16 ">
-        <div class=" w-96 h-auto mb-4 rounded-xl xl:mb-0 xl:flex sm:hidden md:hidden ">  <?php the_post_thumbnail('large'); ?> 
+        <div class=" gap-8 xl:grid xl:grid-cols-2 lg:gap-16  ">
+        <div class="w-auto h-auto mb-4 rounded-xl xl:mb-0 xl:flex sm:hidden lg:w-80 lg:h-96 md:w-50 md:h-50 md:w-48 md:h-48 md:justify-center">  <?php the_post_thumbnail('large'); ?> 
         </div>
                 <div class="text-gray-500 sm:text-xl dark:text-gray-400 sm:col-span-6">
                     <p class="mb-8 dark:text-gray-800 xl:text-xl"></p>
