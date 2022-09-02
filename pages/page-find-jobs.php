@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: Find Talents
+    Template Name: Find Jobs
 */
 
 get_header();?>
