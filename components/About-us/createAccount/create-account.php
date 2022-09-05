@@ -1,21 +1,44 @@
-<div class="font-sans">
+<!---- stripe ---->
 
 
-<h1 class="bg-green-500 text-center w-full">How END GAME Works</h1>
-     <div class=" title container ">
+<div class="container">
+
+<div class="mt-0 px-4 py-2 bg-green-500 text-center z-0 text-3xl">
+<h1>How <i class="font-courgette">END GAME</i> Works</h1>
+</div>
+</div>
+
+          <?php 
+          $about1 = get_field('about1');
+          $about2 = get_field('about2');
+          $about3 = get_field('about3');
+          $about4 = get_field('about4');
+          $button = get_field('button');
+          $image = get_field('image');
+          $picture = $image['sizes']['large'];
+          ?>
+
+
+
+
 
    <!---- first section ----->
 
-    <div class="first-section ml-28">
-        <h4 class="text-green-700 text-lg">How END GAME works</h4>
+    <div class="first-section ml-28  ">
+    <?php if($about1): ?>
+    <h4 class="text-green-700 text-lg"><?php echo $about1;?></h4>
+    <?php endif;?>
         
-        <div class="text-3xl font-medium">
-        <h1>Get the most from END GAME and </h1>
-        <h1>live your dream work.</h1>
-        </div>
+    <div class="font-sans text-3xl font-medium">
 
+            <?php if($about2): ?>
+
+                <h1><?php echo nl2br($about2);?></h1>
+
+            <?php endif;?>
+            </div>
     </div>
-
+  
     <!----             ------->
 
     <br>
@@ -23,35 +46,41 @@
     
 
     <!------ second section ---->
-    <div class="second-section flex items-center">
+    <div class="second-section flex items-center ml-14">
 
-    <div class="flex flex-col">
+    <div class=" ml-0 flex flex-col">
     <div class="text-2xl text-gray-800 font-bold">
-    <h1>Register to become a freelancer </h1>
-    <h1>on END GAME</h1>
+    
+    <?php if($about3): ?>
+    <h1><?php echo nl2br($about3);?></h1>
+    <?php endif;?>
+    
     </div>
-
 
 
     <div class="text-lg text-gray-500 my-9">
-    <p>Create an account on END GAME to join</p>
-   
-    <p>freelancers' community and show off </p>
-
-    <p>your skills</p>
+    
+    <?php if($about4): ?>
+    <p><?php echo nl2br($about4);?></p>
+    <?php endif;?>
     </div>
+    
+   
 
     <br>
 
+    <?php if($button): ?>
     <a href="#">
-        <button class="border rounded-lg px-9 py-1.5 text-center bg-green-500 text-white">
-        Create account
-        </button>
+        <button class="border rounded-lg px-9 py-1.5 text-center bg-green-500 text-white"><?php echo $button;?></button>
     </a>
+    <?php endif;?>
     </div>
 
+
     <div class="img ml-64 w-96">
-    <img src="<?php echo get_template_directory_uri(); ?>./assets/img/AboutUsImages/phone.png" class="" alt="">
+
+    <img src="<?php echo $picture;?>">
+    
     </div>
 
     <br>
