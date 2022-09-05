@@ -656,6 +656,9 @@ video {
 .mr-12 {
   margin-right: 3rem;
 }
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
 .block {
   display: block;
 }
@@ -724,6 +727,9 @@ video {
 }
 .h-14 {
   height: 3.5rem;
+}
+.h-72 {
+  height: 18rem;
 }
 .w-96 {
   width: 24rem;
@@ -1889,6 +1895,10 @@ video {
   .md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .md\:text-center {
+    text-align: center;
   }
 
   .md\:text-xl {

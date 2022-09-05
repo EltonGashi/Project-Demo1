@@ -44,7 +44,7 @@ function themename_custom_logo_setup() {
         'flex-height'          => true,
         'flex-width'           => true,
         'header-text'          => array( 'site-title', 'site-description' ),
-        'unlink-homepage-logo' => true, 
+        'link-homepage-logo' => true, 
     );
     add_theme_support( 'custom-logo', $defaults );
 }
@@ -472,15 +472,6 @@ function mytheme_comment($comment, $args, $depth) {
 }
 
 if (function_exists('register_sidebar')) {
-    register_sidebar(array(
-        'name' => 'Footer Left',
-        'id'   => 'footer-left-widget',
-        'description'   => 'Left Footer widget position.',
-        'before_widget' => '<div id="%1$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h2>',
-        'after_title'   => '</h2>'
-    ));
     register_sidebar(array(
         'name' => 'Footer Left Center',
         'id'   => 'footer-left-center-widget',
