@@ -328,12 +328,11 @@ img.attachment-large.size-large.wp-post-image {
 }
 .about-us{
   background-image: url(../img/AboutUsImages/triangle1.png);
-  background-position: center;
+  /* background-position:100%; */
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 100%;
   width: 100%;
-  position: relative;
   height: auto;
   overflow: hidden;
 }

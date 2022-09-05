@@ -5,8 +5,17 @@
  */
 get_header(); ?>
 
-<div class="container p-20 bg-bg about-us">
-    <?php get_template_part('/components/About-us/registerCompany/register','company');?>
-</div>
+
+<section>
+    <div class="container p-20 bg-bg">
+        <?php get_template_part('/components/About-us/registerCompany/build','profile');?>
+    </div>
+</section>
+
+<section>
+    <div class="container p-20 bg-bg about-us">
+        <?php get_template_part('/components/About-us/registerCompany/register','company');?>
+    </div>
+</section>
 
 <?php get_footer(); ?>
