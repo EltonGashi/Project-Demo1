@@ -128,7 +128,6 @@ p.form-submit {
 p.logged-in-as{
     display: block;
 }
-
 @media (max-width:1439px) {
     div#respond{
         width: 60%;
