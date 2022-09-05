@@ -35,9 +35,8 @@ get_header();?>
 
             ?>
         </div>
-        <div class="findMore flex items-center justify-center pt-12">
-            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-        </div>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
+
     </section>
 
     
@@ -70,9 +69,7 @@ get_header();?>
             ?>
 
         </div>
-        <div class="findMore flex items-center justify-center pt-12">
-            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-        </div>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -104,9 +101,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <div class="findMore flex items-center justify-center pt-12">
-            <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-        </div>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -139,9 +134,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <div class="findMore flex items-center justify-center pt-12">
-                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-            </div>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -173,9 +166,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <div class="findMore flex items-center justify-center pt-12">
-                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-        </div>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -207,9 +198,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <div class="findMore flex items-center justify-center pt-12">
-                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-            </div>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -242,9 +231,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <div class="findMore flex items-center justify-center pt-12">
-                <button class="loadmore border  border-customGreen p-2 px-4 rounded-xl">Load More</button>
-            </div>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 </div>
 

@@ -13,7 +13,7 @@
         <div class="user-info flex mb-2 items-center">
             <div class="img pr-5 ">
 
-                <img src="<?php echo $image['url'];?>" class="w-10 h-10 rounded-full" />
+                <img src="<?php echo $image['url'];?>" class="2xl:w-14 2xl:h-14 w-10 h-10 rounded-full" />
 
             </div>
             <div class="user-name text-basic font-semibold">
@@ -21,8 +21,8 @@
             </div>
         </div>
 
-        <div class="user-content text-basic mb-5">
-            <?php echo wp_trim_words( get_the_content(), 5 ); ?>
+        <div class="user-content text-basic mb-5 h-12">
+            <?php echo wp_trim_words( get_the_content(), 5); ?>
         </div>
 
                 <!--- Rating --->
@@ -33,6 +33,7 @@
 
                      
         <div class="rating flex items-center mb-5 text-sm font-semibold">
+            <img class="h-5 w-5 mr-2" src="<?php echo get_template_directory_uri(); ?>/assets/img/UserImages/Star.png" />
             <p class="text-sm font-semibold"><?php the_sub_field('number'); ?></p>
         </div>
                     
