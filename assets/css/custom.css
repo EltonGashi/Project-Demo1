@@ -20,15 +20,18 @@ img.attachment-large.size-large.wp-post-image {
 }
 p{
     display:grid;
-    gap:2rem;
-}
 
+}
+.wpcf7-form-control-wrap{
+    margin: 2rem 0;
+}
 .wpcf7-form-control{
     border:1px solid rgba(255, 255, 255, 0);
     border-radius:2rem;
     padding:10px;
     width:85%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 }
 #s-btn{
     width:10rem;
