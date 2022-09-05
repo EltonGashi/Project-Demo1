@@ -37,7 +37,8 @@ if(isset($_POST['submit'])) {
                 <form action="#" class="flex flex-col">
                     <label for="email">Email</label>
                     <input type="text" id="username" name="username" placeholder="example@example.com " class="rounded-3xl py-2 px-2 border border-black">
-                    <label for="password">Password</label>
+                    <br>
+                    <label for="password" class="font-bold">Password</label>
                     <input type="password" id="password" name="password" placeholder="********"  class="rounded-3xl py-2 px-2 border border-black">
                     <small class="text-customGreen text-center">
                         <a href="#">Forgot Password?</a>
