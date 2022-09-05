@@ -35,7 +35,7 @@ get_header();?>
 
             ?>
         </div>
-        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
 
     </section>
 
@@ -69,7 +69,7 @@ get_header();?>
             ?>
 
         </div>
-        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -101,7 +101,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -134,7 +134,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -166,7 +166,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -198,7 +198,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
     
@@ -231,7 +231,7 @@ get_header();?>
                 endif;
             ?>
         </div>
-        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 </div>
 

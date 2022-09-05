@@ -42,7 +42,7 @@
             <?php endif; ?>
 
             </div>
-            <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 border-red-500">Load More</button>
+            <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
         
     </section>
         
@@ -55,16 +55,16 @@
 
 
     <section id="services" class="py-20">
-        <div id="headings" class="block text-center py-8 xl:text-5xl lg:text-4xl md:text-3xl sm:text-3xl">
-            <div class="txt-1">
+        <div id="headings" class="block text-center py-8 ">
+            <div class="md:text-2xl text-6xl">
                 <h1 class=""><?php echo $title; ?></h1>
             </div> 
-            <div id="txt-2" class="inline-flex">
+            <div id="txt-2" class="md:text-2xl text-6xl">
                 <h1 class="text-customGreen "><?php echo $subtitle; ?></h1>
             </div>
         </div>
             
-        <div id ="services" class="grid xl:grid-cols-4  gap-8 py-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-8">
+        <div id ="services" class="grid 2xl:grid-cols-4  xl:grid-cols-4  gap-8 py-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-8">
             <?php if( have_rows('content_section_one') ): ?>
 
                 <?php while( have_rows('content_section_one') ): the_row();?>

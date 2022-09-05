@@ -5,8 +5,6 @@ function dynamic_menu_enqueue()
 {
     wp_enqueue_script( 'customjs', get_template_directory_uri() . '/components/home/assets/home.js', array(), '1.0.0', true);
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/end-game.js', array(), '1.0.0', true);
-    wp_enqueue_script( 'loadMore', get_template_directory_uri() . '/assets/js/loadmore.js', array(), '1.0.0', true);
-    wp_enqueue_script( 'findTalentsJs', get_template_directory_uri() . '/components/find-talents/assets/find-talents.js', array(), '1.0.0', true);
     wp_enqueue_script( 'customScript', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/responsive-header.js', array(), '1.0.0', true);
     

@@ -6,7 +6,14 @@
 get_header();?>
 
 
-<div>UNCER CONSTRUction</div>
+<div class="container bg-bg p-20 ">
+    <div class="coming-soon bg-black flex flex-col justify-center mx-auto rounded-xl relative">
+        <img class="h-full w-full object-scale-down" src="<?php echo get_template_directory_uri(); ?>/assets/img/HeaderImages/Repeat Grid 8.png" />
+        <h1 class="text-7xl text-white absolute justify-center">Coming Soon</h1>
+    </div>
+    
+    
+</div>
 <?php 
 
 $args_cat = array(

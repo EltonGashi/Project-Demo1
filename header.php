@@ -38,6 +38,7 @@
                 <h2 class="search-title">Search for best <i class="font-courgette">services</i></h2>
                 <form class="search-box"  method="get" action="http://localhost/wordpress">
                     <input type="text" class="input-search" placeholder="Search for new talents..." name="s" value="">
+                    
                     <button class="searchBtn" type="submit" value="Search Our Site...">Search</button>
                 </form>
             </div>
@@ -72,46 +73,47 @@ if(isset($_POST['submit'])) {
   ?>
 
 
-<div class="bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-login">
+<div class="font-sans bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-login">
 
-    <div class="login-modal bg-white rounded-xl shadow-black shadow-lg  w-full flex xl:flex-row lg:flex-row md:flex-row sm:flex-col-reverse">
+    <div class="md:flex-col-reverse login-modal bg-white rounded-xl shadow-black shadow-lg  w-full flex flex-row">
 
-        <div class="left-side xl:h-full lg:h-full md:h-full xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full sm:h-2/4 xl:p-20 lg:p-12 md:p-8 sm:p-4 ">
-            <div class="left-side-top xl:pb-10 lg:pb-5 md:pb-4">
-                    <h1 class="xl:text-3xl lg:text-2xl md:text-xl font-semibold ">Login</h1>
-                    <h1 class="pt-4 xl:text-base lg:text-base md:text-sm sm:hidden">How do i get started lorem ispum dolor at?</h1>
+        <div class="left-side md:h-2/4 md:p-10 h-full w-full p-32 px-42 xl:px-20">
+            <div class="left-side-top ">
+                    <h1 class="font-semibold md:text-xl text-4xl">Login</h1>
+                    <h1 class="pt-4 md:hidden text-lg ">How do i get started lorem ispum dolor at?</h1>
             </div>
-            <div class="mid">
+            <div class="mid md:mt-2 2xl:mt-16 ">
                 <form method="POST" class="flex flex-col ">
-                    <label for="email md:text-sm">Email</label>
-                    <input type="text" id="username" name="username" placeholder="example@example.com " class="xl:mt-5 xl:h-full lg:h-full md:h-full lg:mt-5 md:mt-5 sm:mt-0 sm:h-5  rounded-3xl py-2 px-2 border border-black ">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="********"  class="xl:mt-5 xl:h-full lg:h-full md:h-full lg:mt-5 md:mt-5 sm:mt-0 sm:h-5 rounded-3xl py-2 px-2 border border-black">
-                    <small class="text-customGreen text-center">
+                    <label for="email " class=" ">Email</label>
+                    <input type="text" id="username" name="username" placeholder="example@example.com " class="rounded-3xl py-2 px-2 border border-black ">
+                    <label for="password" class="xl:mt-5">Password</label>
+                    <input type="password" id="password" name="password" placeholder="********"  class="rounded-3xl py-2 px-2 border border-black">
+                    <small class="text-customGreen text-center mt-4">
                         <a href="#">Forgot Password?</a>
                     </small>
+                    <button type="submit" name="submit" id="submit" class="md:mt-2 2xl:mt-16 bg-customGreen rounded-3xl py-3 px-2 text-white ">Login</button>
+                </form>
             </div>
 
-                <div class="bottom flex flex-col xl:pt-4 lg:pt-4 md:pt-4 sm:pt-0 mt-4 ">
-                    <button type="submit" name="submit" id="submit" class="xl:mt-5 xl:h-full lg:h-full md:h-full lg:mt-5 md:mt-5 sm:mt-0 sm:h-8 xl:h-auto bg-customGreen rounded-3xl py-3 px-2 text-white xl:text-sm md:text-sm lg:text-sm sm:text-xs">Login</button>
-                    <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
-                </div>  
-            </form>
+            <div class="bottom flex flex-col ">
+                <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
+            </div>  
+            
         </div>
 
-        <div class="right-side  bg-customGreen relative xl:h-full lg:h-full md:h-full xl:w-2/4 lg:w-2/4 md:w-2/4 sm:h-2/4 xl:p-20 lg:p-12 md:p-8 sm:p-4 xl:rounded-r-xl lg:rounded-r-xl md:rounded-r-xl sm:rounded-t-xl">
+        <div class="right-side bg-customGreen  md:h-2/4 md:p-10 lg:rounded-r-xl sm:rounded-t-xl md:rounded-t-xl xl:rounded-r-xl 2xl:rounded-r-xl   relative h-full w-full p-32 xl:px-20">
             <div class="right-side-icon bg-gradient-to-b from-[#e6e6e6]  shadow shadow-black rounded-xl relative h-full ">
                 <div class="right-side-top p-5">
-                    <h1 class="xl:text-3xl lg:text-2xl text-white font-semibold md:text-xl">Very Good works are waiting for you Login Now</h1>
+                    <h1 class="text-white font-semibold text-4xl sm:text-base md:text-xl lg:text-3xl">Very Good works are waiting for you Login Now</h1>
                  </div>   
                 <div class="business ">
-                    <img class="object-scale-down w-full xl:h-64 lg:h-52 md:h-52 sm:h-20 "src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/businessman.png" alt="">
+                    <img class="object-scale-down sm:h-40 md:h-52 xl:h-80 w-full h-96  "src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/businessman.png" alt="">
                 </div>
-                 <div class="100 absolute top-32 xl:-right-6 lg:-right-6 md:-right-6 bg-white rounded-full md:top-4 sm:-right-4">
-                    <img class="xl:object-scale-down lg:object-scale-down md:object-scale-down sm:object-fit xl:h-14 lg:h-14 md:h-10 sm:h-8" src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/100-emoji.png" alt="">
+                 <div class="100 absolute sm:-right-4 top-4 -right-6 ">
+                    <img class="sm:h-10 sm:w-10 h-16 w-16 rounded-full bg-white " src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/100-emoji.png" alt="">
                 </div>
-                <div class="handshake absolute xl:-left-8 lg:-left-8 md:-left-4 sm:-left-2 bottom-24">
-                    <img class="xl:object-scale-down lg:object-scale-down md:object-scale-down sm:object-fit xl:h-14 lg:h-14 md:h-10 sm:h-8 rounded-full bg-white " src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/hand-emoji.png" alt="">
+                <div class="handshake absolute sm:-left-4 -left-8 bottom-24">
+                    <img class="sm:h-10 sm:w-10 h-16 w-16 rounded-full bg-white" src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/hand-emoji.png" alt="">
                 </div>
                 
             </div>
@@ -197,43 +199,43 @@ if(count($erorr) ==0) {
 
 
 
-    <div class="bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-register">
+    <div class="font-sans bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-register">
         
-        <div class="register-modal  bg-white rounded-xl shadow-black shadow-lg  w-full flex xl:flex-row lg:flex-row md:flex-row sm:flex-col-reverse">
+        <div class="register-modal md:flex-col-reverse   bg-white rounded-xl shadow-black shadow-lg w-full flex flex-row ">
 
-            <div class="left-side xl:h-full lg:h-full md:h-full xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full sm:h-auto xl:p-20 lg:p-12 md:p-5 sm:p-4 ">
+            <div class="left-side md:p-10 md:h-2/4 lg:px-20  h-full w-full p-32 px-32">
 
-            <h1 class="text-sm xl:pt-4 lg:pt-4 md:pt-4 sm:pt-0 sm:text-xs ">NOTE: If you are a company please add @company as your email domain name</h1>
-                <h1 class="xl:text-2xl lg:text-xl md:text-basic sm:text-sm  font-semibold xl:pt-5 lg:pt-5 md:pt-5 sm:pt-2">Register</h1>
-                <form method="POST"  class="flex flex-col pt-2">
-                    <label class="text-sm"for="name">Name</label>
-                    <input type="text" id="username" name="username" placeholder="example " class="rounded-3xl px-2 py-1  border border-black  xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
+                <h1 class="md:hidden text-sm">NOTE: If you are a company please add @company as your email domain name</h1>
+                <h1 class="font-semibold md:mt-0 md:text-base text-4xl 2xl:mt-4">Register</h1>
+                <form method="POST"  class="flex flex-col md:mt-2 2xl:mt-8">
+                    <label class="text-sm "for="name">Name</label>
+                    <input type="text" id="username" name="username" placeholder="example " class="md:h-6 rounded-3xl py-2 px-2  border border-black  ">
                     <label class="text-sm "for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="example@example.com"  class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
+                    <input type="email" id="email" name="email" placeholder="example@example.com"  class="md:h-6 rounded-3xl py-2 px-2 border border-black ">
                     <label class="text-sm"for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="********" class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
+                    <input type="password" id="password" name="password" placeholder="********" class="md:h-6 rounded-3xl py-2 px-2 border border-black ">
                     <label class="text-sm"for="email">Confirm Password</label>
-                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********"  class="rounded-3xl px-2 py-1 border border-black xl:h-full lg:h-5/6 md:h-2/4 sm:h-2/6">
-                    <div class="bottom flex flex-col pt-8">
-                    <button type="submit" name="submit" id="submit" class="bg-customGreen rounded-3xl xl:py-3 lg:py-1 px-2 text-white text-sm xl:h-full lg:h-5/6 md:h-full">Register</button>
-                    <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
+                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********"  class="md:h-6 rounded-3xl py-2 px-2 border border-black ">
+                    <div class="bottom flex flex-col md:mt-4 lg:mt-8 xl:mt-8 2xl:mt-8 ">
+                        <button type="submit" name="submit" id="submit" class="md:text-xsm md:h-10 bg-customGreen rounded-3xl py-3 px-2 text-white text-base ">Register</button>
+                        <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
                     </div>
                 </form>
-
             </div>
-            <div class="right-side  bg-customGreen relative xl:h-full lg:h-full md:h-full xl:w-2/4 lg:w-2/4 md:w-2/4 sm:h-2/6 xl:p-20 lg:p-12 md:p-8 sm:p-4 xl:rounded-r-xl lg:rounded-r-xl md:rounded-r-xl sm:rounded-t-xl">
-                <div class="right-side-icon bg-gradient-to-b from-[#e6e6e6]  shadow shadow-black h-full w-full rounded-xl p-5 relative xl:block lg:block md:block sm:flex">
+            
+            <div class="right-side md:p-10 md:h-2/4 lg:px-20 bg-customGreen sm:rounded-t-xl md:rounded-t-xl lg:rounded-r-xl xl:rounded-r-xl 2xl:rounded-r-xl relative w-full w-full p-32 px-32">
+                <div class="right-side-icon bg-gradient-to-b from-[#e6e6e6]  shadow shadow-black h-full w-full rounded-xl p-5 relative ">
                     <div class="right-side-top">
-                        <h1 class="xl:text-3xl lg:text-2xl md:text-xl text-white font-semibold sm:text-sm ">Very Good works are waiting for you Register Now</h1>
+                        <h1 class=" text-white lg:text-3xl font-semibold sm:text-xl md:text-2xl text-4xl">Very Good works are waiting for you Register Now</h1>
                     </div>   
                     <div class="business ">
-                        <img class="xl:object-scale-down lg:object-scale-down md:object-scale-down sm:object-fit xl:h-64 lg:h-52 md:h-52 sm:h-24 w-full " src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/businessman.png" alt="">
+                        <img class="object-scale-down w-full sm:h-40 md:h-52 xl:h-80 h-96" src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/businessman.png" alt="">
                     </div>
-                    <div class="100 absolute top-4 xl:-right-6 lg:-right-6 md:-right-4 sm:-right-2 bg-white rounded-full">
-                        <img class="object-fit xl:h-14 lg:h-14 md:h-10 sm:h-8" src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/100-emoji.png" alt="">
+                    <div class="100 absolute sm:-right-4 top-4 -right-6 ">
+                        <img class="sm:h-10 sm:w-10 md:h-10 md:w-10 h-16 w-16 bg-white rounded-full" src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/100-emoji.png" alt="">
                     </div>
-                    <div class="handshake absolute xl:-left-8 lg:-left-8 md:-left-4 sm:-left-2 bottom-24">
-                        <img class="object-fit xl:h-14 lg:h-14 md:h-10 sm:h-8 rounded-full bg-white " src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/hand-emoji.png" alt="">
+                    <div class="handshake sm:-left-4  absolute -left-8  bottom-24">
+                        <img class="sm:h-10 sm:w-10 md:h-10 md:w-10 h-16 w-16 rounded-full bg-white " src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/hand-emoji.png" alt="">
                     </div>
                 
                 </div>
