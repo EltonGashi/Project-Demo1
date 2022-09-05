@@ -3,9 +3,6 @@
 
 <div class="container">
 
-<div class="mt-0 px-4 py-2 bg-green-500 text-center z-0 text-3xl">
-<h1>How <i class="font-courgette">END GAME</i> Works</h1>
-</div>
 </div>
 
           <?php 
