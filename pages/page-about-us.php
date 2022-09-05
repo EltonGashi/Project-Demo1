@@ -6,7 +6,7 @@
 get_header(); ?>
 
 <section>
-    <div class="container p-0 bg-bg about-us">
+    <div class="container p-20 bg-bg about-us">
         <?php get_template_part('/components/About-us/createAccount/create','account');?>
     </div>
 </section>

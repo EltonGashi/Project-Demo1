@@ -557,9 +557,6 @@ video {
 .top-52 {
   top: 13rem;
 }
-.z-0 {
-  z-index: 0;
-}
 .m-auto {
   margin: auto;
 }
@@ -582,6 +579,10 @@ video {
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .ml-28 {
   margin-left: 7rem;
@@ -631,23 +632,32 @@ video {
 .ml-16 {
   margin-left: 4rem;
 }
-.mt-3 {
-  margin-top: 0.75rem;
-}
-.mt-0 {
-  margin-top: 0px;
-}
 .ml-14 {
   margin-left: 3.5rem;
 }
 .ml-0 {
   margin-left: 0px;
 }
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.ml-12 {
+  margin-left: 3rem;
+}
+.ml-32 {
+  margin-left: 8rem;
+}
+.mt-16 {
+  margin-top: 4rem;
+}
+.mt-20 {
+  margin-top: 5rem;
+}
+.mr-12 {
+  margin-right: 3rem;
+}
 .block {
   display: block;
-}
-.inline {
-  display: inline;
 }
 .flex {
   display: flex;
@@ -760,14 +770,6 @@ video {
 .w-11\/12 {
   width: 91.666667%;
 }
-
-.w-80 {
-  width: 20rem;
-}
-.max-w-2xl {
-  max-width: 42rem;
-}
-
 .max-w-xs {
   max-width: 20rem;
 }
@@ -822,6 +824,27 @@ video {
 .gap-14 {
   gap: 3.5rem;
 }
+.gap-32 {
+  gap: 8rem;
+}
+.gap-36 {
+  gap: 9rem;
+}
+.gap-28 {
+  gap: 7rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-52 {
+  gap: 13rem;
+}
+.gap-48 {
+  gap: 12rem;
+}
+.gap-44 {
+  gap: 11rem;
+}
 .space-y-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -831,11 +854,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 .place-self-center {
   place-self: center;
@@ -975,13 +993,12 @@ video {
 .p-1 {
   padding: 0.25rem;
 }
+.p-0 {
+  padding: 0px;
+}
 .p-4 {
   padding: 1rem;
 }
-
-.p-0 {
-  padding: 0px;
-
 .px-9 {
   padding-left: 2.25rem;
   padding-right: 2.25rem;
@@ -993,7 +1010,6 @@ video {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-
 }
 .py-2 {
   padding-top: 0.5rem;
@@ -1077,9 +1093,6 @@ video {
 }
 .text-center {
   text-align: center;
-}
-.align-middle {
-  vertical-align: middle;
 }
 .font-courgette {
   font-family: Courgette, cursive;
@@ -1974,13 +1987,8 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
   .sm\:items-start {
     align-items: flex-start;
-
   }
 
   .sm\:items-center {
@@ -1993,10 +2001,6 @@ video {
 
   .sm\:gap-8 {
     gap: 2rem;
-  }
-
-  .sm\:gap-12 {
-    gap: 3rem;
   }
 
   .sm\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
