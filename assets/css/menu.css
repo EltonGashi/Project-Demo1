@@ -326,3 +326,13 @@ img.attachment-large.size-large.wp-post-image {
   display: flex;
   justify-content: center;
 }
+.about-us{
+  background-image: url(../img/AboutUsImages/triangle1.png);
+  /* background-position:100%; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}

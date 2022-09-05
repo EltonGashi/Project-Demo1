@@ -9,6 +9,7 @@ module.exports = {
 			'./components/home/NeedSomethingDone/**/*.php',
 			'./components/home/**/*.php',
 			'./components/find-talents/developers/**/*.php',
+			'./components/About-us/register-as-company/**/*.php',
 			'./components/pages/**/*.php',
 			'./components/**/*.php',
 			'./*.php',
