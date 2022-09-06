@@ -4,10 +4,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 .header {
-  background-image: url(../img/HeaderImages/Repeat\ Grid\ 42.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
   max-width: 100%;
   width: 100%;
   position: relative;
@@ -15,7 +12,6 @@ body {
   overflow: hidden;
   background-color: #eee;
   padding: 0 5rem 0;
-  /* padding-bottom: 10rem; */
 }
 .topnav {
   margin-top: 10px;
@@ -82,6 +78,8 @@ li.menu-item{
   position: sticky;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 100px;
+  padding-top: 60px;
 }
 .search-input {
   display: flex;
@@ -227,7 +225,7 @@ h2.search-title {
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #0a2a34;
+    background-color: #232a3f;
   }
   .menu-container {
     display: flex;
