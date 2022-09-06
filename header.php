@@ -145,6 +145,8 @@ if($_POST)  {
   // nese username ka hapsir
   if(strpos($username, ' ')!==FALSE) {
     $erorr['username_space'] =  "";
+
+  
     
   }
 
@@ -152,7 +154,7 @@ if($_POST)  {
   if(empty($username)) {
     $erorr['username_empty'] =  "";
   
-  
+ 
   }
 
      // nese username egziston n databaz
@@ -160,16 +162,16 @@ if(username_exists( $username )) {
  
   $erorr['username_exists'] =  "";
  
-  
+ 
 
 }
 
-    // nese email osht valid
+    // nese email osht invalid
 if(!is_email($email)) {
 
   $erorr['email_valid'] =  "";
 
-  
+
   
 }
 
@@ -183,14 +185,16 @@ if(email_exists( $email )) {
 
 if(strcmp($password, $confirmpassword) !==0) {
   
-  $erorr['password'] =  "";
- 
+
   
 } 
 if(count($erorr) ==0) {
   wp_create_user( $username, $password, $email );
+  echo '<script type="text/javascript">';
+  echo ' alert("You have successfully registered, please proceed to log in.")';  
+  echo '</script>';
   echo "<script> setTimeout(function(){
-    window.location.href = 'http://localhost/wordpress';
+    window.location.href = 'http://localhost/wordpresss';
  }, 2000);
 </script>";
   exit();
