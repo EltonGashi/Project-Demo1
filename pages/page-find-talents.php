@@ -22,7 +22,6 @@ get_header();?>
                 $the_query1 = new WP_Query($args1);?>
                 <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="Java Developer"><?php
                 if( $the_query1->have_posts()):
-
                     while( $the_query1->have_posts() ): $the_query1->the_post(); ?>
 
                         <?php get_template_part('/components/find-talents/developers/java','developer');?>

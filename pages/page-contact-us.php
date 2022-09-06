@@ -21,10 +21,10 @@ get_header();?>
                         <?php the_content();?>
                     </div>
                     <div class="why-us text-center h-full 2xl:w-2/4 xl:w-2/4 lg:w-11/12 sm:w-full">
-                    <h1 class="text-4xl font-semibold mb-12 lg:mb-6">Why Us ?</h1>
+                        <h1 class="text-4xl font-semibold mb-12 lg:mb-6">Why Us ?</h1>
                         <p class="text-xl lg:text-lg">Our company has been working in the market for decades. Our company is very dedicated for helping clients .  </p>
                         <div class="img flex justify-center mt-8">
-                        <img class=" w-2/3 h-2/4 object-scale-down rounded-3xl" src="<?php echo get_template_directory_uri(); ?>/assets/img/ContactImages/contact-us2.png" />
+                            <img class=" w-2/3 h-2/4 object-scale-down rounded-3xl" src="<?php echo get_template_directory_uri(); ?>/assets/img/ContactImages/contact-us2.png" />
                         </div>
                     </div>
 
