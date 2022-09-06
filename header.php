@@ -25,8 +25,8 @@
             <div class="menu-container">
                 <?php wp_nav_menu(array('theme_location'=>'primary')); ?>  
                 <div class="register-login-btn">
-                    <button class="loginBtn" id="login-btn"><a href="#" class="login">Log In</a></button>
-                    <button class="registerBtn" id="register-btn"> <a href="#" class="register">Register</a></button>
+                    <button class="loginBtn" id="login-btn"><a  class="login">Log In</a></button>
+                    <button class="registerBtn" id="register-btn"> <a  class="register">Register</a></button>
                 </div>
             </div>
             <div class="navbar-toggler">
@@ -185,12 +185,15 @@ if(email_exists( $email )) {
 if(strcmp($password, $confirmpassword) !==0) {
   
   $erorr['password'] =  "";
-
+ 
   
 } 
 if(count($erorr) ==0) {
   wp_create_user( $username, $password, $email );
-  echo "You have successfully registered.";
+  echo "<script> setTimeout(function(){
+    window.location.href = 'http://localhost/wordpress';
+ }, 2000);
+</script>";
   exit();
 }
 } 
