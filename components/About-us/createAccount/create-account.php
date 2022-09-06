@@ -35,9 +35,9 @@
     <!------ second section ---->
     <div class="second-section flex items-center mt-20 ">
 
-        <div class="  flex  w-full justify-center  gap-44">
-            <div class="left-side  flex  flex-col my-auto">
-                <div class="text-2xl text-gray-800 font-bold">
+        <div class="  flex md:flex-col w-full justify-center xl:gap-0 gap-44">
+            <div class="left-side  flex  flex-col  my-auto">
+                <div class="text-2xl text-center  text-gray-800 font-bold">
                 
                     <?php if($about3): ?>
                     <h1><?php echo nl2br($about3);?></h1>
@@ -55,14 +55,14 @@
 
                     <?php if($button): ?>
                     <a href="#">
-                        <button class="border rounded-lg px-9 py-1.5 text-center bg-green-500 text-white"><?php echo $button;?></button>
+                        <button class="border rounded-lg px-9 py-1.5 text-center bg-green-500 text-white sm:mb-12"><?php echo $button;?></button>
                     </a>
                     <?php endif;?>
             </div>
 
-            <div class=" img ml-32 ">
+            <div class=" img lg:ml-0 ml-32 md:mx-auto">
 
-                <img src="<?php echo $picture;?>">
+                <img class="object-scale-down md:h-72 md:w-72 lg:w-80 lg:h-80 " src="<?php echo $picture;?>">
             
             </div>
         </div> 

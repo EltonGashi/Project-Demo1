@@ -77,21 +77,21 @@ if(isset($_POST['submit'])) {
 
     <div class="md:flex-col-reverse login-modal bg-white rounded-xl shadow-black shadow-lg  w-full flex flex-row">
 
-        <div class="left-side md:h-2/4 md:p-10 h-full w-full p-32 px-42 xl:px-20">
+        <div class="left-side sm:p-5  md:h-2/4 md:p-10 h-full w-full p-32 px-42 xl:px-20">
             <div class="left-side-top ">
                     <h1 class="font-semibold md:text-xl text-4xl">Login</h1>
                     <h1 class="pt-4 md:hidden text-lg ">How do i get started lorem ispum dolor at?</h1>
             </div>
-            <div class="mid md:mt-2 2xl:mt-16 ">
+            <div class="mid s md:mt-2 2xl:mt-16 ">
                 <form method="POST" class="flex flex-col ">
                     <label for="email " class=" ">Email</label>
-                    <input type="text" id="username" name="username" placeholder="example@example.com " class="rounded-3xl py-2 px-2 border border-black ">
-                    <label for="password" class="xl:mt-5">Password</label>
-                    <input type="password" id="password" name="password" placeholder="********"  class="rounded-3xl py-2 px-2 border border-black">
+                    <input type="text" id="username" name="username" placeholder="example@example.com " class="sm:py-1 sm:px-1 rounded-3xl py-2 px-2 border border-black ">
+                    <label for="password" class="sm:mt-0 xl:mt-5">Password</label>
+                    <input type="password" id="password" name="password" placeholder="********"  class="sm:py-1 sm:px-1 rounded-3xl py-2 px-2 border border-black">
                     <small class="text-customGreen text-center mt-4">
                         <a href="#">Forgot Password?</a>
                     </small>
-                    <button type="submit" name="submit" id="submit" class="md:mt-2 2xl:mt-16 bg-customGreen rounded-3xl py-3 px-2 text-white ">Login</button>
+                    <button type="submit" name="submit" id="submit" class="sm:py-1 sm:px-1 md:mt-2 2xl:mt-16 bg-customGreen rounded-3xl py-3 px-2 text-white ">Login</button>
                 </form>
             </div>
 
@@ -107,7 +107,7 @@ if(isset($_POST['submit'])) {
                     <h1 class="text-white font-semibold text-4xl sm:text-base md:text-xl lg:text-3xl">Very Good works are waiting for you Login Now</h1>
                  </div>   
                 <div class="business ">
-                    <img class="object-scale-down sm:h-40 md:h-52 xl:h-80 w-full h-96  "src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/businessman.png" alt="">
+                    <img class="object-scale-down sm:h-32 md:h-52 xl:h-80 w-full h-96  "src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/businessman.png" alt="">
                 </div>
                  <div class="100 absolute sm:-right-4 top-4 -right-6 ">
                     <img class="sm:h-10 sm:w-10 h-16 w-16 rounded-full bg-white " src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/100-emoji.png" alt="">
@@ -226,7 +226,7 @@ if(count($erorr) ==0) {
             <div class="right-side md:p-10 md:h-2/4 lg:px-20 bg-customGreen sm:rounded-t-xl md:rounded-t-xl lg:rounded-r-xl xl:rounded-r-xl 2xl:rounded-r-xl relative w-full w-full p-32 px-32">
                 <div class="right-side-icon bg-gradient-to-b from-[#e6e6e6]  shadow shadow-black h-full w-full rounded-xl p-5 relative ">
                     <div class="right-side-top">
-                        <h1 class=" text-white lg:text-3xl font-semibold sm:text-xl md:text-2xl text-4xl">Very Good works are waiting for you Register Now</h1>
+                        <h1 class=" text-white lg:text-3xl font-semibold sm:text-base md:text-2xl text-4xl">Very Good works are waiting for you Register Now</h1>
                     </div>   
                     <div class="business ">
                         <img class="object-scale-down w-full sm:h-40 md:h-52 xl:h-80 h-96" src="<?php echo get_template_directory_uri(); ?>./assets/img/ModalImages/businessman.png" alt="">
