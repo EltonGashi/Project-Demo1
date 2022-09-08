@@ -7,7 +7,7 @@ function dynamic_menu_enqueue()
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/end-game.js', array(), '1.0.0', true);
     wp_enqueue_script( 'customScript', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/responsive-header.js', array(), '1.0.0', true);
-    
+    wp_enqueue_script( 'aboutjs', get_template_directory_uri() . '/components/About-us/assets/about.js', array(), '1.0.0', true);
     wp_enqueue_style('menustyle', get_template_directory_uri() . '/assets/css/menu.css', array(), '1.0.0', 'all');
     wp_enqueue_style('comment style ', get_template_directory_uri() . '/assets/css/comment-style.css', array(), '1.0.0', 'all');
     wp_enqueue_style('custom style ', get_template_directory_uri() . '/components/contact-us/assets/custom.css', array(), '1.0.0', 'all');
