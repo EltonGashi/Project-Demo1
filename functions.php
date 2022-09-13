@@ -411,17 +411,17 @@ add_role(
     )
 );
 
-// function post_published_limit( $ID, $post ) {
-//     $max_posts = 1; // change this or set it as an option that you can retrieve.
-//     $author = $post->post_author; // Post author ID.
-//     $count = count_user_posts( $author, 'post'); // get author post count
+function post_published_limit( $ID, $post ) {
+    $max_posts = 1; // change this or set it as an option that you can retrieve.
+    $author = $post->post_author; // Post author ID.
+    $count = count_user_posts( $author, 'post'); // get author post count
 
-//     if ( $count > $max_posts ) {
-//         // count too high, let's set it to draft.
-//         $post->post_status = 'draft';
-//         wp_update_post( $post);
-//     }
-// }
+    if ( $count > $max_posts ) {
+        // count too high, let's set it to draft.
+        $post->post_status = 'draft';
+        wp_update_post( $post);
+    }
+}
 add_action( 'publish_post', 'post_published_limit', 10, 2 );
 
 function mytheme_comment($comment, $args, $depth) {

@@ -192,12 +192,13 @@ if(count($erorr) ==0) {
   wp_create_user( $username, $password, $email );
   echo "<script> setTimeout(function(){
     window.location.href = 'http://localhost/wordpress';
- }, 2000);
+ }, 200);
 </script>";
   exit();
 }
 } 
 ?> 
+
 
 
 
