@@ -41,7 +41,7 @@
         }else
             $conn->query(query:"UPDATE stars SET rateIndex='$ratedIndex' WHERE id='$uID'");
             exit(json_encode(array('id' => $uID)));
-        }
+    }
     $sql = $conn->query(query:"SELECT id FROM stars");
     $numR=$sql->num_rows;
     $sql = $conn->query(query:"SELECT SUM(rateIndex) AS total FROM stars");
