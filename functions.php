@@ -142,7 +142,8 @@ function my_action_javascript() { ?>
                         'page': page,
                     };
                 }
-                    
+                
+                
 
                 jQuery.post(ajaxurl , data , function(response) {
                     jQuery(sibling).append(response);
@@ -210,9 +211,9 @@ function my_action_javascript() { ?>
                         };
                         page++;
                     }
-
+                    
                 }); 
-
+                selectall();
                 });
             });
 
@@ -411,6 +412,7 @@ add_role(
     )
 );
 
+
 function post_published_limit( $ID, $post ) {
     $max_posts = 1; // change this or set it as an option that you can retrieve.
     $author = $post->post_author; // Post author ID.
@@ -504,3 +506,9 @@ if (function_exists('register_sidebar')) {
 
 
 }
+
+function connect_another_db() {
+    global $conn;
+    $conn = new mysqli('localhost', 'root', '', 'ratingSystem');
+}
+add_action('init', 'connect_another_db');

@@ -8,15 +8,33 @@
 
     <!-- ////////////// CONTAINER-START ////////////// -->
 <div class="container w-full bg-bg p-20">
-    <h1 class="text-4xl py-5">Services from Users</h1>
+    <h1 class="text-4xl py-5">Services from Users </h1>
     <section id="users" class="py-10">
             <?php 
-
+            global $wpdb;
+            $wpdb->show_errors();
+            $posts = $wpdb->get_results($wpdb->prepare("SELECT wp_posts.ID , AVG(rate.rateIndex) AS rate FROM $wpdb->posts 
+            LEFT JOIN 
+            ratingSystem.rate
+            ON wp_posts.ID = rate.cardID
+            WHERE wp_posts.post_type = 'post'
+            AND wp_posts.post_status = 'publish' 
+            GROUP BY wp_posts.ID 
+            ORDER BY rate DESC
+            "));
+            
+            foreach($posts as $post){
+                $ID[] = $post->ID;
+                 $rate[] = $post->rate;
+             }
+             var_dump($rate);
+            // if(isset($rate)) $authors = implode(',', $rate);
+            // var_dump($authors);
             $args =array(
                 'post_type' => 'post',
-                
                 'paged' => get_query_var('paged',1),
                 'posts_per_page' => 8,
+                // 'orderby' => $authors,
                 // 'offset' =>1,
                 /*'category' ='1'*/
                 //'paged'=> 1,
@@ -42,8 +60,6 @@
             <?php endif; ?>
 
             </div>
-            <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
-        
     </section>
         
 
@@ -64,7 +80,7 @@
             </div>
         </div>
             
-        <div id ="services" class="grid 2xl:grid-cols-4  xl:grid-cols-4  gap-8 py-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-8">
+        <div id ="services" class="grid 2xl:grid-cols-4  xl:grid-cols-4  gap-8 py-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:gap-8 ">
             <?php if( have_rows('content_section_one') ): ?>
 
                 <?php while( have_rows('content_section_one') ): the_row();?>

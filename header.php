@@ -1,4 +1,6 @@
+
 <?php ob_start();?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -193,6 +195,7 @@ if(count($erorr) ==0) {
   echo "<script> setTimeout(function(){
     window.location.href = 'http://localhost/wordpress';
  }, 200);
+ alert('you are registered successfully');
 </script>";
   exit();
 }
