@@ -410,6 +410,20 @@ add_role(
         'moderate_comments'=> true, // 
     )
 );
+add_role(
+    'Company', //  Emri i Rolit
+    __( 'Company'  ), 
+    array(
+        'read'  => true,
+        'delete_posts'  => true,
+        'delete_published_posts' => true,
+        'edit_posts'   => false,
+        'publish_posts' => true ,
+        'edit_published_posts'   => true,
+        'upload_files'  => true,
+        'moderate_comments'=> true, // 
+    )
+);
 
 // function post_published_limit( $ID, $post ) {
 //     $max_posts = 1; // change this or set it as an option that you can retrieve.
@@ -504,3 +518,305 @@ if (function_exists('register_sidebar')) {
 
 
 }
+
+// POST COMPANY TAXONOMY
+function company_custom_taxonomy(){
+    $labels = array(
+        'name'=> 'Company',
+        'singular_name'=>'Company',
+        'add_new' => 'Add Company',
+        'all_items' => 'All Company',
+        'add_new_item' => 'Add New Company',
+        'edit_item' => 'Edit Company',
+        'new_item'=>'New Company',
+        'view_item' => 'View Company',
+        'search_item'=>'Search Company',
+        'not_found'=>'No Company found',
+        'not_found_in_trash'=>'No Company found in trash',
+        'parent_item_colon'=>'Parent Company:',
+        'menu_name'=>'Company',
+    );
+    $arguments = array(
+        'labels' => $labels,
+        'public'=> true,
+        'has_archive'=> true,
+        'publicly_queryable' => true,
+        'query_var'=> true,
+        'rewrite' => true,
+        'capability_type' =>'post',
+        'hierarchical' => false,
+        'menu_icon'=> 'dashicons-building',
+        'support'=>array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail',
+            'revisions',
+        ),
+        'taxonomies'=>array('category','post_tag'),
+        'menu_position'=>5,
+        'exclude_from_search' =>false,
+    );
+    register_post_type('company',$arguments);
+    add_post_type_support( 'company', 'thumbnail' ); 
+}
+
+add_action('init','company_custom_taxonomy');
+
+
+
+// USER COMPANY TAXONOMY
+function company_taxonomy() {
+
+	// create the audience taxonomy.
+	register_taxonomy(
+		'user_category',
+		'user',
+		array(
+			'public'            => false,
+			'labels'            => array(
+				'name'                          => __( 'Company '),
+				'singular_name'                 => __( 'Company'),
+				'menu_name'                     => __( 'Company'),
+				'search_items'                  => __( 'Search Company'),
+				'popular_items'                 => __( 'Popular Company'),
+				'all_items'                     => __( 'All Company'),
+				'edit_item'                     => __( 'Edit Company'),
+				'update_item'                   => __( 'Update Company'),
+				'add_new_item'                  => __( 'Add New Company'),
+				'new_item_name'                 => __( 'New Company'),
+				'add_or_remove_items'           => __( 'Add or remove Company'),
+				'choose_from_most_used'         => __( 'Choose from the most used Company'),
+			),
+			'show_ui'           => true,
+			'show_in_menu'      => true,
+			'show_admin_column' => false,
+			'hierarchical'      => true,
+			'show_in_rest'      => true,
+			'rewrite'           => array(
+				'slug'       => __( 'team-category'),
+				'with_front' => false, 
+			),
+		)
+	);
+	
+}
+
+add_action( 'init', 'company_taxonomy' );
+
+/* Add an admin page for our user taxonomy as there is not a default one provided. */
+function company_taxonomy_admin_page() {
+	
+	// get the taxonomy object for the user category.
+	$tax = get_taxonomy( 'user_category' );
+	
+	// add a new admin page under users to display our taxonomy.
+	add_users_page(
+		esc_attr( $tax->labels->menu_name ),
+		esc_attr( $tax->labels->menu_name ),
+		$tax->cap->manage_terms,
+		'edit-tags.php?taxonomy=' . $tax->name
+	);
+
+}
+
+add_action( 'admin_menu', 'company_taxonomy_admin_page' );
+
+/* Update parent file name to fix the selected menu issue */
+function company_user_file( $parent_file ) {
+	
+	global $submenu_file;
+
+	// if we have a taxonomy GET parameter in the url.
+	if ( ! empty( $_GET['taxonomy'] ) ) {
+
+		// if the taxonomy get parameter is our user category taxonomy and we are on the user category edit page.
+		if ( 'user_category' === $_GET['taxonomy'] && 'edit-tags.php?taxonomy=user_category' === $submenu_file ) {
+
+			// set the admin parent page to the user.php page.
+			$parent_file = 'users.php';
+
+		}
+
+	}
+
+	// return the maybe modified parent file.
+	return $parent_file;
+
+}
+
+add_filter( 'parent_file', 'company_user_file' );
+
+/**
+ * Edits the columns for the user category management page.
+ *
+ * @param array  $columns The current array of registered columns.
+ * @return array $columns The modified array of registered columns.
+ */
+function company_manage_user( $columns ) {
+
+	// remove the posts count column - better to call it users.
+	unset( $columns['posts'] );
+
+	// add in a users column.
+	$columns['users'] = __( 'Users', 'hd-user-category' );
+
+	// return the modified columns.
+	return $columns;
+	
+}
+
+add_filter( 'manage_edit-user_category_columns', 'company_manage_user', 10, 1 );
+
+/**
+ * Adds the correct term count based on the users with that term.
+ * 
+ * @param string $display WP just passes an empty string here.
+ * @param string $column  The name of the custom column.
+ * @param int    $term_id The ID of the term being displayed in the table.
+ */
+function company_output_user( $display, $column, $term_id ) {
+	
+	// if this is the users column we created.
+	if ( 'users' === $column ) {
+
+		// get the current term object.
+		$term = get_term( $term_id, 'user_category' );
+
+		// output the term count.
+		echo esc_html( $term->count );
+
+	}
+}
+
+add_filter( 'manage_user_category_custom_column', 'company_output_user', 10, 3 );
+
+/**
+ * Adds the form for users to choose their user category.
+ * Added on the new and edit users screens.
+ *
+ * @param mixed WP_User/string The current user object or the current page string.
+ */
+function company_user_form( $user ) {
+
+	// get the taxonomy object for user category.
+	$tax = get_taxonomy( 'user_category' );
+
+	// check the current logged in user can assign user category terms.
+	if ( ! current_user_can( $tax->cap->assign_terms ) ) {
+		return;
+	}
+
+	// get all user category terms - the categories!
+	$user_categories = get_terms(
+		'user_category',
+		array(
+			'hide_empty' => false // show terms that have no user assigned.
+		)
+	);
+
+	?>
+	
+	<table class="form-table">
+		
+		<tr>
+			
+			<th><label for="user_category"><?php esc_html_e( 'Companies', 'hd-user-category' ); ?></label></th>
+			
+			<td>
+
+			<fieldset>
+			
+				<?php
+
+				// if we have user categories available.
+				if ( ! empty( $user_categories ) && ! is_wp_error( $user_categories ) ) {
+					
+					// loop through each user category.
+					foreach ( $user_categories as $user_category ) {
+
+						// set a checked var to uncheck this term.
+						$checked = false;
+
+						// if the user var is telling us we are on the add new user page.
+						if ( ! empty( $user->ID ) ) {
+
+							// set the checked var based on whether the user is already assigned to this term.
+							$checked = is_object_in_term( $user->ID, 'user_category', $user_category->term_id );
+
+						}
+
+						?>
+
+						<label for="user_categories-<?php echo esc_attr( $user_category->slug ); ?>">
+						
+							<input type="checkbox" name="user_category[]" id="user_category-<?php echo esc_attr( $user_category->slug ); ?>" value="<?php echo esc_attr( $user_category->term_id ); ?>"<?php checked( true, $checked ); ?>>
+						
+							<?php echo esc_html( $user_category->name ); ?>
+						
+						</label>
+
+						<br />
+
+						<?php
+
+					}
+
+				}
+
+				?>
+			
+			</fieldset>
+
+			</td>
+
+		</tr>
+
+	</table>
+
+  <?php
+}
+
+add_action( 'show_user_profile', 'company_user_form', 10, 1 );
+add_action( 'edit_user_profile', 'company_user_form', 10, 1 );
+add_action( 'user_new_form', 'company_user_form', 10, 1  );
+
+/**
+ * Saves the user category selected.
+ *
+ * @param integer $user_id The current user ID of the user being edited or added.
+ */
+function save_company_user_data( $user_id ) {
+
+	// get the taxonomy object for user category.
+	$tax = get_taxonomy( 'user_category' );
+
+	// check the current logged in user can assign user category terms.
+	if ( ! current_user_can( 'edit_user', $user_id ) && current_user_can( $tax->cap->assign_terms ) ) {
+		return false;
+	}
+
+	// remove all the relationships to start.
+	wp_delete_object_term_relationships( $user_id, 'user_category' );
+
+	// if we have posted categories.
+	if ( ! empty( $_POST['user_category'] ) ) {
+
+		// set the user categories selected.
+		wp_set_object_terms(
+			$user_id,
+			array_map( 'absint', $_POST['user_category'] ),
+			'user_category',
+			false
+		);
+
+		// clean the object term cache for this user.
+		//clean_object_term_cache( $user_id, 'user_category' );
+
+	}
+
+}
+
+add_action( 'personal_options_update', 'save_company_user_data', 10, 1 );
+add_action( 'edit_user_profile_update', 'save_company_user_data', 10, 1 );
+add_action( 'user_register', 'save_company_user_data', 10, 1 );
