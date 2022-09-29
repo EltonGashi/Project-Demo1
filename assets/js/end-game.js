@@ -29,6 +29,8 @@ window.addEventListener('DOMContentLoaded', () =>{
     registerBtn.addEventListener('click', registerModal);
 
     closeRegister.addEventListener('click', registerModal);
+
+ 
 });
 
 

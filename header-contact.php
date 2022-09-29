@@ -34,7 +34,7 @@
             </div>
         </nav>
         <div class="banner">
-            <div class="search-talents">
+            <!-- <div class="search-talents">
                 <h2 class="search-title">Search for best <i class="font-courgette">services</i></h2>
                 <form class="search-box"  method="get" action="http://localhost/wordpress">
                     <input type="text" class="input-search" placeholder="Search for new talents..." name="s" value="">
@@ -44,7 +44,8 @@
             </div>
             <div class="img-banner">
                 <img class="bannerImg" src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/Group 11.png">
-            </div>
+            </div> -->
+            <h1 class="text-7xl text-white mx-auto my-20">Contact Us</h1>
         </div>
     </div>
 </header>
@@ -192,13 +193,12 @@ if(count($erorr) ==0) {
   wp_create_user( $username, $password, $email );
   echo "<script> setTimeout(function(){
     window.location.href = 'http://localhost/wordpress';
- }, 200);
+ }, 2000);
 </script>";
   exit();
 }
 } 
 ?> 
-
 
 
 

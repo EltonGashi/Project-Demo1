@@ -7,10 +7,10 @@ function dynamic_menu_enqueue()
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/end-game.js', array(), '1.0.0', true);
     wp_enqueue_script( 'customScript', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/responsive-header.js', array(), '1.0.0', true);
-    
+    wp_enqueue_script( 'aboutjs', get_template_directory_uri() . '/components/About-us/assets/about.js', array(), '1.0.0', true);
     wp_enqueue_style('menustyle', get_template_directory_uri() . '/assets/css/menu.css', array(), '1.0.0', 'all');
     wp_enqueue_style('comment style ', get_template_directory_uri() . '/assets/css/comment-style.css', array(), '1.0.0', 'all');
-    wp_enqueue_style('custom style ', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0.0', 'all');
+    wp_enqueue_style('custom style ', get_template_directory_uri() . '/components/contact-us/assets/custom.css', array(), '1.0.0', 'all');
 }
 
 add_action('wp_enqueue_scripts', 'dynamic_menu_enqueue');
@@ -425,17 +425,17 @@ add_role(
     )
 );
 
-// function post_published_limit( $ID, $post ) {
-//     $max_posts = 1; // change this or set it as an option that you can retrieve.
-//     $author = $post->post_author; // Post author ID.
-//     $count = count_user_posts( $author, 'post'); // get author post count
+function post_published_limit( $ID, $post ) {
+    $max_posts = 1; // change this or set it as an option that you can retrieve.
+    $author = $post->post_author; // Post author ID.
+    $count = count_user_posts( $author, 'post'); // get author post count
 
-//     if ( $count > $max_posts ) {
-//         // count too high, let's set it to draft.
-//         $post->post_status = 'draft';
-//         wp_update_post( $post);
-//     }
-// }
+    if ( $count > $max_posts ) {
+        // count too high, let's set it to draft.
+        $post->post_status = 'draft';
+        wp_update_post( $post);
+    }
+}
 add_action( 'publish_post', 'post_published_limit', 10, 2 );
 
 function mytheme_comment($comment, $args, $depth) {

@@ -54,8 +54,8 @@
                 </div>
 
                     <?php if($button): ?>
-                    <a href="#">
-                        <button class="border rounded-lg px-9 py-1.5 text-center bg-green-500 text-white sm:mb-12"><?php echo $button;?></button>
+                    <a >
+                        <button class="border rounded-lg px-9 py-1.5 text-center bg-green-500 text-white sm:mb-12" onclick="myFunction()"><?php echo $button;?></button>
                     </a>
                     <?php endif;?>
             </div>
