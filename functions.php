@@ -504,3 +504,46 @@ if (function_exists('register_sidebar')) {
 
 
 }
+
+function company_custom_taxonomy(){
+    $labels = array(
+        'name'=> 'Company',
+        'singular_name'=>'Company',
+        'add_new' => 'Add Company',
+        'all_items' => 'All Company',
+        'add_new_item' => 'Add New Company',
+        'edit_item' => 'Edit Company',
+        'new_item'=>'New Company',
+        'view_item' => 'View Company',
+        'search_item'=>'Search Company',
+        'not_found'=>'No Company found',
+        'not_found_in_trash'=>'No Company found in trash',
+        'parent_item_colon'=>'Parent Company:',
+        'menu_name'=>'Company',
+    );
+    $arguments = array(
+        'labels' => $labels,
+        'public'=> true,
+        'has_archive'=> true,
+        'publicly_queryable' => true,
+        'query_var'=> true,
+        'rewrite' => true,
+        'capability_type' =>'post',
+        'hierarchical' => false,
+        'menu_icon'=> 'dashicons-building',
+        'support'=>array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail',
+            'revisions',
+        ),
+        'taxonomies'=>array('category','post_tag'),
+        'menu_position'=>5,
+        'exclude_from_search' =>false,
+    );
+
+    register_post_type('company',$arguments);
+}
+
+add_action('init','company_custom_taxonomy');
