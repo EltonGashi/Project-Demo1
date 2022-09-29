@@ -10,6 +10,7 @@ module.exports = {
 			'./components/home/**/*.php',
 			'./components/find-talents/developers/**/*.php',
 			'./components/About-us/register-as-company/**/*.php',
+			'./components/find-jobs/jobs-card/**/*.php',
 			'./components/pages/**/*.php',
 			'./components/**/*.php',
 			'./*.php',
@@ -49,6 +50,9 @@ module.exports = {
 			dropShadow:{
 				'2lg':'0 10px 8px rgb(0 0 0 / 0.22)',
 			},
+			boxShadow: {
+				'3xl': ' 7px 7px 12px #c1c1c1',
+			  }
 		},
 	},
 	variants: {},
