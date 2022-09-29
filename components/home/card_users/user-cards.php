@@ -25,42 +25,7 @@
             <?php echo wp_trim_words( get_the_content(), 5); ?>
         </div>
 
-<!-- RATING -->
-<?php
-    $conn= new mysqli('localhost','root', '','ratingSystem');
-    if (isset($_POST['save'])){
-        $uID=$conn->real_escape_string($_POST['uID']);
-        $ratedIndex=$conn->real_escape_string($_POST['ratedIndex']);
-        $ratedIndex++;
 
-        if($uID){
-            $conn->query(query:"INSERT INTO stars(rateIndex) VALUES ($ratedIndex)");
-            $sql=$conn->query(query:"SELECT id FROM stars ORDER BY id DESC LIMIT 1");
-            $uData = $sql->fetch_assoc();
-            $uID=$uData['id'];
-        }else
-            $conn->query(query:"UPDATE stars SET rateIndex='$ratedIndex' WHERE id='$uID'");
-            exit(json_encode(array('id' => $uID)));
-        }
-    $sql = $conn->query(query:"SELECT id FROM stars");
-    $numR=$sql->num_rows;
-    $sql = $conn->query(query:"SELECT SUM(rateIndex) AS total FROM stars");
-    $rData = $sql->fetch_Array();
-    $total=$rData['total'];
-
-    $avg=$total / $numR;
-?>
-    <div style="color:black;">
-        <i class="fa-solid fa-star" data-index="0"></i>
-        <i class="fa-solid fa-star" data-index="1"></i>
-        <i class="fa-solid fa-star" data-index="2"></i>
-        <i class="fa-solid fa-star" data-index="3"></i>
-        <i class="fa-solid fa-star" data-index="4"></i>
-        <br>
-        <br>
-        <?php echo round($avg, precision:2)?>
-    </div>
-<!-- RATING -->
 
         <button type="button" class="flex w-full text-white text-xs justify-end p-1">
             <?php $link = get_permalink();  ?>
