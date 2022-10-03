@@ -1,0 +1,151 @@
+img.attachment-large.size-large.wp-post-image {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    width: 100%;
+    height: 100%;
+}
+#nav_menu-2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.about-us{
+    background-image: url(../img/AboutUsImages/triangle1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+p{
+    display:grid;
+
+}
+.wpcf7-form-control{
+}
+
+.wpcf7-form-control{
+    border:1px solid rgba(255, 255, 255, 0);
+    border-radius:2rem;
+    padding:10px;
+    width:85%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+#s-btn{
+    width:10rem;
+    justify-self:center;
+    background-color:#799F28;
+    color:white;
+    cursor:pointer;
+}
+#s-btn:hover{
+    background-color:green;
+}
+.wpcf7-textarea{
+    resize:none;
+    color: #a9a3af;
+}
+@media(max-width:1280px){
+    .wpcf7-form-control{
+        width: 95%;
+    }
+}
+@media(max-width:1023px){
+    .wpcf7-form-control{
+        width: 80%;
+    }
+}
+@media(max-width:731px){
+    .wpcf7-form-control{
+        width: 100%;
+    }
+}
+.hr-company-card {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(3 105 161), rgba(0, 0, 0, 0));
+    margin-top: 10px;
+}
+.programming-languages {
+    padding-top: 30px;
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+}
+.programming-languages .language-wrapper {
+    padding: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.programming-languages .language:first-child {
+    margin-left: 0px;
+}
+.programming-languages .language {
+    border-radius: 10px;
+    min-width: 200px;
+    background: rgb(192, 192, 192);
+    margin-right: 10px;
+    margin-bottom: 1rem;
+}
+/* width */
+.programming-languages::-webkit-scrollbar {
+    height: 8px;
+}
+/* Track */
+.programming-languages::-webkit-scrollbar-track {
+    background-color: rgb(148, 148, 148);
+}
+/* Handle */
+.programming-languages::-webkit-scrollbar-thumb {
+    background: rgb(56, 56, 56);
+    border-radius: 8px;
+}
+/* Handle on hover */
+.programming-languages::-webkit-scrollbar-thumb:hover {
+    background: darkblue;
+}
+
+
+
+.company {
+    /* background-color: transparent; */
+    width: 400px;
+    height: 400px;
+    /* perspective: 1000px; */
+  }
+  
+  .company-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* text-align: center; */
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+  }
+  
+  .company:hover .company-card {
+    transform: rotateY(180deg);
+  }
+  
+  .side.front, .side.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .side.front {
+    /* background-color: #bbb; */
+    color: black;
+  }
+  
+  .side.back {
+    /* background-color: #2980b9; */
+    transform: rotateY(180deg);
+  }
