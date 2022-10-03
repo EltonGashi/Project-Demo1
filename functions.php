@@ -10,7 +10,7 @@ function dynamic_menu_enqueue()
     wp_enqueue_script( 'aboutjs', get_template_directory_uri() . '/components/About-us/assets/about.js', array(), '1.0.0', true);
     wp_enqueue_style('menustyle', get_template_directory_uri() . '/assets/css/menu.css', array(), '1.0.0', 'all');
     wp_enqueue_style('comment style ', get_template_directory_uri() . '/assets/css/comment-style.css', array(), '1.0.0', 'all');
-    wp_enqueue_style('custom style ', get_template_directory_uri() . '/components/contact-us/assets/custom.css', array(), '1.0.0', 'all');
+    wp_enqueue_style('custom style ', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0.0', 'all');
 }
 
 add_action('wp_enqueue_scripts', 'dynamic_menu_enqueue');
@@ -400,20 +400,6 @@ add_action('wp_ajax_my_action', 'my_action');
 add_role(
     'freelancer', //  Emri i Rolit
     __( 'Freelancer'  ), 
-    array(
-        'read'  => true,
-        'delete_posts'  => true,
-        'delete_published_posts' => true,
-        'edit_posts'   => false,
-        'publish_posts' => true ,
-        'edit_published_posts'   => true,
-        'upload_files'  => true,
-        'moderate_comments'=> true, // 
-    )
-);
-add_role(
-    'Company', //  Emri i Rolit
-    __( 'Company'  ), 
     array(
         'read'  => true,
         'delete_posts'  => true,
@@ -859,3 +845,4 @@ class WP_Query_Posts_by_Rate extends WP_Query{
     }
 }
 
+add_action('init','company_custom_taxonomy');
