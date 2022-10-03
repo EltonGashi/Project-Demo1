@@ -33,8 +33,8 @@
 <hr class="hr-company-card w-4/12">
 </div>
 <button type="button" class="flex w-full text-md justify-center p-1 pt-1 ">
-            <?php $link = get_permalink();  ?>
-            <p class="rounded-full px-4 py-2 text-center"><?php print '<a href="'.$link.'">View Job</a>' ?></p>  
+            <?php $ASD = get_permalink();  ?>
+            <p class="rounded-full px-4 py-2 text-center"><?php print '<a href="'.$ASD.'">View Job</a>' ?></p>  
         </button>
     </div>
 </div>

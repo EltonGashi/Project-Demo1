@@ -51,7 +51,7 @@ $ud = $user->id;
 <!-- RATING -->
 <?php
 $user = wp_get_current_user();
-$userID = (int)the_id();
+
 ?>    
     
     <div class="rate flex">
@@ -62,14 +62,11 @@ $userID = (int)the_id();
             <i class="fa-solid fa-star" data-index="3"></i>
             <i class="fa-solid fa-star" data-index="4"></i>
         </div>
-        <?php foreach($posts as $post):?>
-            <?php echo $post->rate?>
-            <div class="rate font-semibold ml-4">
-                <?php if($userID==$post->ID):?>
-                (<?php echo round($post->rate,2); ?>)
-                <?php endif;?>
+           
+            <div class="rate font-semibold ml-4">       
+                (<?php echo round($post_rate->rate,2); ?>)
             </div>
-        <?php endforeach;?>
+
     </div>
 
 <!-- RATING -->

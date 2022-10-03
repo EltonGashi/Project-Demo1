@@ -1,4 +1,5 @@
-<?php get_header();?>
+<?php
+get_header();?>
 
     <!-- ////////////// CONTAINER-START ////////////// -->
 <div class="container bg-bg p-20">
@@ -73,6 +74,7 @@
                 'include' => $category_id,
                 
             );
+        
 
             $categories = get_categories($args_cat);
             foreach($categories as $category):
@@ -87,7 +89,7 @@
                     'orderby' =>'rand',
                     // 'category__not_in' => array(1),
                 );
-    
+                echo $category->term_id;
                 $lastBlog = new WP_Query($args);
     
                 if( $lastBlog->have_posts()):

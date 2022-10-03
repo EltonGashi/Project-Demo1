@@ -827,3 +827,35 @@ function save_company_user_data( $user_id ) {
 add_action( 'personal_options_update', 'save_company_user_data', 10, 1 );
 add_action( 'edit_user_profile_update', 'save_company_user_data', 10, 1 );
 add_action( 'user_register', 'save_company_user_data', 10, 1 );
+
+
+
+class WP_Query_Posts_by_Rate extends WP_Query{
+    var $follower_id;
+    
+
+    function __construct($args=array()) {
+        if(!empty($args['follower_id'])) {
+            $this->follower_id = $args['follower_id'];
+            add_filter('posts_where', array($this, 'posts_where'));
+        }
+
+        parent::query($args);
+    }
+
+    function post_where($where) {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'follow';
+        $where .= $wpdb->prepare("SELECT wp_posts.ID , AVG(rate.rateIndex) AS rate FROM $wpdb->posts 
+        LEFT JOIN 
+        ratingSystem.rate
+        ON wp_posts.ID = rate.cardID
+        WHERE wp_posts.post_type = 'post'
+        AND wp_posts.post_status = 'publish' 
+        GROUP BY wp_posts.ID 
+        ORDER BY rate DESC
+        ");
+        return $where;
+    }
+}
+
