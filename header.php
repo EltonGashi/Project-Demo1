@@ -154,8 +154,6 @@ if($_POST)  {
    // nese username osht i zbrazt
   if(empty($username)) {
     $erorr['username_empty'] =  "";
-  
-  
   }
 
      // nese username egziston n databaz
