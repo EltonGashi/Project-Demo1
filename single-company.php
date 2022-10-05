@@ -66,7 +66,8 @@
             <div class="open-job-positions w-full h-auto flex justify-between gap-4 lg:flex-col py-10 pt-20">
                 <div class="about-job-postions w-7/12  lg:w-full ">
                     <h1 class="job-positions-name text-2xl">Starlabs is looking for <span class="font-bold"><?php the_sub_field('job_positions_name'); ?></span></h1>
-                    <p class="information text-center pt-4"><?php the_content(); ?></p>
+                    <p class="information  pt-4"><?php the_sub_field('job_description'); ?></p>
+
                 </div>
                 <div class="header-card w-4/12 flex justify-center items-center gap-8 lg:w-full lg:justify-start">
                     <div class="contract border-solid border-lime-800 rounded-lg border-2 px-6 xl:px-4 text-center text-white bg-lime-800"><?php the_sub_field('contract_hour'); ?></div>
@@ -109,91 +110,26 @@
                 </div>
             </div>
         </div>
-        
+        <div class="comments-files w-full flex justify-between xl:gap-10 lg:flex-col">
+            <div id="company-comments-section" class="w-5/12 xl:w-6/12 lg:w-full ">
+                <?php comments_template( '/comments-company.php' ); ?> 
+                    <div class="card-comments w-full">
+                    <h1 class="comments-title">Comments</h1>
+                    <ul class="commentlist">
+                    <?php wp_list_comments( 'type=comment&callback=mytheme_comment' ); ?>
+                    </ul>
+                </div>
+        </div>
+        <div class="file-attachment w-5/12  lg:w-full ">
+            <h1 class="apply-job w-full text-center text-2xl font-bold">Apply for this Job</h1>
+            <p class="attach files pt-4 "><?php the_content(); ?></p>
+        </div>
+        </div>
+
         <?php endwhile; ?>
 <?php endif; ?>
     </div>
     
-
-
-    <!-- FILE Attachment -->
-
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="email" name="email" placeholder="Email">
-        <br>
-        <!-- <textarea type="msg" placeholder="Message"></textarea><br> -->
-        <input type="file" name="attach1" id=""><br>
-        <input type="submit" value="submit">
-    </form>
-
-    <?php
-        error_reporting(E_ALL);
-        ini_set('display_errors',1);
-
-        if(isset($_FILES) && (bool) $_FILES){
-            $allowedExtensions = array("pdf","jpg","doc","docx","png","jpeg");
-
-            $files=array();
-
-            foreach($_FILES as $name=>$file){
-                $file_name =$file['name'];
-                $temp_name=$file['tmp_name'];
-                $file_type=$file['type'];
-                $path_parts =pathinfo($file_name);
-                $ext = $path_parts['extension'];
-                if(!in_array($ext,$allowedExtensions)){
-                    die("File $file_name has the extension $ext which is not allowed");
-                }
-                array_push($files,$file);
-                }
-
-                $to=$_POST['email'];
-                $from="bleronamaxhuni68@gmail.com";
-                $subject = "Email Attachment";
-                // $message =$_POST['msg'];
-                $headers ="From:$from";
-
-                $semi_rand = md5(time());
-                $mime_boundary = "==Multipart_Boundary_x($semi_rand)x";
-
-                $headers .="\nMIMe-Version 1.0\n"."Content-Type:multipart/mixed;\n"."boundary=\"{$mime_boundary}\"";
-
-                // $message = "This is a multi-part message in MIME format. \n\n"."--{$mime_boundary}\n"."Content-Type:text/plain; charset=\"iso-8859-1\"\n"."Content-Transfer-Encoding:7bit\n\n".$message."\n\n";
-
-                // $message .= "--{$mime_boundary}";
-
-
-                for($x = 0;$x < count($files);$x++ ){
-                    $file = fopen($files[$x]['tmp_name'],"rb");
-                    $data = fread($file,filesize($files[$x]['tmp_name']));
-                    fclose($file);
-                    $data = chunk_split(base64_encode($data));
-                    $name=$files[$x]['name'];
-                    // $message.="Content-Type:{\"application/ocet-stream\"};\n"."name=\"$name\"\n".
-                    // "Content-Disposition:attachment;\n"."filename=\"$name\"\n"."Content-Transfer-Encoding:base64\n\n".$data."\n\n";
-                    // $message .="--{$mime_boundary}\n";
-                
-                }
-
-                $ok = mail($to,$subject,$headers);
-                // if($ok){
-                //     echo"<p>Mail sent to $to!</p>";
-                // }else{
-                //     echo"<p>Mail could not be sent!</p>";
-                // }
-
-                echo '<script type ="text/JavaScript">';  
-                if($ok){
-                echo 'alert("Mail sent to $to!")';  
-                }else{
-                echo 'alert("Mail could not be sent!")';  
-                }
-                echo '</script>';  
-
-        }
-
-    ?>
-
 
 
 

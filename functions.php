@@ -75,6 +75,9 @@ function my_action_javascript() { ?>
             var page5 = 2; 
             var page6 = 2;
             var page7 = 2;
+            var page8 = 2;
+            var page9 = 2;
+            var page10 = 2;
 
 
             var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
@@ -128,12 +131,29 @@ function my_action_javascript() { ?>
                         'cat': category,
                         'page': page6,
                     };
-                }
-                else if(category=='Graphic Designer'){
+                }else if(category=='Graphic Designer'){
                     var data = {
                         'action': 'my_action',
                         'cat': category,
                         'page': page7,
+                    };
+                }else if(category=='Front End Development'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page8,
+                    };
+                }else if(category=='Back End Development'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page9,
+                    };
+                }else if(category=='Full Stack Development'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page10,
                     };
                 }else{
                     var data = {
@@ -202,7 +222,36 @@ function my_action_javascript() { ?>
                             $(btn).removeClass("border-customGreen");
                             $(btn).addClass("border-red-600");
                         };
-                    }else {
+                    }else if(category == 'Graphic Designer'){
+                        page7++;
+                        if(count == page7){
+                            $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
+                        };
+                    }else if(category == 'Front End Development'){
+                        page8++;
+                        if(count == page8){
+                            $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
+                        };
+                    }else if(category == 'Back End Development'){
+                        page9++;
+                        if(count == page9){
+                            $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
+                        };
+                    }else if(category == 'Full Stack Development'){
+                        page10++;
+                        if(count == page10){
+                            $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
+                        };
+                    }
+                    else {
                         if(count == page){
                             $(btn).text("No more data");
                             $(btn).removeClass("border-customGreen");
@@ -367,7 +416,68 @@ function my_action(){
                 <?php wp_reset_postdata(); ?>
     
             <?php endif;
-        }else{
+        }else if($cat == 'Front End Development'){
+            $args8 =array(
+                'post_type' => 'company',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query8 = new WP_Query( $args8 ); ?>
+            
+            <?php if( $the_query8->have_posts() ): ?>
+    
+            <?php while ( $the_query8->have_posts() ) : $the_query8->the_post(); ?> 
+    
+                <?php get_template_part('/components/find-jobs/jobs-card/front','development');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'Back End Development'){
+            $args9 =array(
+                'post_type' => 'company',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query9 = new WP_Query( $args9 ); ?>
+            
+            <?php if( $the_query9->have_posts() ): ?>
+    
+            <?php while ( $the_query9->have_posts() ) : $the_query9->the_post(); ?> 
+    
+                <?php get_template_part('/components/find-jobs/jobs-card/back','development');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'Full Stack Development'){
+            $args10 =array(
+                'post_type' => 'company',
+                'category_name' =>$_POST['cat'],
+                'paged' => $_POST['page'],
+            ); 
+
+            $the_query10 = new WP_Query( $args10 ); ?>
+            
+            <?php if( $the_query10->have_posts() ): ?>
+    
+            <?php while ( $the_query10->have_posts() ) : $the_query10->the_post(); ?> 
+    
+                <?php get_template_part('/components/find-jobs/jobs-card/full','development');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }
+        else{
             $args =array(
                 'post_type' => 'post',
                 'category_name' =>$_POST['cat'],
@@ -411,18 +521,18 @@ add_role(
     )
 );
 
-function post_published_limit( $ID, $post ) {
-    $max_posts = 1; // change this or set it as an option that you can retrieve.
-    $author = $post->post_author; // Post author ID.
-    $count = count_user_posts( $author, 'post'); // get author post count
+// function post_published_limit( $ID, $post ) {
+//     $max_posts = 1; // change this or set it as an option that you can retrieve.
+//     $author = $post->post_author; // Post author ID.
+//     $count = count_user_posts( $author, 'post'); // get author post count
 
-    if ( $count > $max_posts ) {
-        // count too high, let's set it to draft.
-        $post->post_status = 'draft';
-        wp_update_post( $post);
-    }
-}
-add_action( 'publish_post', 'post_published_limit', 10, 2 );
+//     if ( $count > $max_posts ) {
+//         // count too high, let's set it to draft.
+//         $post->post_status = 'draft';
+//         wp_update_post( $post);
+//     }
+// }
+// add_action( 'publish_post', 'post_published_limit', 10, 2 );
 
 function mytheme_comment($comment, $args, $depth) {
     if ( 'div' === $args['style'] ) {
@@ -532,14 +642,8 @@ function company_custom_taxonomy(){
         'capability_type' =>'post',
         'hierarchical' => false,
         'menu_icon'=> 'dashicons-building',
-        'support'=>array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail',
-            'revisions',
-        ),
-        'taxonomies'=>array('category','post_tag'),
+        'supports' => array('title','editor','excerpt','comments','revisions'),
+        'taxonomies'=>array('post_tag'),
         'menu_position'=>5,
         'exclude_from_search' =>false,
     );
@@ -548,3 +652,36 @@ function company_custom_taxonomy(){
 }
 
 add_action('init','company_custom_taxonomy');
+
+function categories_custom_taxonomies() {
+	
+	$labels = array(
+		'name' => 'Categories',
+		'singular_name' => 'Category',
+		'search_items' => 'Search Categories',
+		'all_items' => 'All Categories',
+		'parent_item' => 'Parent Category',
+		'parent_item_colon' => 'Parent Category:',
+		'edit_item' => 'Edit Category',
+		'update_item' => 'Update Category',
+		'add_new_item' => 'Add New Category',
+		'new_item_name' => 'New Category Name',
+		'menu_name' => 'Categories'
+	);
+	
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'categories' )
+	);
+	
+	register_taxonomy('categories', array('company'), $args);
+	
+	
+}
+
+add_action( 'init' , 'categories_custom_taxonomies' );
+
