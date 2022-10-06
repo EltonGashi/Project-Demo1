@@ -1,4 +1,5 @@
-<?php get_header();?>
+<?php
+get_header();?>
 
     <!-- ////////////// CONTAINER-START ////////////// -->
 <div class="container bg-bg p-20">
@@ -66,7 +67,8 @@
             <div class="open-job-positions w-full h-auto flex justify-between gap-4 lg:flex-col py-10 pt-20">
                 <div class="about-job-postions w-7/12  lg:w-full ">
                     <h1 class="job-positions-name text-2xl">Starlabs is looking for <span class="font-bold"><?php the_sub_field('job_positions_name'); ?></span></h1>
-                    <p class="information text-center pt-4"><?php the_content(); ?></p>
+                    <p class="information  pt-4"><?php the_sub_field('job_description'); ?></p>
+
                 </div>
                 <div class="header-card w-4/12 flex justify-center items-center gap-8 lg:w-full lg:justify-start">
                     <div class="contract border-solid border-lime-800 rounded-lg border-2 px-6 xl:px-4 text-center text-white bg-lime-800"><?php the_sub_field('contract_hour'); ?></div>
@@ -109,41 +111,32 @@
                 </div>
             </div>
         </div>
-        
+        <div class="comments-files w-full flex justify-between xl:gap-10 lg:flex-col pt-10">
+            <div id="company-comments-section" class="w-5/12 xl:w-6/12 lg:w-full ">
+                <?php comments_template( '/comments-company.php' ); ?> 
+                    <div class="card-comments w-full">
+                    <h1 class="comments-title">Comments</h1>
+                    <ul class="commentlist">
+                    <?php wp_list_comments( 'type=comment&callback=mytheme_comment' ); ?>
+                    </ul>
+                </div>
+        </div>
+        <div class="file-attachment w-5/12  lg:w-full h-1/2">
+            <h1 class="apply-job w-full text-center text-2xl font-bold">Apply for this Job</h1>
+            <p class="attach files pt-4 "><?php the_content(); ?></p>
+        </div>
+        </div>
+
         <?php endwhile; ?>
 <?php endif; ?>
     </div>
     
 
 
-    <!-- FILE Attachment -->
-
-    <div class="row">
-        <h1>Contact form</h1>
-        <div class="form-group">
-            <h5 for="name">Name</h5>
-            <input type="text" class="form-control" id="name" placeholder="Enter name"/>
-        </div>
-        <div class="form-group">
-            <h5 for="email">Email</h5>
-            <input type="email" class="form-control" id="email" placeholder="Enter email"/>
-        </div>
-        <div class="form-group">
-            <h5 for="message">Message</h5>
-            <textarea class="form-control" id="message" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-            <h5 for="file">Attach you CV</h5>
-            <input type="file" name="attach1" id=""><br>
-        </div>
-        <button class="btn btn-primary" onclick="sendMail()">Submit</button>
-    </div>
-
-
 
     <div class="my-16 font-extrabold text-2xl"><?php $cat = the_category(); ?></div>
 
-<section id="company">
+    <section id="company">
         <div class="company-suggested grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-8">
     
         <?php
@@ -157,6 +150,7 @@
                 'include' => $category_id,
                 
             );
+        
 
             $categories = get_categories($args_cat);
             foreach($categories as $category):
@@ -171,7 +165,7 @@
                     'orderby' =>'rand',
                     // 'category__not_in' => array(1),
                 );
-    
+                echo $category->term_id;
                 $lastBlog = new WP_Query($args);
     
                 if( $lastBlog->have_posts()):

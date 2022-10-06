@@ -149,9 +149,9 @@
         </div>
         
         <div id="actual-article">
-                <?php comments_template();?>
+                <?php comments_template('/comments.php');?>
                 
-                <div class="card-comments">
+                <div class="card-comments w-full">
                     <h1 class="comments-title">Comments</h1>
                     <ul class="commentlist">
                     <?php wp_list_comments( 'type=comment&callback=mytheme_comment' ); ?>

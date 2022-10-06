@@ -1,12 +1,12 @@
 div#actual-article {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-top: 5%;
 }
 div#respond {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -19,8 +19,10 @@ h3#reply-title {
 }
 form#commentform {
     margin-top: 3%;
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
     background-color: white;
+    border: 1px solid #ebebea;
+    box-shadow: rgb(149 157 165 / 20%) 0px 5px 3px;
     border-radius: 10px;
     width: 100%;
     padding: 3%;
@@ -128,12 +130,16 @@ p.form-submit {
 p.logged-in-as{
     display: block;
 }
+textarea#comment-text {
+    resize: none;
+    background-color: #efefef;
+}
 @media (max-width:1439px) {
     div#respond{
-        width: 60%;
+        width: 100%;
     }
     .card-comments{
-        width: 60%;
+        width: 100%;
     }
 }
 

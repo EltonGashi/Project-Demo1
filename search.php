@@ -126,7 +126,7 @@
                 </div>
                 <?php } else{
                 ?>
-                <h1>No results for this search query!</h1>
+                    <h1>No results for this search!</h1>
                 <?php } ?>
             </section>
         </div>

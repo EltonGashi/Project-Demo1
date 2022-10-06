@@ -4,7 +4,7 @@
 */
 
 
-get_header();?>
+get_header('contact');?>
 
     <?php if(have_posts()):
     

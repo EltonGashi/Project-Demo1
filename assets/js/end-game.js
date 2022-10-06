@@ -1,6 +1,8 @@
 
 /*MODAL HEADER*/
 
+// const autoprefixer = require("autoprefixer");
+
 window.addEventListener('DOMContentLoaded', () =>{
     /*Login MODAL*/
     const overlayLogin = document.querySelector('#overlay-login');
@@ -42,52 +44,63 @@ const toggle = () => {
 
 
 
-// RATING
-var ratedIndex=-1, uID=0;//no Rating
-
+//parseInt($('.fa-star').parent().data('user')) RATING
+var ratedIndex=-1,cardID=-1, uID=0;//no Rating
 $(document).ready(function(){
     resetStarColors();
-    if(localStorage.getItem('ratedIndex')!= null){
-        setStars(parseInt(localStorage.getItem('ratedIndex')));
-        uID=localStorage.getItem('uID');
+    var cards =document.querySelectorAll('.fa-star');
+    if(localStorage.getItem('ratedIndex') !=null){
+        setStars(parseInt(localStorage.getItem('ratedIndex')),parseInt(localStorage.getItem('cardID')));//ME e configuru hala
+        uID = localStorage.getItem('uID');
     }
+    
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            ratedIndex = parseInt($(card).data("index"));
+            cardID = parseInt($(card).parent().data("index"));
+            localStorage.setItem('ratedIndex', ratedIndex);
+            localStorage.setItem('cardID',cardID);
+            saveToTheDB();
+        });
+        
+        card.addEventListener('mouseover', () => {
+            resetStarColors();
+            var currentIndex= parseInt($(card).data("index"));
+            setStars(currentIndex,card);
+        });
+        card.addEventListener('mouseout', () => {
+            resetStarColors();
+            if(ratedIndex != -1){
+               setStars(ratedIndex,card);
+            }
+        });
 
-    $('.fa-star').on('click',function(){
-        ratedIndex=parseInt($(this).data('index'));
-        localStorage.setItem('ratedIndex',ratedIndex);
-        savetoDB();
-    });
-    $('.fa-star').mouseover(function(){
-        resetStarColors();
-        var currentIndex = parseInt($(this).data('index'));
-        setStars(currentIndex);
-    });
-    $('.fa-star').mouseleave(function(){
-        resetStarColors();
-        if(ratedIndex !=-1)
-        setStars(ratedIndex);
     });
 });
-function savetoDB(){
+function saveToTheDB(){
     $.ajax({
-        url:"index.php",
+        url: "index.php",
         method:"POST",
         dataType:'json',
         data:{
             save:1,
-            uID:uID,
-            ratedIndex:ratedIndex
-        }, success: function(r){
-            uID=r.uid;
-            localStorage.setItem('uID', uID);
-        }
-    })
+            uID: uID,
+            cardID: cardID,
+            ratedIndex: ratedIndex
+        }, success: function (r) {
+            uID = r.id;
+            localStorage.setItem('uID',uID);
+       }
+    });
 }
 
-function setStars(max){
-    for(var i=0; i<=max; i++)
-        $('.fa-star:eq('+i+')').css('color','green');
-}
+function setStars(max,card){
+    $('.fa-star').css('cursor','pointer');
+    for(var i=0; i<=max; i++){
+      $( card ).prevAll().css( "color", "green" );
+      $( card ).css( "color", "green" );
+    }
+};
 
 function resetStarColors(){
     $('.fa-star').css('color','black');

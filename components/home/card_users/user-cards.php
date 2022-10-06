@@ -1,4 +1,27 @@
-<div class="user-card bg-white rounded-3xl">
+<?php
+global $conn;
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+};
+if (isset($_POST['save'])) {
+    $uID = $conn->real_escape_string($_POST['uID']);
+    $cardID = $conn->real_escape_string($_POST['cardID']);
+    $ratedIndex = $conn->real_escape_string($_POST['ratedIndex']);
+    $ratedIndex++;
+
+    if (!$uID) {
+        $conn->query("INSERT INTO rate (cardID,rateIndex) VALUES ('$cardID','$ratedIndex')");
+        $sql = $conn->query("SELECT id FROM rate ORDER BY id DESC LIMIT 1");
+        $uData = $sql->fetch_assoc();
+        $uID = $uData['id'];
+    } else
+        $conn->query("UPDATE rate SET cardID='$cardID', ratedIndex='$ratedIndex' WHERE id='$uID'");
+
+    exit(json_encode(array('id' => $uID)));
+}
+$ud = $user->id;
+?>
+<div class="user-card bg-white rounded-3xl shadow shadow-black-900">
     <div class="user-thumbnail">
         <?php the_post_thumbnail('large'); ?>
     </div>
@@ -25,7 +48,28 @@
             <?php echo wp_trim_words( get_the_content(), 5); ?>
         </div>
 
+<!-- RATING -->
+<?php
+$user = wp_get_current_user();
 
+?>    
+    
+    <div class="rate flex">
+        <div style="color:black;" data-index="<?php the_id();?>" data-user="<?php echo $user->id;?>">
+            <i class="fa-solid fa-star" data-index="0"></i>
+            <i class="fa-solid fa-star" data-index="1"></i>
+            <i class="fa-solid fa-star" data-index="2"></i>
+            <i class="fa-solid fa-star" data-index="3"></i>
+            <i class="fa-solid fa-star" data-index="4"></i>
+        </div>
+           
+            <div class="rate font-semibold ml-4">       
+                (<?php echo round($post_rate->rate,2); ?>)
+            </div>
+
+    </div>
+
+<!-- RATING -->
 
         <button type="button" class="flex w-full text-white text-xs justify-end p-1">
             <?php $link = get_permalink();  ?>

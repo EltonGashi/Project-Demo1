@@ -5,27 +5,29 @@
 
 get_header();?>
 <div class="container bg-bg p-20">
-    
+<?php the_content();?>
+
     <section id="Front End Development" class="py-10">
 
         <h1 class="text-3xl py-5">Front End Development</h1>
         
             <?php
 
-                $args1 = array(
+                $args8 = array(
                     'post_type' => 'company',
                     'post_status' => 'publish',
                     'category_name' => 'Front End Development',
                     'posts_per_page' => 4,
                 );
 
-                $the_query1 = new WP_Query($args1);?>
-                <div class="users grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="Front End Development"><?php
-                if( $the_query1->have_posts()):
+                $the_query8 = new WP_Query($args8);?>
+                <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query8->found_posts/2); ?>" data-label="Front End Development">
+                <?php
+                if( $the_query8->have_posts()):
 
-                    while( $the_query1->have_posts() ): $the_query1->the_post(); ?>
+                    while( $the_query8->have_posts() ): $the_query8->the_post(); ?>
 
-                        <?php get_template_part('/components/find-jobs/jobs-card/companies','card');?>
+                        <?php get_template_part('/components/find-jobs/jobs-card/front','development');?>
                         
                     <?php endwhile;
 
@@ -45,20 +47,20 @@ get_header();?>
         
             <?php
 
-                $args1 = array(
+                $args9 = array(
                     'post_type' => 'company',
                     'post_status' => 'publish',
                     'category_name' => 'Back End Development',
                     'posts_per_page' => 4,
                 );
 
-                $the_query1 = new WP_Query($args1);?>
-                <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="Back End Development"><?php
-                if( $the_query1->have_posts()):
+                $the_query9 = new WP_Query($args9);?>
+                <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query9->found_posts/2); ?>" data-label="Back End Development"><?php
+                if( $the_query9->have_posts()):
 
-                    while( $the_query1->have_posts() ): $the_query1->the_post(); ?>
+                    while( $the_query9->have_posts() ): $the_query9->the_post(); ?>
 
-                        <?php get_template_part('/components/find-jobs/jobs-card/companies','card');?>
+                        <?php get_template_part('/components/find-jobs/jobs-card/back','development');?>
                         
                     <?php endwhile;
 
@@ -78,20 +80,20 @@ get_header();?>
         
             <?php
 
-                $args1 = array(
+                $args10 = array(
                     'post_type' => 'company',
                     'post_status' => 'publish',
                     'category_name' => 'Full Stack Development',
                     'posts_per_page' => 4,
                 );
 
-                $the_query1 = new WP_Query($args1);?>
-                <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query1->found_posts/2); ?>" data-label="Full Stack Development"><?php
-                if( $the_query1->have_posts()):
+                $the_query10 = new WP_Query($args10);?>
+                <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query10->found_posts/2); ?>" data-label="Full Stack Development"><?php
+                if( $the_query10->have_posts()):
 
-                    while( $the_query1->have_posts() ): $the_query1->the_post(); ?>
+                    while( $the_query10->have_posts() ): $the_query10->the_post(); ?>
 
-                        <?php get_template_part('/components/find-jobs/jobs-card/companies','card');?>
+                        <?php get_template_part('/components/find-jobs/jobs-card/full','development');?>
                         
                     <?php endwhile;
 
