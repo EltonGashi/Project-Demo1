@@ -110,7 +110,7 @@
                 </div>
             </div>
         </div>
-        <div class="comments-files w-full flex justify-between xl:gap-10 lg:flex-col">
+        <div class="comments-files w-full flex justify-between xl:gap-10 lg:flex-col pt-10">
             <div id="company-comments-section" class="w-5/12 xl:w-6/12 lg:w-full ">
                 <?php comments_template( '/comments-company.php' ); ?> 
                     <div class="card-comments w-full">
@@ -120,7 +120,7 @@
                     </ul>
                 </div>
         </div>
-        <div class="file-attachment w-5/12  lg:w-full ">
+        <div class="file-attachment w-5/12  lg:w-full h-1/2">
             <h1 class="apply-job w-full text-center text-2xl font-bold">Apply for this Job</h1>
             <p class="attach files pt-4 "><?php the_content(); ?></p>
         </div>
@@ -135,7 +135,7 @@
 
     <div class="my-16 font-extrabold text-2xl"><?php $cat = the_category(); ?></div>
 
-<section id="company">
+    <section id="company">
         <div class="company-suggested grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-8">
     
         <?php

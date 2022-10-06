@@ -15,7 +15,7 @@
                 <div class="four columns text-white w-full text-center">
                     <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('footer-left-center-widget') ) ?>
                 </div>
-                <div class="four columns w-full">
+                <div class="four columns w-full flex items-center flex-col">
                     <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('footer-center-widget') ) ?>
                 </div>
                 <div class="four columns w-full flex justify-center">
