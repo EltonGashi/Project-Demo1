@@ -1,4 +1,4 @@
-<div class="company bg-white rounded-3xl shadow-3xl">
+<div class="company bg-white rounded-3xl shadow-3xl w-full">
     <?php if( have_rows('jobs') ): ?>
         <?php while ( have_rows('jobs') ) : the_row(); 
             $image = get_sub_field('company_logo');

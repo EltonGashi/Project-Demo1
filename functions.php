@@ -6,6 +6,7 @@ function dynamic_menu_enqueue()
     wp_enqueue_script( 'customjs', get_template_directory_uri() . '/components/home/assets/home.js', array(), '1.0.0', true);
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/end-game.js', array(), '1.0.0', true);
     wp_enqueue_script( 'customScript', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
+    wp_enqueue_script( 'emailJs', 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js%27');
     wp_enqueue_script( 'endGamejs', get_template_directory_uri() . '/assets/js/responsive-header.js', array(), '1.0.0', true);
     wp_enqueue_script( 'aboutjs', get_template_directory_uri() . '/components/About-us/assets/about.js', array(), '1.0.0', true);
     wp_enqueue_style('menustyle', get_template_directory_uri() . '/assets/css/menu.css', array(), '1.0.0', 'all');

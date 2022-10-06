@@ -118,82 +118,26 @@
 
     <!-- FILE Attachment -->
 
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="email" name="email" placeholder="Email">
-        <br>
-        <!-- <textarea type="msg" placeholder="Message"></textarea><br> -->
-        <input type="file" name="attach1" id=""><br>
-        <input type="submit" value="submit">
-    </form>
-
-    <?php
-        error_reporting(E_ALL);
-        ini_set('display_errors',1);
-
-        if(isset($_FILES) && (bool) $_FILES){
-            $allowedExtensions = array("pdf","jpg","doc","docx","png","jpeg");
-
-            $files=array();
-
-            foreach($_FILES as $name=>$file){
-                $file_name =$file['name'];
-                $temp_name=$file['tmp_name'];
-                $file_type=$file['type'];
-                $path_parts =pathinfo($file_name);
-                $ext = $path_parts['extension'];
-                if(!in_array($ext,$allowedExtensions)){
-                    die("File $file_name has the extension $ext which is not allowed");
-                }
-                array_push($files,$file);
-                }
-
-                $to=$_POST['email'];
-                $from="bleronamaxhuni68@gmail.com";
-                $subject = "Email Attachment";
-                // $message =$_POST['msg'];
-                $headers ="From:$from";
-
-                $semi_rand = md5(time());
-                $mime_boundary = "==Multipart_Boundary_x($semi_rand)x";
-
-                $headers .="\nMIMe-Version 1.0\n"."Content-Type:multipart/mixed;\n"."boundary=\"{$mime_boundary}\"";
-
-                // $message = "This is a multi-part message in MIME format. \n\n"."--{$mime_boundary}\n"."Content-Type:text/plain; charset=\"iso-8859-1\"\n"."Content-Transfer-Encoding:7bit\n\n".$message."\n\n";
-
-                // $message .= "--{$mime_boundary}";
-
-
-                for($x = 0;$x < count($files);$x++ ){
-                    $file = fopen($files[$x]['tmp_name'],"rb");
-                    $data = fread($file,filesize($files[$x]['tmp_name']));
-                    fclose($file);
-                    $data = chunk_split(base64_encode($data));
-                    $name=$files[$x]['name'];
-                    // $message.="Content-Type:{\"application/ocet-stream\"};\n"."name=\"$name\"\n".
-                    // "Content-Disposition:attachment;\n"."filename=\"$name\"\n"."Content-Transfer-Encoding:base64\n\n".$data."\n\n";
-                    // $message .="--{$mime_boundary}\n";
-                
-                }
-
-                $ok = mail($to,$subject,$headers);
-                // if($ok){
-                //     echo"<p>Mail sent to $to!</p>";
-                // }else{
-                //     echo"<p>Mail could not be sent!</p>";
-                // }
-
-                echo '<script type ="text/JavaScript">';  
-                if($ok){
-                echo 'alert("Mail sent to $to!")';  
-                }else{
-                echo 'alert("Mail could not be sent!")';  
-                }
-                echo '</script>';  
-
-        }
-
-    ?>
-
+    <div class="row">
+        <h1>Contact form</h1>
+        <div class="form-group">
+            <h5 for="name">Name</h5>
+            <input type="text" class="form-control" id="name" placeholder="Enter name"/>
+        </div>
+        <div class="form-group">
+            <h5 for="email">Email</h5>
+            <input type="email" class="form-control" id="email" placeholder="Enter email"/>
+        </div>
+        <div class="form-group">
+            <h5 for="message">Message</h5>
+            <textarea class="form-control" id="message" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <h5 for="file">Attach you CV</h5>
+            <input type="file" name="attach1" id=""><br>
+        </div>
+        <button class="btn btn-primary" onclick="sendMail()">Submit</button>
+    </div>
 
 
 

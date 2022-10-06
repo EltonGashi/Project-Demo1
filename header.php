@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <?php wp_head();?>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("PymhyP0mKbK6IYUao");
+        })();
+    </script>
 </head >
 
 <body <?php body_class(array('container')); ?>>
@@ -56,9 +61,8 @@
 if(isset($_POST['submit'])) {
 
     $redirect_to = ! empty ($_POST['redirect_to']) ? $_POST['redirect_go'] : '/';
-    $user_login = sanitize_user($_POST['username']);
-    $user_password = sanitize_text_field($_POST['password']);
-
+    $user_login = $_POST["username"] ?? "";
+    $user_password = $_POST["password"] ?? "";
 
     $user = wp_authenticate( $user_login, $user_password );
 
@@ -136,10 +140,10 @@ if(isset($_POST['submit'])) {
 global $wpdb;
 
 if($_POST)  {
-  $username = $wpdb->escape($_POST['username']);
-  $email = $wpdb->escape($_POST['email']);
-  $password = $wpdb->escape($_POST['password']);
-  $confirmpassword = $wpdb->escape($_POST['confirmpassword']);
+  $username = $_POST["username"] ?? "";
+  $email = $_POST["email"] ?? "";
+  $password = $_POST["password"] ?? "";
+  $confirmpassword = $_POST["confirmpassword"] ?? "";
 
   $erorr = array();
 

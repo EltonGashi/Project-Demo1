@@ -62,9 +62,17 @@
 
         /* Sort in reverse DESC*/
         krsort($newArray);?>
+
         <div class="container bg-bg p-20">
             <section id="search-results">
                 <h1 class="text-3xl pb-10">Search Results</h1>
+                <?php 
+                    if(have_posts()){
+                ?>
+                <?php while(have_posts()){
+                    the_post();?>
+
+                    <?php } ?>
                 <div class="users  grid grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
 
                     <?php foreach($newArray as $qk=>$qv){
@@ -116,6 +124,10 @@
                         <?php
                     } ?>
                 </div>
+                <?php } else{
+                ?>
+                <h1>No results for this search query!</h1>
+                <?php } ?>
             </section>
         </div>
    <?php ?>
