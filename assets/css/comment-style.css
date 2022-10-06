@@ -19,8 +19,10 @@ h3#reply-title {
 }
 form#commentform {
     margin-top: 3%;
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
     background-color: white;
+    border: 1px solid #ebebea;
+    box-shadow: rgb(149 157 165 / 20%) 0px 5px 3px;
     border-radius: 10px;
     width: 100%;
     padding: 3%;

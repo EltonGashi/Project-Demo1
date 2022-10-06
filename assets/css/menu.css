@@ -10,7 +10,15 @@ body {
   position: relative;
   height: auto;
   overflow: hidden;
-  background-color: #eee;
+  padding: 0 5rem 0;
+}
+.header404 {
+  background: #232a3f;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  height: auto;
+  overflow: hidden;
   padding: 0 5rem 0;
 }
 .topnav {
