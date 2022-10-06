@@ -410,21 +410,24 @@ add_role(
         'upload_files'  => true,
         'moderate_comments'=> true, // 
     )
+
+
 );
 
 
-function post_published_limit( $ID, $post ) {
-    $max_posts = 1; // change this or set it as an option that you can retrieve.
-    $author = $post->post_author; // Post author ID.
-    $count = count_user_posts( $author, 'post'); // get author post count
 
-    if ( $count > $max_posts ) {
-        // count too high, let's set it to draft.
-        $post->post_status = 'draft';
-        wp_update_post( $post);
-    }
-}
-add_action( 'publish_post', 'post_published_limit', 10, 2 );
+// function post_published_limit( $ID, $post ) {
+//     $max_posts = 1; // change this or set it as an option that you can retrieve.
+//     $author = $post->post_author; // Post author ID.
+//     $count = count_user_posts( $author, 'post'); // get author post count
+
+//     if ( $count > $max_posts ) {
+//         // count too high, let's set it to draft.
+//         $post->post_status = 'draft';
+//         wp_update_post( $post);
+//     }
+// }
+// add_action( 'publish_post', 'post_published_limit', 10, 2 );
 
 function mytheme_comment($comment, $args, $depth) {
     if ( 'div' === $args['style'] ) {
@@ -515,6 +518,7 @@ add_action('init', 'connect_another_db');
 //Rating System
 
 
+
 // POST COMPANY TAXONOMY
 function company_custom_taxonomy(){
     $labels = array(
@@ -539,7 +543,16 @@ function company_custom_taxonomy(){
         'publicly_queryable' => true,
         'query_var'=> true,
         'rewrite' => true,
-        'capability_type' =>'post',
+        'capability_type' => 'company',
+        'capabilities' => array(
+            'edit_post' => 'edit_company',
+            'edit_posts' => 'edit_companies',
+            'edit_others_posts' => 'edit_other_companies',
+            'publish_posts' => 'publish_company',
+            'read_post' => 'read_company',
+            'read_private_posts' => 'read_private_company',
+            'delete_post' => 'delete_company'
+        ),
         'hierarchical' => false,
         'menu_icon'=> 'dashicons-building',
         'support'=>array(
@@ -549,7 +562,7 @@ function company_custom_taxonomy(){
             'thumbnail',
             'revisions',
         ),
-        'taxonomies'=>array('category','post_tag'),
+        'taxonomies'=>array('post_tag'),
         'menu_position'=>5,
         'exclude_from_search' =>false,
     );
@@ -559,4 +572,53 @@ function company_custom_taxonomy(){
 
 add_action('init','company_custom_taxonomy');
 
+function categories_custom_taxonomies() {
+	
+	$labels = array(
+		'name' => 'Categories',
+		'singular_name' => 'Category',
+		'search_items' => 'Search Categories',
+		'all_items' => 'All Categories',
+		'parent_item' => 'Parent Category',
+		'parent_item_colon' => 'Parent Category:',
+		'edit_item' => 'Edit Category',
+		'update_item' => 'Update Category',
+		'add_new_item' => 'Add New Category',
+		'new_item_name' => 'New Category Name',
+		'menu_name' => 'Categories'
+	);
+	
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'categories' )
+	);
+	
+	register_taxonomy('categories', array('company'), $args);
+	
+	
+}
+
+add_action( 'init' , 'categories_custom_taxonomies' );
+
+
+add_action('init', function() {
+
+    add_role('company', 'Company');
+
+    $company = get_role('company');
+    
+    $company->add_cap('read');
+    $company->add_cap( 'edit_company' ); 
+    $company->add_cap( 'edit_companies' ); 
+    $company->add_cap( 'edit_other_companies' ); 
+    $company->add_cap( 'publish_companies' ); 
+    $company->add_cap( 'read_companies' ); 
+    $company->add_cap( 'read_private_companies' ); 
+    $company->add_cap( 'delete_company' ); 
+    $company->add_cap( 'all_items' ); 
+});
 

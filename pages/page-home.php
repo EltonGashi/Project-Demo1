@@ -79,15 +79,19 @@ if ( $post_ids ) {
 		'post_type' => 'post',
 		'posts_per_page' => 8,
         'orderby' => 'post__in',
-        'rate' => $post_rate->rate,
+        'meta_query' => array(
+            'key' => 'rate',
+            'value' => $rate
+            
+        ),
 	] );
-        var_dump($query);
+        // var_dump($query);
 	// The rest is exactly as you normally would handle a WP_Query object. 
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
             get_template_part('/components/home/card_users/user' , 'cards');
-            $post_rate->rate;
+            var_dump($rate);
 		}
 
 		wp_reset_postdata();
