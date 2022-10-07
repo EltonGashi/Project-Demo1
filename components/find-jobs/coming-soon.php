@@ -1,4 +1,4 @@
-<?php if( have_rows('register_as_company') ): ?>
+<!-- <?php if( have_rows('register_as_company') ): ?>
         <?php while( have_rows('register_as_company') ): the_row(); 
             // Get sub field values.
             $image = get_sub_field('timer_svg');
@@ -14,4 +14,4 @@
         </div>
     </div>
     <?php endwhile; ?>
-<?php endif; ?>
+<?php endif; ?> -->

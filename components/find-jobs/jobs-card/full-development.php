@@ -1,10 +1,10 @@
-<div class="cards-company w-full rounded-3xl">
+<div class="cards-company w-full rounded-3xl shadow-3xl">
     <div class="company w-full rounded-3xl">
         <?php if( have_rows('jobs') ): ?>
             <?php while ( have_rows('jobs') ) : the_row(); 
                 $image = get_sub_field('company_logo');
         ?>
-        <div class="company-card">
+        <div class="company-card  rounded-3xl shadow-3xl">
             <div class="side front bg-white rounded-3xl p-6 pb-2">
                 <div class="header-card w-full flex justify-between  items-center gap-4 md:gap-2 h-14">
                     <div class="contract border-solid border-lime-800 rounded-lg border-2 p-1 px-4 xl:px-2 text-center text-white bg-lime-800"><?php the_sub_field('contract_hour'); ?></div>
@@ -27,7 +27,7 @@
             </div>
             <div class="side back bg-white rounded-3xl p-6 pb-2 flex justify-around flex-col">
                 <div class="job-info w-full py-8">
-                    <p class="information text-center "><?php echo wp_trim_words( get_the_content(), 50); ?></p>
+                    <p class="information text-center "><?php echo wp_trim_words( the_sub_field('job_description'), 20); ?></p>
                 </div>
                 <?php endwhile; ?>
             <?php endif; ?>
