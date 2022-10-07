@@ -653,11 +653,11 @@ function company_custom_taxonomy(){
         'publicly_queryable' => true,
         'query_var'=> true,
         'rewrite' => true,
-        'capability_type' => 'company',
         'capabilities' => array(
             'edit_post' => 'edit_company',
             'edit_posts' => 'edit_companies',
             'edit_others_posts' => 'edit_other_companies',
+            'edit_others_post' => 'edit_other_company',
             'publish_posts' => 'publish_company',
             'read_post' => 'read_company',
             'read_private_posts' => 'read_private_company',
@@ -725,10 +725,12 @@ add_action('init', function() {
     $company->add_cap( 'edit_company' ); 
     $company->add_cap( 'edit_companies' ); 
     $company->add_cap( 'edit_other_companies' ); 
-    $company->add_cap( 'publish_companies' ); 
+    $company->add_cap( 'publish_company' ); 
     $company->add_cap( 'read_companies' ); 
     $company->add_cap( 'read_private_companies' ); 
     $company->add_cap( 'delete_company' ); 
     $company->add_cap( 'all_items' ); 
+    $company->add_cap( 'categories' ); 
+    
 });
 

@@ -35,24 +35,34 @@
         /* loop through the query */
         $newArray = [];
         foreach($query as $k => $v){
-
+            
             /* loop through each term*/
 
             $title = $v->post_title;
+            if($title == false){
+                
+                $a = true;
+                break;
+            }
+            
 
             $calculate =0;
+            if($a==true){
+                break;
+            foreach($expTerm as $tk=>$tv)
+			{
+                
+               
+				if(strpos(strtolower($title), strtolower($tv)) !== false)
+				{
+					$calculate = $calculate + strlen($tv);
 
-            foreach($expTerm as $tk=>$tv){
+					$pos = strpos(strtolower($title), strtolower($tv));
+					$calculate = $calculate + $rate[$pos];
 
-                if(strpos(strtolower($title), strtolower($tv)) !== false){
-
-                    $calculate = $calculate + strlen($tv);
-
-                    $pos = strpos(strtolower($title), strtolower($tv));
-                    $calculate = $calculate + $rate[$pos];
-                }
-            }
-
+				} 
+			} 
+        }
             $newKey = $calculate.'.'.$v->ID;
 
             $newArray[$newKey] = $v;
@@ -76,6 +86,12 @@
                 <div class="users  grid grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8">
 
                     <?php foreach($newArray as $qk=>$qv){
+                        if($a==true){ ?>
+                            <h1>No results for this search!</h1>
+                            <?php
+                            break;
+                        }
+
 
                         $link = get_permalink  ($qv->ID);
                         ?>

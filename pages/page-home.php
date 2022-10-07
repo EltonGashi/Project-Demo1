@@ -39,7 +39,7 @@
             
 
             ?>
-            <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>">
+
             <?php
 global $wpdb;
 // Write our custom query. In this query, we're only selecting the post_id field of each row that matches our set of
@@ -84,14 +84,16 @@ if ( $post_ids ) {
             'value' => $rate
             
         ),
-	] );
-        // var_dump($query);
+	] );?>
+    <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($query->found_posts/2); ?>">
+    <?php  
+    // var_dump($query);
 	// The rest is exactly as you normally would handle a WP_Query object. 
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
             get_template_part('/components/home/card_users/user' , 'cards');
-            var_dump($rate);
+            
 		}
 
 		wp_reset_postdata();

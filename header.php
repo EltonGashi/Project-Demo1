@@ -145,20 +145,20 @@ if($_POST)  {
   $confirmpassword = $wpdb->escape($_POST['confirmpassword']);
 
   $erorr = array();
+  if($user =='company'){
 
-  if($user=='company'){
 
 $user_data = array(
 'ID' => '',
 'user_pass' => $password,
 'user_login' => $username,
 'user_email' => $email,
-'role' => $user,
+'role' => $user
 );
-$user_id = wp_insert_user( $user_data );
+$user_id = wp_create_user( $user_data );
 wp_hash_password( $password );
 
-$new_userid = wp_insert_user( $user_data );
+$new_userid = wp_create_user( $user_data );
 $is_success = add_user_meta( $new_userid);
 if( $is_success  ) {
    echo 'Successfully added';
