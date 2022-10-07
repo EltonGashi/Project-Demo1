@@ -82,7 +82,7 @@ get_header();?>
                 $args10 = array(
                     'post_type' => 'company',
                     'post_status' => 'publish',
-                    'category_name' => 'Full Stack Development',
+                    'categories' => 'Full Stack Development',
                     'posts_per_page' => 4,
                 );
 
