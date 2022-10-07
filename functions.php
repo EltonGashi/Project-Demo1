@@ -621,12 +621,7 @@ if (function_exists('register_sidebar')) {
 
 }
 
-function connect_another_db() {
-    global $conn;
-    $conn = new mysqli('localhost', 'root', '', 'ratingSystem');
-}
-add_action('init', 'connect_another_db');
-//Rating System
+
 
 
 
@@ -654,26 +649,10 @@ function company_custom_taxonomy(){
         'publicly_queryable' => true,
         'query_var'=> true,
         'rewrite' => true,
-        'capability_type' => 'company',
-        'capabilities' => array(
-            'edit_post' => 'edit_company',
-            'edit_posts' => 'edit_companies',
-            'edit_others_posts' => 'edit_other_companies',
-            'publish_posts' => 'publish_company',
-            'read_post' => 'read_company',
-            'read_private_posts' => 'read_private_company',
-            'delete_post' => 'delete_company'
-        ),
+        'capability_type' => 'post',
         'hierarchical' => false,
         'menu_icon'=> 'dashicons-building',
-
-        'support'=>array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail',
-            'revisions',
-        ),
+        'supports' => array('title','editor','excerpt','comments','revisions'),
         'taxonomies'=>array('post_tag'),
         'menu_position'=>5,
         'exclude_from_search' =>false,
