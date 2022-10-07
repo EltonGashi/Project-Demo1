@@ -699,6 +699,7 @@ function categories_custom_taxonomies() {
 		'show_admin_column' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'categories' ),
+        'capability_type'=>'company',
         'capabilities' => array (
             'manage_terms' => 'edit_companies', 
             'edit_terms' => 'edit_companies',
