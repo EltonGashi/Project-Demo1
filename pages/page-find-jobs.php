@@ -5,7 +5,6 @@
 
 get_header();?>
 <div class="container bg-bg p-20">
-<?php the_content();?>
 
     <section id="Front End Development" class="py-10">
 
@@ -16,7 +15,7 @@ get_header();?>
                 $args8 = array(
                     'post_type' => 'company',
                     'post_status' => 'publish',
-                    'category_name' => 'Front End Development',
+                    'categories' => 'Front End Development',
                     'posts_per_page' => 4,
                 );
 
@@ -40,7 +39,7 @@ get_header();?>
         <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
 
     </section>
-
+    
     <section id="Back End Development" class="py-10">
 
         <h1 class="text-3xl py-5">Back End Development</h1>
@@ -50,7 +49,7 @@ get_header();?>
                 $args9 = array(
                     'post_type' => 'company',
                     'post_status' => 'publish',
-                    'category_name' => 'Back End Development',
+                    'categories' => 'Back End Development',
                     'posts_per_page' => 4,
                 );
 
@@ -83,7 +82,7 @@ get_header();?>
                 $args10 = array(
                     'post_type' => 'company',
                     'post_status' => 'publish',
-                    'category_name' => 'Full Stack Development',
+                    'categories' => 'Full Stack Development',
                     'posts_per_page' => 4,
                 );
 

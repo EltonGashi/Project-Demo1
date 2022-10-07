@@ -17,7 +17,7 @@ get_header();?>
                 </div>
                 <div class="company-logo flex justify-center w-4/12 lg:w-full  lg:justify-center">
                     <img class="object-scale-down" src="<?php echo $image['url'];?>" class=""/>
-                </div>
+                </div>                
             </div>
             <div class="company-social-media">
                 <?php if(have_rows('company_social_media')):?>
@@ -122,6 +122,7 @@ get_header();?>
                 </div>
         </div>
         <div class="file-attachment w-5/12  lg:w-full h-1/2">
+            <h1 class="email font-semibold text-base w-full text-center pb-4">Send Your CV in : <?php the_sub_field('company_email');?></h1> 
             <h1 class="apply-job w-full text-center text-2xl font-bold">Apply for this Job</h1>
             <p class="attach files pt-4 "><?php the_content(); ?></p>
         </div>
@@ -132,58 +133,6 @@ get_header();?>
     </div>
     
 
-
-
-    <div class="my-16 font-extrabold text-2xl"><?php $cat = the_category(); ?></div>
-
-    <section id="company">
-        <div class="company-suggested grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-8">
-    
-        <?php
-            $categories1 = get_the_category();
-            $category_id = $categories1[0]->cat_ID;
-       ?>
-
-            <?php 
-            
-            $args_cat = array(
-                'include' => $category_id,
-                
-            );
-        
-
-            $categories = get_categories($args_cat);
-            foreach($categories as $category):
-
-                $args = array(
-                    'post_type'=>'company',
-                    
-                    'posts_per_page' => 4,
-                    // 'offset' =>1,
-                    /*'category' ='1'*/
-                    'category__in' => $category->term_id ,
-                    'orderby' =>'rand',
-                    // 'category__not_in' => array(1),
-                );
-                echo $category->term_id;
-                $lastBlog = new WP_Query($args);
-    
-                if( $lastBlog->have_posts()):
-    
-                    while( $lastBlog->have_posts() ): $lastBlog->the_post(); ?>
-                        
-                        <?php get_template_part('/components/find-jobs/jobs-card/companies','card');?>
-                        
-                    <?php endwhile;
-    
-                    wp_reset_postdata();
-    
-                endif;
-            endforeach;
-            ?>
-        </div>
-
-    </section>
 
 </div>
 <?php get_footer();?>
