@@ -140,10 +140,31 @@ if($_POST)  {
   $username = $wpdb->escape($_POST['username']);
   $email = $wpdb->escape($_POST['email']);
   $password = $wpdb->escape($_POST['password']);
+  $user = $wpdb->escape($_POST['company']);
   $confirmpassword = $wpdb->escape($_POST['confirmpassword']);
 
   $erorr = array();
 
+  if($user=='Company'){
+
+$user_data = array(
+'user_pass' => $password,
+'user_login' => $username,
+'user_email' => $email,
+'role' => 'company',
+);
+$user_id = wp_insert_user( $user_data );
+wp_hash_password( $password );
+$new_userid = wp_insert_user( $user_id );
+
+$is_success = add_user_meta( $new_userid );
+if( $is_success  ) {
+   echo 'Successfully added';
+} else {
+   echo 'Error on user creation';
+}
+
+  }else{
   // nese username ka hapsir
   if(strpos($username, ' ')!==FALSE) {
     $erorr['username_space'] =  "";
@@ -153,8 +174,6 @@ if($_POST)  {
    // nese username osht i zbrazt
   if(empty($username)) {
     $erorr['username_empty'] =  "";
-  
-  
   }
 
      // nese username egziston n databaz
@@ -193,14 +212,14 @@ if(count($erorr) ==0) {
   wp_create_user( $username, $password, $email );
   echo "<script> setTimeout(function(){
     window.location.href = 'http://localhost/wordpress';
- }, 2000);
+ }, 200);
+ alert('you are registered successfully');
 </script>";
   exit();
 }
 } 
+}
 ?> 
-
-
 
 
     <div class="font-sans bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-register">
@@ -209,7 +228,6 @@ if(count($erorr) ==0) {
 
             <div class="left-side md:p-10 md:h-2/4 lg:px-20  h-full w-full p-32 px-32">
 
-                <h1 class="md:hidden text-sm">NOTE: If you are a company please add @company as your email domain name</h1>
                 <h1 class="font-semibold md:mt-0 md:text-base text-4xl 2xl:mt-4">Register</h1>
                 <form method="POST"  class="flex flex-col md:mt-2 2xl:mt-8">
                     <label class="text-sm "for="name">Name</label>
@@ -220,6 +238,10 @@ if(count($erorr) ==0) {
                     <input type="password" id="password" name="password" placeholder="********" class="md:h-6 rounded-3xl py-2 px-2 border border-black ">
                     <label class="text-sm"for="email">Confirm Password</label>
                     <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********"  class="md:h-6 rounded-3xl py-2 px-2 border border-black ">
+                    <div class="class-company flex mt-2">
+                        <label class="text-sm" for="company">Register as Company?</label>
+                        <input type="checkbox" id="company" name="company" value="Company" class="">
+                    </div>
                     <div class="bottom flex flex-col md:mt-4 lg:mt-8 xl:mt-8 2xl:mt-8 ">
                         <button type="submit" name="submit" id="submit" class="md:text-xsm md:h-10 bg-customGreen rounded-3xl py-3 px-2 text-white text-base ">Register</button>
                         <small class="text-xsm pt-4">&copy 2022 EndGame All Right Reserved</small>
