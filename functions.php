@@ -517,7 +517,7 @@ add_role(
         'edit_posts'   => false,
         'publish_posts' => true ,
         'edit_published_posts'   => true,
-        'upload_files'  => true,
+        'upload_files'  => false,
         'moderate_comments'=> true, // 
     )
 
@@ -715,9 +715,9 @@ function categories_custom_taxonomies() {
 add_action( 'init' , 'categories_custom_taxonomies' );
 
 
-add_action( 'init', 'register_cpt_gallery' );
+add_action( 'init', 'register_cpt_company' );
 
-function register_cpt_gallery() {
+function register_cpt_company() {
 $labels = array( 
     'name' => 'Companies',
     'singular_name' => 'Company',
@@ -736,7 +736,7 @@ $labels = array(
 $args = array( 
     'labels' => $labels,
     'hierarchical' => true,
-    'supports' => array('title','editor','excerpt','comments','revisions'),
+    'supports' => array('title','editor','comments'),
     'public' => true,
     'show_ui' => true,
     'show_in_menu' => true,
@@ -773,12 +773,9 @@ add_action('init', function() {
     $company->add_cap( 'edit_company' ); 
     $company->add_cap( 'edit_companies' ); 
     $company->add_cap( 'edit_other_companies' ); 
-    $company->add_cap( 'publish_company' ); 
-    $company->add_cap( 'read_companies' ); 
+    $company->add_cap( 'publish_companies' ); 
+    $company->add_cap( 'read_company' ); 
     $company->add_cap( 'read_private_companies' ); 
     $company->add_cap( 'delete_company' ); 
-    $company->add_cap( 'all_items' ); 
-    $company->add_cap( 'categories' ); 
-    $company->add_cap( 'manage_categories' ); 
 
 });

@@ -27,7 +27,7 @@
             </div>
             <div class="side back bg-white rounded-3xl p-6 pb-2 flex justify-around flex-col">
                 <div class="job-info w-full py-8">
-                    <p class="information text-center "><?php echo wp_trim_words( the_sub_field('job_description'), 20); ?></p>
+                    <p class="information text-center "><?php echo wp_trim_words( the_sub_field('job_description'), 5); ?></p>
                 </div>
                 <?php endwhile; ?>
             <?php endif; ?>
