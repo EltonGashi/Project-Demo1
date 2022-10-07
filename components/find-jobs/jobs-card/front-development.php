@@ -4,7 +4,7 @@
             <?php while ( have_rows('jobs') ) : the_row(); 
                 $image = get_sub_field('company_logo');
         ?>
-        <div class="company-card">
+        <div class="company-card rounded-3xl shadow-3xl">
             <div class="side front bg-white rounded-3xl p-6 pb-2">
                 <div class="header-card w-full flex justify-between  items-center gap-4 md:gap-2 h-14">
                     <div class="contract border-solid border-lime-800 rounded-lg border-2 p-1 px-4 xl:px-2 text-center text-white bg-lime-800"><?php the_sub_field('contract_hour'); ?></div>

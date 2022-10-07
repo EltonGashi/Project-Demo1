@@ -665,15 +665,8 @@ function company_custom_taxonomy(){
         ),
         'hierarchical' => false,
         'menu_icon'=> 'dashicons-building',
-
-        'support'=>array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail',
-            'revisions',
-        ),
-        'taxonomies'=>array('post_tag'),
+        'supports' => array('title','editor','excerpt','comments','revisions'),
+        'taxonomies'=>array('post_tag','categories'),
         'menu_position'=>5,
         'exclude_from_search' =>false,
     );
