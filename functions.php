@@ -630,51 +630,51 @@ add_action('init', 'connect_another_db');
 
 
 // POST COMPANY TAXONOMY
-function company_custom_taxonomy(){
-    $labels = array(
-        'name'=> 'Company',
-        'singular_name'=>'Company',
-        'add_new' => 'Add Company',
-        'all_items' => 'All Company',
-        'add_new_item' => 'Add New Company',
-        'edit_item' => 'Edit Company',
-        'new_item'=>'New Company',
-        'view_item' => 'View Company',
-        'search_item'=>'Search Company',
-        'not_found'=>'No Company found',
-        'not_found_in_trash'=>'No Company found in trash',
-        'parent_item_colon'=>'Parent Company:',
-        'menu_name'=>'Company',
-    );
-    $arguments = array(
-        'labels' => $labels,
-        'public'=> true,
-        'has_archive'=> true,
-        'publicly_queryable' => true,
-        'query_var'=> true,
-        'rewrite' => true,
-        'capabilities' => array(
-            'edit_post' => 'edit_company',
-            'edit_posts' => 'edit_companies',
-            'edit_others_posts' => 'edit_other_companies',
-            'edit_others_post' => 'edit_other_company',
-            'publish_posts' => 'publish_company',
-            'read_post' => 'read_company',
-            'read_private_posts' => 'read_private_company',
-            'delete_post' => 'delete_company'
-        ),
-        'hierarchical' => false,
-        'menu_icon'=> 'dashicons-building',
-        'supports' => array('title','editor','comments'),
-        'taxonomies'=>array('post_tag','categories'),
-        'menu_position'=>5,
-        'exclude_from_search' =>false,
-    );
-    register_post_type('company',$arguments);
-    add_post_type_support( 'company', 'thumbnail' ); 
-}
+// function company_custom_taxonomy(){
+//     $labels = array(
+//         'name'=> 'Company',
+//         'singular_name'=>'Company',
+//         'add_new' => 'Add Company',
+//         'all_items' => 'All Company',
+//         'add_new_item' => 'Add New Company',
+//         'edit_item' => 'Edit Company',
+//         'new_item'=>'New Company',
+//         'view_item' => 'View Company',
+//         'search_item'=>'Search Company',
+//         'not_found'=>'No Company found',
+//         'not_found_in_trash'=>'No Company found in trash',
+//         'parent_item_colon'=>'Parent Company:',
+//         'menu_name'=>'Company',
+//     );
+//     $arguments = array(
+//         'labels' => $labels,
+//         'public'=> true,
+//         'has_archive'=> true,
+//         'publicly_queryable' => true,
+//         'query_var'=> true,
+//         'rewrite' => true,
+//         'capability_type' => 'post',
+//         // 'capabilities' => array(
+//         //     'edit_post' => 'edit_company',
+//         //     'edit_posts' => 'edit_companies',
+//         //     'edit_others_posts' => 'edit_other_companies',
+//         //     'publish_posts' => 'publish_company',
+//         //     'read_post' => 'read_company',
+//         //     'read_private_posts' => 'read_private_company',
+//         //     'delete_post' => 'delete_company',
+//         // ),
+//         'hierarchical' => false,
+//         'menu_icon'=> 'dashicons-building',
+//         'supports' => array('title','editor','excerpt','comments','revisions'),
+//         'taxonomies'=>array('post_tag','categories'),
+//         'menu_position'=>5,
+//         'exclude_from_search' =>false,
+//     );
+//     register_post_type('company',$arguments);
+//     add_post_type_support( 'company', 'thumbnail' ); 
+// }
 
-add_action('init','company_custom_taxonomy');
+// add_action('init','company_custom_taxonomy');
 
 function categories_custom_taxonomies() {
 	
@@ -698,7 +698,13 @@ function categories_custom_taxonomies() {
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'query_var' => true,
-		'rewrite' => array( 'slug' => 'categories' )
+		'rewrite' => array( 'slug' => 'categories' ),
+        'capabilities' => array (
+            'manage_terms' => 'edit_companies', 
+            'edit_terms' => 'edit_companies',
+            'delete_terms' => 'edit_companies',
+            'assign_terms' => 'edit_companies'  
+            )
 	);
 	
 	register_taxonomy('categories', array('company'), $args);
@@ -708,12 +714,61 @@ function categories_custom_taxonomies() {
 
 add_action( 'init' , 'categories_custom_taxonomies' );
 
+
+add_action( 'init', 'register_cpt_gallery' );
+
+function register_cpt_gallery() {
+$labels = array( 
+    'name' => 'Companies',
+    'singular_name' => 'Company',
+    'add_new' => 'Add New',
+    'add_new_item' => 'Add New Company',
+    'edit_item' => 'Edit Company',
+    'new_item' => 'New Company',
+    'view_item' => 'View Company',
+    'search_items' => 'Search Companies',
+    'not_found' => 'No Companies found',
+    'not_found_in_trash' => 'No Companies found in Trash',
+    'parent_item_colon' => 'Parent Company:',
+    'menu_name' => 'Companies',
+);
+
+$args = array( 
+    'labels' => $labels,
+    'hierarchical' => true,
+    'supports' => array('title','editor','excerpt','comments','revisions'),
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_icon'=> 'dashicons-building',
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => true,
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite' => true,
+    'capabilities' => array(
+        'edit_post' => 'edit_company',
+        'edit_posts' => 'edit_companies',
+        'edit_others_posts' => 'edit_other_companies',
+        'publish_posts' => 'publish_companies',
+        'read_post' => 'read_company',
+        'read_private_posts' => 'read_private_companies',
+        'delete_post' => 'delete_company',
+    ),
+    'taxonomies'=>array('post_tag','categories'),
+    'map_meta_cap' => true
+);
+
+register_post_type( 'company', $args );
+}
+
 add_action('init', function() {
 
     add_role('company', 'Company');
 
     $company = get_role('company');
-    
     $company->add_cap('read');
     $company->add_cap( 'edit_company' ); 
     $company->add_cap( 'edit_companies' ); 
@@ -724,6 +779,6 @@ add_action('init', function() {
     $company->add_cap( 'delete_company' ); 
     $company->add_cap( 'all_items' ); 
     $company->add_cap( 'categories' ); 
-    
-});
+    $company->add_cap( 'manage_categories' ); 
 
+});
