@@ -66,8 +66,8 @@ get_header();?>
 
             <div class="open-job-positions w-full h-auto flex justify-between gap-4 lg:flex-col py-10 pt-20">
                 <div class="about-job-postions w-7/12  lg:w-full ">
-                    <h1 class="job-positions-name text-2xl">Starlabs is looking for <span class="font-bold"><?php the_sub_field('job_positions_name'); ?></span></h1>
-                    <p class="information  pt-4"><?php the_sub_field('job_description'); ?></p>
+                    <h1 class="job-positions-name text-2xl"><?php the_sub_field('company_name'); ?> is looking for <span class="font-bold"><?php the_sub_field('job_positions_name'); ?></span></h1>
+                    <p class="information w-full  text-center pt-4"><?php the_content();?></p>
 
                 </div>
                 <div class="header-card w-4/12 flex justify-center items-center gap-8 lg:w-full lg:justify-start">
@@ -124,7 +124,8 @@ get_header();?>
         <div class="file-attachment w-5/12  lg:w-full h-1/2">
             <h1 class="email font-semibold text-base w-full text-center pb-4">Send Your CV in : <?php the_sub_field('company_email');?></h1> 
             <h1 class="apply-job w-full text-center text-2xl font-bold">Apply for this Job</h1>
-            <p class="attach files pt-4 "><?php the_content(); ?></p>
+            <?php echo do_shortcode('[contact-form-7 id="712" title="File Attachments"]'); ?>
+            <!-- <p class="attach files pt-4 "><?php the_content(); ?></p> -->
         </div>
         </div>
 
