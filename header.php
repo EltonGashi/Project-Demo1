@@ -210,7 +210,7 @@ if(strcmp($password, $confirmpassword) !==0) {
  
   
 } 
-if(count($erorr) ==0) {
+if(count($erorr) ==0 && $user != 'company') {
   wp_create_user( $username, $password, $email );
   echo "<script> setTimeout(function(){
     window.location.href = 'http://localhost/wordpress';
