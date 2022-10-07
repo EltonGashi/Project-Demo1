@@ -653,27 +653,20 @@ function company_custom_taxonomy(){
         'publicly_queryable' => true,
         'query_var'=> true,
         'rewrite' => true,
-        'capability_type' => 'company',
-        'capabilities' => array(
-            'edit_post' => 'edit_company',
-            'edit_posts' => 'edit_companies',
-            'edit_others_posts' => 'edit_other_companies',
-            'publish_posts' => 'publish_company',
-            'read_post' => 'read_company',
-            'read_private_posts' => 'read_private_company',
-            'delete_post' => 'delete_company'
-        ),
+        'capability_type' => 'post',
+        // 'capabilities' => array(
+        //     'edit_post' => 'edit_company',
+        //     'edit_posts' => 'edit_companies',
+        //     'edit_others_posts' => 'edit_other_companies',
+        //     'publish_posts' => 'publish_company',
+        //     'read_post' => 'read_company',
+        //     'read_private_posts' => 'read_private_company',
+        //     'delete_post' => 'delete_company',
+        // ),
         'hierarchical' => false,
         'menu_icon'=> 'dashicons-building',
-
-        'support'=>array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail',
-            'revisions',
-        ),
-        'taxonomies'=>array('post_tag'),
+        'supports' => array('title','editor','excerpt','comments','revisions'),
+        'taxonomies'=>array('post_tag','categories'),
         'menu_position'=>5,
         'exclude_from_search' =>false,
     );
@@ -714,21 +707,3 @@ function categories_custom_taxonomies() {
 }
 
 add_action( 'init' , 'categories_custom_taxonomies' );
-
-add_action('init', function() {
-
-    add_role('company', 'Company');
-
-    $company = get_role('company');
-    
-    $company->add_cap('read');
-    $company->add_cap( 'edit_company' ); 
-    $company->add_cap( 'edit_companies' ); 
-    $company->add_cap( 'edit_other_companies' ); 
-    $company->add_cap( 'publish_companies' ); 
-    $company->add_cap( 'read_companies' ); 
-    $company->add_cap( 'read_private_companies' ); 
-    $company->add_cap( 'delete_company' ); 
-    $company->add_cap( 'all_items' ); 
-});
-
