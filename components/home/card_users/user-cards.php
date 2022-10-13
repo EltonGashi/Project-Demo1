@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 global $conn;
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -20,6 +20,35 @@ if (isset($_POST['save'])) {
     exit(json_encode(array('id' => $uID)));
 }
 $ud = $user->id;
+?> -->
+<?php
+    $conn = new mysqli('localhost', 'root', '', 'ratingSystem');
+
+    if (isset($_POST['save'])) {
+        $uID = $conn->real_escape_string($_POST['uID']);
+        $ratedIndex = $conn->real_escape_string($_POST['ratedIndex']);
+        $ratedIndex++;
+
+        if (!$uID) {
+            $conn->query("INSERT INTO rate (rateIndex) VALUES ('$ratedIndex')");
+            $sql = $conn->query("SELECT id FROM rate ORDER BY id DESC LIMIT 1");
+            $uData = $sql->fetch_assoc();
+            $uID = $uData['id'];
+        } else
+            $conn->query("UPDATE rate SET rateIndex='$ratedIndex' WHERE id='$uID'");
+
+        exit(json_encode(array('id' => $uID)));
+    }
+
+    $sql = $conn->query("SELECT id FROM rate");
+    $numR = $sql->num_rows;
+
+    $sql = $conn->query("SELECT SUM(rateIndex) AS total FROM rate");
+    $rData = $sql->fetch_array();
+    $total = $rData['total'];
+
+    $avg = $total / $numR;
+    
 ?>
 <div class="user-card bg-white rounded-3xl shadow shadow-black-900">
     <div class="user-thumbnail">
@@ -64,7 +93,9 @@ $user = wp_get_current_user();
         </div>
            
             <div class="rate font-semibold ml-4">       
-                (<?php echo round($post_rate->rate,2); ?>)
+                <!-- (<?php echo round($post_rate->rate,2); ?>) -->
+                <?php echo round($avg,2) ?>
+
             </div>
 
     </div>
@@ -78,5 +109,3 @@ $user = wp_get_current_user();
                 
     </div>
 </div>
-
-

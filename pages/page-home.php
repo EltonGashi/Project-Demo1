@@ -53,6 +53,7 @@ AND wp_posts.post_status = 'publish'
 GROUP BY wp_posts.ID 
 ORDER BY rate DESC
 ";
+$rate = "SELECT rateIndex from rate";
 
 // Use $wpdb's prepare() method to replace the placeholders with our actual data. Doing it this way protects against
 // injection hacks as the prepare() method santizes the data accordingly. The output is a prepared, sanitized SQL
@@ -84,6 +85,7 @@ if ( $post_ids ) {
             'value' => $rate
             
         ),
+        
 	] );?>
     <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($query->found_posts/2); ?>">
     <?php  
@@ -93,15 +95,16 @@ if ( $post_ids ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
             get_template_part('/components/home/card_users/user' , 'cards');
-            var_dump($rate);
+            
 		}
 
 		wp_reset_postdata();
 	}
 
 } else {
-	// …
+	//
 }
+
             ?>
 
             </div>
