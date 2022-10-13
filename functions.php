@@ -78,6 +78,7 @@ function my_action_javascript() { ?>
             var page8 = 2;
             var page9 = 2;
             var page10 = 2;
+            var page11 = 2;
 
 
             var ajaxurl ="<?php echo admin_url('admin-ajax.php'); ?>";
@@ -154,6 +155,12 @@ function my_action_javascript() { ?>
                         'action': 'my_action',
                         'cat': category,
                         'page': page10,
+                    };
+                }else if(category=='Company'){
+                    var data = {
+                        'action': 'my_action',
+                        'cat': category,
+                        'page': page11,
                     };
                 }else{
                     var data = {
@@ -247,6 +254,13 @@ function my_action_javascript() { ?>
                     }else if(category == 'Full Stack Development'){
                         page10++;
                         if(count == page10){
+                            $(btn).text("No more data");
+                            $(btn).removeClass("border-customGreen");
+                            $(btn).addClass("border-red-600");
+                        };
+                    }else if(category == 'Company'){
+                        page11++;
+                        if(count == page11){
                             $(btn).text("No more data");
                             $(btn).removeClass("border-customGreen");
                             $(btn).addClass("border-red-600");
@@ -420,7 +434,7 @@ function my_action(){
         }else if($cat == 'Front End Development'){
             $args8 =array(
                 'post_type' => 'company',
-                'category_name' =>$_POST['cat'],
+                'categories' =>$_POST['cat'],
                 'paged' => $_POST['page'],
             ); 
 
@@ -440,7 +454,7 @@ function my_action(){
         }else if($cat == 'Back End Development'){
             $args9 =array(
                 'post_type' => 'company',
-                'category_name' =>$_POST['cat'],
+                'categories' =>$_POST['cat'],
                 'paged' => $_POST['page'],
             ); 
 
@@ -460,7 +474,7 @@ function my_action(){
         }else if($cat == 'Full Stack Development'){
             $args10 =array(
                 'post_type' => 'company',
-                'category_name' =>$_POST['cat'],
+                'categories' =>$_POST['cat'],
                 'paged' => $_POST['page'],
             ); 
 
@@ -469,6 +483,26 @@ function my_action(){
             <?php if( $the_query10->have_posts() ): ?>
     
             <?php while ( $the_query10->have_posts() ) : $the_query10->the_post(); ?> 
+    
+                <?php get_template_part('/components/find-jobs/jobs-card/full','development');?>
+                
+            <?php endwhile; ?>
+    
+                <?php wp_reset_postdata(); ?>
+    
+            <?php endif;
+        }else if($cat == 'Company'){
+            $args11 =array(
+                'post_type' => 'company',
+                // 'categories' =>$_POST['cat'],
+                'paged' => $_POST['page']+1,
+            ); 
+
+            $the_query11 = new WP_Query( $args11 ); ?>
+            
+            <?php if( $the_query11->have_posts() ): ?>
+    
+            <?php while ( $the_query11->have_posts() ) : $the_query11->the_post(); ?> 
     
                 <?php get_template_part('/components/find-jobs/jobs-card/full','development');?>
                 

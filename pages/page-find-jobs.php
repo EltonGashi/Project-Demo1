@@ -20,7 +20,7 @@ get_header();?>
                 );
 
                 $the_query8 = new WP_Query($args8);?>
-                <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query8->found_posts/2); ?>" data-label="Front End Development">
+                <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query8->found_posts/2); ?>" data-label="Front End Development" >
                 <?php
                 if( $the_query8->have_posts()):
 

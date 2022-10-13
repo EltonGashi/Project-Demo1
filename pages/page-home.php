@@ -14,12 +14,12 @@
 
         $args11= array(
             'post_type' => 'company',
-            'post_status' => 'publish',
+            'paged' => get_query_var('paged',1),
             'posts_per_page' => 8,
         );
 
         $the_query11 = new WP_Query($args11);?>
-            <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8">
+            <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query11->found_posts/2); ?>" data-label="Company">
             <?php
             if( $the_query11->have_posts()):
 
@@ -35,7 +35,7 @@
 
             ?>
             </div>
-        <button class="loadMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
 
 
@@ -78,7 +78,7 @@
 global $wpdb;
 // Write our custom query. In this query, we're only selecting the post_id field of each row that matches our set of
 // conditions. Note the %s placeholders – these are dynamic and indicate that we'll be injecting strings in their place.
-$posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM $wpdb->posts 
+$posts = $wpdb->get_results("SELECT *, AVG(rate.rateIndex) AS rate FROM $wpdb->posts 
             LEFT JOIN 
             ratingSystem.rate
             ON wp_posts.ID = rate.cardID
