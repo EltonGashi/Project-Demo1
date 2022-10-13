@@ -8,6 +8,40 @@
 
     <!-- ////////////// CONTAINER-START ////////////// -->
 <div class="container w-full bg-bg p-20">
+    <h1 class="text-4xl py-5">Company</h1>
+    <section id="companies" class="py-10">
+            <?php
+
+        $args11= array(
+            'post_type' => 'company',
+            'post_status' => 'publish',
+            'posts_per_page' => 8,
+        );
+
+        $the_query11 = new WP_Query($args11);?>
+            <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8">
+            <?php
+            if( $the_query11->have_posts()):
+
+                while( $the_query11->have_posts() ): $the_query11->the_post(); ?>
+
+                    <?php get_template_part('/components/find-jobs/jobs-card/companies','cards');?>
+                    
+                <?php endwhile;
+
+                wp_reset_postdata();
+
+            endif;
+
+            ?>
+            </div>
+        <button class="loadMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
+    </section>
+
+
+
+
+
     <h1 class="text-4xl py-5">Services from Users </h1>
     <section id="users" class="py-10">
             <?php 
