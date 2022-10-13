@@ -44,66 +44,34 @@
 global $wpdb;
 // Write our custom query. In this query, we're only selecting the post_id field of each row that matches our set of
 // conditions. Note the %s placeholders – these are dynamic and indicate that we'll be injecting strings in their place.
-$SQL = "SELECT *, AVG(rate.rateIndex) AS rate FROM $wpdb->posts 
-LEFT JOIN 
-ratingSystem.rate
-ON wp_posts.ID = rate.cardID
-WHERE wp_posts.post_type = 'post'
-AND wp_posts.post_status = 'publish' 
-GROUP BY wp_posts.ID 
-ORDER BY rate DESC
-";
+$posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM $wpdb->posts 
+            LEFT JOIN 
+            ratingSystem.rate
+            ON wp_posts.ID = rate.cardID
+            WHERE wp_posts.post_type = 'post'
+            AND wp_posts.post_status = 'publish' 
+            GROUP BY wp_posts.ID 
+            ORDER BY rate DESC
+            ");
+
 
 // Use $wpdb's prepare() method to replace the placeholders with our actual data. Doing it this way protects against
 // injection hacks as the prepare() method santizes the data accordingly. The output is a prepared, sanitized SQL
 // statement ready to be executed.
-$SQL = $wpdb->prepare( $SQL);
+// $SQL = $wpdb->prepare( $SQL);
+$counter = 8;
+$the_query = new WP_Query($posts);
+?>
+    <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query->found_posts/2); ?>">
+    <?php foreach($posts as $post):?>
 
-
-// Query the database with our prepared SQL statement, fetching the first column of the matched rows. In our case, we
-// only queried the post_id field of each row so we know that the post_id fields will be the first column. The result
-// here is an array of post_ids (provided we have a match)
-$post_ids = $wpdb->get_col( $SQL );
-$post_rate = $wpdb->get_row( $SQL);
-
-
-
-if ( $post_ids ) {
-
-	// When calling WP_Query, we no longer need to worry about specifying a post type because we know exactly which post
-	// IDs we're after. We've also already ensured the correct order of our post IDs through the ORDER BY xxx ASC
-	// portion of our SQL query. So, we just tell WP_Query to return the WP_Post objects in the order of the post IDs we
-	// pass to it.
-	$query = new WP_Query( [
-		'post__in' => $post_ids,
-		'post_type' => 'post',
-		'posts_per_page' => 8,
-        'orderby' => 'post__in',
-        'meta_query' => array(
-            'key' => 'rate',
-            'value' => $rate
-            
-        ),
-	] );?>
-    <div class="users  grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($query->found_posts/2); ?>">
-    <?php  
-    // var_dump($query);
-	// The rest is exactly as you normally would handle a WP_Query object. 
-	if ( $query->have_posts() ) {
-		while ( $query->have_posts() ) {
-			$query->the_post();
-            get_template_part('/components/home/card_users/user' , 'cards');
-            
-		}
-
-		wp_reset_postdata();
-	}
-
-} else {
-	// …
-}
-            ?>
-
+        <?php get_template_part('/components/home/card_users/user' , 'cards');?>
+        <?php $counter++?>
+        <?php if($counter >12 ){
+            break;
+            }?>
+    <?php endforeach;?>
+    <?php echo ($post->found_posts);?>
             </div>
             <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>

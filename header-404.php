@@ -148,7 +148,7 @@ if( $is_success  ) {
     echo "<script> setTimeout(function(){
         window.location.href = 'http://localhost/wordpress';
      }, 200);
-     alert('you are registered successfully');
+     alert('You are registered successfully as Company');
     </script>";
 } else {
    echo 'Error on user creation';
@@ -203,13 +203,15 @@ if(count($erorr) ==0) {
   echo "<script> setTimeout(function(){
     window.location.href = 'http://localhost/wordpress';
  }, 200);
- alert('you are registered successfully');
+ alert('you are registered successfully as Freelancer');
 </script>";
   exit();
 }
 } 
 }
 ?> 
+
+
 
 
     <div class="font-sans bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-register">

@@ -64,7 +64,7 @@ $user = wp_get_current_user();
         </div>
            
             <div class="rate font-semibold ml-4">       
-                (<?php echo round($post_rate->rate,2); ?>)
+                (<?php echo round($post->rate,2); ?>)
             </div>
 
     </div>

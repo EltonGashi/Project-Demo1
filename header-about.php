@@ -158,9 +158,13 @@ $user_id = wp_insert_user( $user_data );
 wp_hash_password( $password );
 $new_userid = wp_insert_user( $user_id );
 
-$is_success = add_user_meta( $new_userid );
+$is_success = wp_insert_user( $user_data );;
 if( $is_success  ) {
-   echo 'Successfully added';
+    echo "<script> setTimeout(function(){
+        window.location.href = 'http://localhost/wordpress';
+     }, 200);
+     alert('You are registered successfully as Company');
+    </script>";
 } else {
    echo 'Error on user creation';
 }
@@ -214,14 +218,13 @@ if(count($erorr) ==0) {
   echo "<script> setTimeout(function(){
     window.location.href = 'http://localhost/wordpress';
  }, 200);
- alert('you are registered successfully');
+ alert('you are registered successfully as Freelancer');
 </script>";
   exit();
 }
 } 
 }
 ?> 
-
 
 
     <div class="font-sans bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-register">
@@ -279,5 +282,4 @@ if(count($erorr) ==0) {
         </div>
       
     </div>
-    
 <?php ob_flush();?>
