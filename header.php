@@ -130,7 +130,6 @@ if(isset($_POST['submit'])) {
     </div>
 </div>
 
-
     <!-- REGISTER MODAL -->
     <?php
 
@@ -146,27 +145,26 @@ if($_POST)  {
 
   $erorr = array();
 
-  if($user=='company'){
+  if($user=='Company'){
 
 $user_data = array(
-'ID' => '',
 'user_pass' => $password,
 'user_login' => $username,
 'user_email' => $email,
-'role' => $user,
+'role' => 'company',
 );
 $user_id = wp_insert_user( $user_data );
 wp_hash_password( $password );
+$new_userid = wp_insert_user( $user_id );
 
-$new_userid = wp_insert_user( $user_data );
-$is_success = add_user_meta( $new_userid);
+$is_success = add_user_meta( $new_userid );
 if( $is_success  ) {
    echo 'Successfully added';
 } else {
    echo 'Error on user creation';
 }
 
-  }
+  }else{
   // nese username ka hapsir
   if(strpos($username, ' ')!==FALSE) {
     $erorr['username_space'] =  "";
@@ -220,8 +218,8 @@ if(count($erorr) ==0) {
   exit();
 }
 } 
+}
 ?> 
-
 
 
 
@@ -243,8 +241,8 @@ if(count($erorr) ==0) {
                     <label class="text-sm"for="email">Confirm Password</label>
                     <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********"  class="md:h-6 rounded-3xl py-2 px-2 border border-black ">
                     <div class="class-company flex mt-2">
-                        <input type="checkbox" id="company" name="company" value="company" class="">
                         <label class="text-sm" for="company">Register as Company?</label>
+                        <input type="checkbox" id="company" name="company" value="Company" class="">
                     </div>
                     <div class="bottom flex flex-col md:mt-4 lg:mt-8 xl:mt-8 2xl:mt-8 ">
                         <button type="submit" name="submit" id="submit" class="md:text-xsm md:h-10 bg-customGreen rounded-3xl py-3 px-2 text-white text-base ">Register</button>
