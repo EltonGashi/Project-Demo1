@@ -117,37 +117,27 @@
             </div>
         </div>
         
-        <div class=" gap-8 grid 2xl:grid-cols-2 xl:grid-cols-2 lg:gap-16  ">
-        <div class="w-auto h-auto mb-4 rounded-xl xl:mb-0 xl:flex sm:hidden lg:w-80 2xl:h-auto 2xl:w-full lg:h-96 md:w-full md:h-full md:justify-center">  <?php the_post_thumbnail('large'); ?> 
-        </div>
-                <div class="text-gray-500 sm:text-xl dark:text-gray-400 sm:col-span-6">
-                    <p class="mb-8 dark:text-gray-800 xl:text-xl"></p>
-                    <!-- List -->
-                    <ul role="list" class="pt-8 space-y-5 border-t border-gray-800 my-7 dark:border-gray-700">
-
-                    <?php  if(have_rows('skills')):?>
-                        <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-black">Here are some of my skills :</h2>
-                        <?php the_sub_field('name'); ?></a>
-
-                        <?php while( have_rows('skills')): the_row();?>
-                        
-                        <li class="flex space-x-3">
-                            
-                        <svg class="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span class="text-base font-medium leading-tight text-gray-900 dark:text-gray-600"><?php the_sub_field('name'); ?></span>
-                        
-                        <?php the_sub_field('skills'); ?></a>
-                        </li>
-
-
-                        <?php endwhile;?>
-                        <?php endif;?>
-                    </ul>
+        <div class="gap-8 grid 2xl:grid-cols-2 xl:grid-cols-2 lg:gap-16">
+            <div class="w-6/12 h-auto mb-4 rounded-xl xl:mb-0 xl:flex sm:hidden lg:w-80 2xl:h-auto 2xl:w-full lg:h-96 md:w-full md:h-full md:justify-center">  <?php the_post_thumbnail('large'); ?> 
+            </div>
+                <div class="skillBars w-full flex flex-col">      
+                    <span class="border-t-2 border-gray-500"></span>            
+                    <h2 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-black pt-4">Here are some of my skills :</h2>
+                        <div class="w-full flex flex-col justify-end items-end">
+                            <?php if( have_rows('progress_bar') ): ?>
+                                <?php while ( have_rows('progress_bar') ) : the_row();?>
+                                    <div class="barItem w-full flex justify-between mb-1 mt-4">
+                                    <span class="text-sm font-medium text-black"><?php the_sub_field('skill_language');?></span>
+                                    <span class="text-sm font-medium text-black"><?php the_sub_field('percentage');?>%</span>
+                                </div>
+                                    <div class="bar w-full">
+                                        <div class="blackBar" style="width:<?php the_sub_field('percentage');?>%"></div>
+                                    </div>
+                                <?php endwhile;?>
+                            <?php endif;?>
+                        </div>
                 </div>
-                
-                <!---<img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="./images/feature-1.png" alt="dashboard feature image">-->
-        </div>
-        
+                            </div>
         <div id="actual-article">
                 <?php comments_template('/comments.php');?>
                 

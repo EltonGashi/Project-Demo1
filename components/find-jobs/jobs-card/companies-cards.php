@@ -11,7 +11,7 @@
                     <div class="price border-solid border-zinc-300 rounded-lg border-2 p-1 px-4 xl:px-2 text-center bg-zinc-300 font-bold"><?php the_sub_field('price_per_hour'); ?></div>
                 </div>
                 <div class="company-hiring w-full pt-16 flex flex-col items-center">
-                    <h1 class="company-name flex w-3/12 justify-around text-xl items-center lg:text-base"><img class="w-6/12 h-2/6"src="<?php echo $image['url'];?>" class="" />&nbsp;<?php the_sub_field('company_name'); ?></h1>
+                    <h1 class="company-name flex w-auto justify-center text-xl items-center lg:text-base"><img class="w-2/12 h-2/6"src="<?php echo $image['url'];?>" class="" />&nbsp;<?php the_sub_field('company_name'); ?></h1>
                     <h1 class="job-positions-name font-bold text-2xl pt-3 xl:text-xl lg:text-base sm:text-lg"><?php the_sub_field('job_positions_name'); ?></h1>
                 </div>
                 <div class="skill-required flex justify-center gap-1 flex-wrap pt-6 h-12">
@@ -27,7 +27,7 @@
             </div>
             <div class="side back bg-white rounded-3xl p-6 pb-2 flex justify-around flex-col">
                 <div class="job-info w-full py-8">
-                    <p class="information text-center "><?php echo wp_trim_words( the_sub_field('job_description'), 20); ?></p>
+                <p class="information text-center "><?php echo wp_trim_words( get_the_content(), 50); ?></p>
                 </div>
                 <?php endwhile; ?>
             <?php endif; ?>

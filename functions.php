@@ -59,9 +59,9 @@ function enqueue_function() {
 	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/assets/css/main.css', $version, true );
 }
 
+
+
 //Load More Function
-
-
 function my_action_javascript() { ?>
 
     <script type="text/javascript" >
