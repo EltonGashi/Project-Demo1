@@ -41,7 +41,8 @@ module.exports = {
 		extend: {
 			colors:{
 				'customGreen': '#799F28',
-				'bg': '#F0F0F0'
+				'bg': '#F0F0F0',	
+				'purple':'#c084fc',
 			  },
 			  
 			  fontFamily:{
