@@ -319,3 +319,20 @@ h2.search-title {
     width: 30%;
   }
 }
+
+#topnav {
+  background:black;
+  z-index:170;
+  margin:0 auto;
+  border-bottom:1px solid #dadada;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  text-align: center;
+ margin-top:32px !important;
+ margin-bottom: 5px;
+ padding:0 5rem 0;
+
+}

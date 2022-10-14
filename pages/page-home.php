@@ -15,7 +15,9 @@
         $args11= array(
             'post_type' => 'company',
             'post_status' => 'publish',
-            'posts_per_page' => 8,
+            'categories' => 'Back End Development',
+            'posts_per_page' => 3,
+
         );
 
         $the_query11 = new WP_Query($args11);?>
@@ -35,12 +37,10 @@
 
             ?>
             </div>
-        <button class="loadMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
+            
+        <button class="findMore flex justify-self-center mx-auto  mt-12 border  border-customGreen p-2 px-4 rounded-xl transition duration-300 ">Load More</button>
     </section>
-
-
-
-
+    
 
     <h1 class="text-4xl py-5">Services from Users </h1>
     <section id="users" class="py-10">
@@ -115,7 +115,7 @@ if ( $post_ids ) {
         'orderby' => 'post__in',
         'meta_query' => array(
             'key' => 'rate',
-            'value' => $rate
+            
             
         ),
 	] );?>
