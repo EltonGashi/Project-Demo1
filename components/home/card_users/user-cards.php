@@ -1,5 +1,7 @@
 <?php
 global $conn;
+
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 };
@@ -20,6 +22,7 @@ if (isset($_POST['save'])) {
     exit(json_encode(array('id' => $uID)));
 }
 $ud = $user->id;
+
 ?>
 <div class="user-card bg-white rounded-3xl shadow shadow-black-900">
     <div class="user-thumbnail">
