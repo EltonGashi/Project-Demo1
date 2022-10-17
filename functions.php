@@ -514,7 +514,7 @@ function my_action(){
             <?php endif;
         }
         else{   
-                
+            
                 $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts
                 LEFT JOIN 
                 ratingSystem.rate
@@ -533,12 +533,12 @@ function my_action(){
                 if( $posting ) :
 
                     // run the loop
-                    foreach( $posting as $post):
+                    foreach( $posting as $query):
                         
-                        if(isset($post)){
+                        if(isset($query)){
                         // look into your theme code how the posts are inserted, but you can use your own HTML of course
                         // do you remember? - my example is adapted for Twenty Seventeen theme
-                        var_dump($post);
+                        var_dump($query);
                         get_template_part('/components/home/card_users/user' , 'cards');
                         // for the test purposes comment the line above and uncomment the below one
                         // the_title();
