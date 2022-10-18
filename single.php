@@ -72,7 +72,7 @@
     <!-- End block -->
     <!-- Start block -->
     
-        <div class="max-w-screen-xl px-4 pb-8 mx-auto xl:pb-16">
+        <div class="max-w-screen-xl px-4 pb-8 mx-auto xl:pb-16  mb-14">
             <div class="grid grid-cols-2 gap-8 text-gray-500  sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-6 xl:grid-cols-6 dark:text-gray-400">
                 <a href="#" class="flex items-center xl:jdustify-center">
                     <svg class="h-9 hover:text-gray-900 dark:hover:text-white" viewBox="0 0 125 35" fill="currentColor" >

@@ -41,7 +41,14 @@ const toggle = () => {
     nav.className === "topnav" ? nav.className += " responsive" : nav.className = "topnav";
 };
 
-
+$(window).scroll(function(){
+    if ($(window).scrollTop() >= 20) {
+        $('nav').addClass('fixed-header');
+    }
+    else {
+        $('nav').removeClass('fixed-header');
+    }
+});
 
 
 //parseInt($('.fa-star').parent().data('user')) RATING

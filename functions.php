@@ -1,5 +1,4 @@
 <?php
-
 // Enqueuing Template css,js,jquery
 function dynamic_menu_enqueue()
 {
@@ -58,6 +57,7 @@ function enqueue_function() {
 	$version = ( wp_get_environment_type() === 'development' ) ? time() : define( 'BIIIRD_THEME_VERSION', '1.0.2' );
 	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/assets/css/main.css', $version, true );
 }
+
 
 
 
@@ -276,7 +276,6 @@ function my_action_javascript() { ?>
                     }
                     
                 }); 
-                selectall();
                 });
             });
 
@@ -288,6 +287,8 @@ add_action('wp_footer', 'my_action_javascript');
 
 
 function my_action(){
+    global $wpdb;
+    
 
         $cat = $_POST['cat'];
 
@@ -512,29 +513,47 @@ function my_action(){
     
             <?php endif;
         }
-        else{
-            $args =array(
-                'post_type' => 'post',
-                'category_name' =>$_POST['cat'],
-                'paged' => $_POST['page']+1,
-            ); 
-            
-            $the_query = new WP_Query( $args); ?>
-            
-            <?php if( $the_query->have_posts() ): ?>
-    
-            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?> 
-    
-                <?php get_template_part('/components/home/card_users/user' , 'cards');?>
+        else{   
                 
-            <?php endwhile; ?>
-    
-                <?php wp_reset_postdata(); ?>
-    
-            <?php endif;
+                $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts
+                LEFT JOIN 
+                ratingSystem.rate
+                ON wp_posts.ID = rate.cardID
+                WHERE wp_posts.post_type = 'post'
+                AND wp_posts.post_status = 'publish' 
+                GROUP BY wp_posts.ID 
+                ORDER BY rate DESC
+                ");
+                $page = $_POST['page']*4;
+                if(isset($page)){
+                $posting = $wpdb->get_results( $posts . "LIMIT 4 OFFSET {$page}", ARRAY_A);
+            }
 
+                
+                if( $posting ) :
+
+                    // run the loop
+                    foreach( $posting as $post):
+                        
+                        if(isset($post)){
+                        // look into your theme code how the posts are inserted, but you can use your own HTML of course
+                        // do you remember? - my example is adapted for Twenty Seventeen theme
+                        var_dump($post);
+                        get_template_part('/components/home/card_users/user' , 'cards');
+                        // for the test purposes comment the line above and uncomment the below one
+                        // the_title();
+
+                    }
+                    endforeach;
+             
+                endif;?>
+                <?php $wpdb->print_error();?>
+                <?php $wpdb->flush();?>
+            
+            <?php wp_reset_postdata();
+            
         }
-        wp_die();
+    wp_die();
 }
 
 add_action('wp_ajax_nopriv_my_action', 'my_action');
@@ -559,19 +578,20 @@ add_role(
 );
 
 
-// function post_published_limit( $ID, $post ) {
-//     $max_posts = 1; // change this or set it as an option that you can retrieve.
-//     $author = $post->post_author; // Post author ID.
-//     $count = count_user_posts( $author, 'post'); // get author post count
+function post_published_limit( $ID, $post ) {
+    $max_posts = 1; // change this or set it as an option that you can retrieve.
+    $author = $post->post_author; // Post author ID.
+    
+    $count = count_user_posts( $author, 'post'); // get author post count
 
 
-//     if ( $count > $max_posts ) {
-//         // count too high, let's set it to draft.
-//         $post->post_status = 'draft';
-//         wp_update_post( $post);
-//     }
-// }
-// add_action( 'publish_post', 'post_published_limit', 10, 2 );
+    if ( $count > $max_posts ) {
+        // count too high, let's set it to draft.
+        $post->post_status = 'draft';
+        wp_update_post( $post);
+    }
+}
+add_action( 'publish_post', 'post_published_limit', 10, 2 );
 
 function mytheme_comment($comment, $args, $depth) {
     if ( 'div' === $args['style'] ) {
@@ -655,11 +675,28 @@ if (function_exists('register_sidebar')) {
 }
 
 function connect_another_db() {
+
     global $conn;
     $conn = new mysqli('localhost', 'root', '', 'ratingSystem');
 }
 add_action('init', 'connect_another_db');
 //Rating System DB
+
+// function prepare_WPDB() {
+//     global $wpdb;
+//     $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts
+//                 LEFT JOIN 
+//                 ratingSystem.rate
+//                 ON wp_posts.ID = rate.cardID
+//                 WHERE wp_posts.post_type = 'post'
+//                 AND wp_posts.post_status = 'publish' 
+//                 GROUP BY wp_posts.ID 
+//                 ORDER BY rate DESC
+//                 ");
+//         $posting = $wpdb->get_results( $posts . "LIMIT 4");
+//     return $posting;
+
+// }
 
 
 function categories_custom_taxonomies() {
@@ -687,9 +724,9 @@ function categories_custom_taxonomies() {
 		'rewrite' => array( 'slug' => 'categories' ),
         'capability_type'=>'company',
         'capabilities' => array (
-            'manage_terms' => 'edit_companies', 
-            'edit_terms' => 'edit_companies',
-            'delete_terms' => 'edit_companies',
+            'manage_terms' => 'edit_categories', 
+            'edit_terms' => 'edit_categories',
+            'delete_terms' => 'edit_categories',
             'assign_terms' => 'edit_companies'  
             )
 	);
@@ -738,11 +775,12 @@ $args = array(
     'capabilities' => array(
         'edit_post' => 'edit_company',
         'edit_posts' => 'edit_companies',
+        'edit_published_posts'  => 'edit_published_companies',
         'edit_others_posts' => 'edit_other_companies',
         'publish_posts' => 'publish_companies',
         'read_post' => 'read_company',
         'read_private_posts' => 'read_private_companies',
-        'delete_post' => 'delete_company',
+        'delete_posts' => 'delete_company',
     ),
     'taxonomies'=>array('post_tag','categories'),
     'map_meta_cap' => true
@@ -758,8 +796,8 @@ add_action('init', function() {
     $company = get_role('company');
     $company->add_cap( 'read' );
     $company->add_cap( 'edit_company' ); 
-    $company->add_cap( 'edit_companies' ); 
     $company->add_cap( 'edit_other_companies' ); 
+    $company->add_cap( 'edit_published_companies' ); 
     $company->add_cap( 'publish_companies' ); 
     $company->add_cap( 'read_company' ); 
     $company->add_cap( 'read_private_companies' ); 
@@ -767,62 +805,19 @@ add_action('init', function() {
 
 });
 
-
-function misha_my_load_more_scripts() {
- 
-	global $wp_query; 
- 
-	// In most cases it is already included on the page and this line can be removed
-	wp_enqueue_script('jquery');
- 
-	// register our main script but do not enqueue it yet
-	wp_register_script( 'my_loadmore', get_stylesheet_directory_uri() . '/end-game.js', array('jquery') );
- 
-	// now the most interesting part
-	// we have to pass parameters to myloadmore.js script but we can get the parameters values only in PHP
-	// you can define variables directly in your HTML but I decided that the most proper way is wp_localize_script()
-	wp_localize_script( 'my_loadmore', 'misha_loadmore_params', array(
-		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
-		'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
-		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-		'max_page' => $wp_query->max_num_pages
-	) );
- 
- 	wp_enqueue_script( 'my_loadmore' );
+function Query(){
+    global $wpdb;
+        $wpdb->show_errors();
+        // Write our custom query. In this query, we're only selecting the post_id field of each row that matches our set of
+        // conditions. Note the %s placeholders – these are dynamic and indicate that we'll be injecting strings in their place.
+        $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts
+                LEFT JOIN 
+                ratingSystem.rate
+                ON wp_posts.ID = rate.cardID
+                WHERE wp_posts.post_type = 'post'
+                AND wp_posts.post_status = 'publish' 
+                GROUP BY wp_posts.ID 
+                ORDER BY rate DESC
+                ");
+        return $posts;
 }
- 
-add_action( 'wp_enqueue_scripts', 'misha_my_load_more_scripts' );
-
-
-function misha_loadmore_ajax_handler(){
- 
-	// prepare our arguments for the query
-	$args = json_decode( stripslashes( $_POST['query'] ), true );
-	$args['paged'] = $_POST['page'] + 1; // we need next page to be loaded
-	$args['post_status'] = 'publish';
- 
-	// it is always better to use WP_Query but not here
-	query_posts( $args );
- 
-	if( have_posts() ) :
- 
-		// run the loop
-		while( have_posts() ): the_post();
- 
-			// look into your theme code how the posts are inserted, but you can use your own HTML of course
-			// do you remember? - my example is adapted for Twenty Seventeen theme
-			get_template_part( 'template-parts/post/content', get_post_format() );
-			// for the test purposes comment the line above and uncomment the below one
-			// the_title();
- 
- 
-		endwhile;
- 
-	endif;
-	die; // here we exit the script and even no wp_reset_query() required!
-}
- 
- 
- 
-add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_{action}
-add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
