@@ -54,7 +54,7 @@ get_header();?>
                 );
 
                 $the_query9 = new WP_Query($args9);?>
-                <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query9->found_posts/2); ?>" data-label="Back End Development"><?php
+                <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query9->found_posts/2); ?>" data-label="Back End Development"><?php
                 if( $the_query9->have_posts()):
 
                     while( $the_query9->have_posts() ): $the_query9->the_post(); ?>
@@ -87,7 +87,7 @@ get_header();?>
                 );
 
                 $the_query10 = new WP_Query($args10);?>
-                <div class="users grid 2xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query10->found_posts/2); ?>" data-label="Full Stack Development"><?php
+                <div class="company-posts grid 2xl:grid-cols-4 xl:grid-cols-3  lg:grid-cols-2 sm:grid-cols-1 gap-8" data-count="<?php echo ceil($the_query10->found_posts/2); ?>" data-label="Full Stack Development"><?php
                 if( $the_query10->have_posts()):
 
                     while( $the_query10->have_posts() ): $the_query10->the_post(); ?>
