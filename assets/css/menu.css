@@ -3,11 +3,12 @@ body {
   padding: 0;
   font-family: Helvetica, sans-serif;
 }
-div#overlay-register {
+div#overlay-register , div#overlay-login {
   z-index: 1;
 }
+
 .header {
-  background: linear-gradient(90deg, #131968 0%, #6ea5d8 100%);
+  background: linear-gradient(90deg, #043c62 0%, #6ea5d8 100%);
   max-width: 100%;
   width: 100%;
   position: relative;
@@ -30,6 +31,7 @@ div#overlay-register {
   /* margin-top: 10px; */
   display:flex;
   padding: 0 5rem 0;
+  padding-top: 7px;
 }
 .fixed-header {
   position: fixed;
@@ -38,6 +40,8 @@ div#overlay-register {
   padding: 0 5rem 0;
   background-color: rgba(0, 0, 0, 0.815);
   z-index: 1;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 .header-logo{
   width:25%;
@@ -102,10 +106,10 @@ li.menu-item{
 .banner {
   position: sticky;
   display: flex;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
   padding: 0 5rem 0;
-  gap: 11rem;
-  padding-top: 60px;
+  gap: 8rem;
+  /* padding-top: 60px; */
 }
 .search-input {
   display: flex;
@@ -235,9 +239,6 @@ h2.search-title {
     padding: 0 5rem 0;
     /* margin-top: 0px; */
   }
-  .topnav.fixed-header{
-    margin-top: 30px;
-  }
   .topnav li a, .topnav .register-login-btn{
     display: none;
   }
@@ -259,6 +260,10 @@ h2.search-title {
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.815);
+  }
+  .fixed-header{
+    position: relative;
+    background-color: transparent;
   }
   .menu-container {
     display: flex;
@@ -334,7 +339,7 @@ h2.search-title {
     width: 100%;
   }
   .search-talents{
-    padding: 0 5rem 0;
+    padding: 0 2rem 0;
   }
   .search-talents{
     width: 100%;
@@ -347,5 +352,11 @@ h2.search-title {
   }
   button.searchBtn{
     width: 30%;
+  }
+}
+
+@media (max-width:494px) {
+  .search-talents{
+    padding: 0;
   }
 }
