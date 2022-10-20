@@ -147,6 +147,9 @@ textarea#comment-text {
     div#respond{
         width: 100%;
     }
+    div#actual-article{
+        width: 100%;
+    }
     .card-comments{
         width: 100%;
     }

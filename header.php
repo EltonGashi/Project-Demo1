@@ -100,7 +100,7 @@ if(isset($_POST['submit'])) {
 
 <div class="font-sans bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-login">
 
-    <div class="md:flex-col-reverse login-modal bg-white rounded-xl shadow-black shadow-lg  w-full flex flex-row">
+    <div class="md:flex-col-reverse login-modal bg-white rounded-xl shadow-black shadow-lg  w-full h-fit flex flex-row">
 
         <div class="left-side sm:p-5  md:h-2/4 md:p-10 h-full w-full p-32 px-42 xl:px-20 md:pb-8">
             <div class="left-side-top ">
@@ -254,7 +254,7 @@ if(count($erorr) ==0) {
 
     <div class="font-sans bg-black bg-opacity-50 fixed inset-0 hidden p-20" id="overlay-register">
         
-        <div class="register-modal md:flex-col-reverse   bg-white rounded-xl shadow-black shadow-lg w-full flex flex-row ">
+        <div class="register-modal md:flex-col-reverse   bg-white rounded-xl shadow-black shadow-lg w-full  h-fit flex flex-row ">
 
             <div class="left-side md:p-10 md:h-2/4 lg:px-20  h-full w-full p-32 px-32 md:pb-8">
 
