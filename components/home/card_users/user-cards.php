@@ -18,9 +18,16 @@ if (isset($_POST['save'])) {
         $uID = $uData['id'];
     } else
         $conn->query("UPDATE rate SET cardID='$cardID', ratedIndex='$ratedIndex' WHERE id='$uID'");
-
+        // $conn->query("REPLACE INTO rate (uID,cardID,ratedIndex) VALUES('$uId','$cardID','$ratedIndex')"); // Nese e ka te pakten nje vlere te njejte (unique) ME ROW E INSERTUM PARAPRAK SHKON E FSHIN ATA E INSERTON TE RIUN
+        // echo "Already Voted!"; //mos me lon me bo update
     exit(json_encode(array('id' => $uID)));
 }
+// $user = get_current_user_id();
+// if ( is_user_logged_in() ) {
+//     echo 'User ID: ' . get_current_user_id();
+// } else {
+//     echo 'Your not logged in!';
+// }
 $ud = $user->id;
 
 ?>
@@ -59,17 +66,17 @@ $user = wp_get_current_user();
     
     <div class="rate flex">
         <div style="color:black;" data-index="<?php the_id();?>" data-user="<?php echo $user->id;?>">
-            <i class="fa-solid fa-star" data-index="0"></i>
-            <i class="fa-solid fa-star" data-index="1"></i>
-            <i class="fa-solid fa-star" data-index="2"></i>
-            <i class="fa-solid fa-star" data-index="3"></i>
-            <i class="fa-solid fa-star" data-index="4"></i>
+
+            <i class="fa-solid fa-star" id="star" data-index="0"></i>
+            <i class="fa-solid fa-star" id="star" data-index="1"></i>
+            <i class="fa-solid fa-star" id="star" data-index="2"></i>
+            <i class="fa-solid fa-star" id="star" data-index="3"></i>
+            <i class="fa-solid fa-star" id="star" data-index="4"></i>
         </div>
            
             <div class="rate font-semibold ml-4">       
                 (<?php echo round($post->rate,2); ?>)
             </div>
-
     </div>
 
 <!-- RATING -->

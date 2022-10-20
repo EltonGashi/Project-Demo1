@@ -36,7 +36,7 @@
             </div>
         </nav>
         <div class="header-banner h-auto">
-            <div class="px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+            <div class="py-16 mx-auto flex flex-wrap flex-col md:flex-row items-center">
                 <div class="banner w-full">
                 <div class="search-talents">
                     <h2 class="search-title">Search for best <i class="font-courgette">services</i></h2>
@@ -46,8 +46,8 @@
                         <button class="searchBtn" type="submit" value="Search Our Site...">Search</button>
                     </form>
                 </div>
-                <div class="img-banner">
-                    <img class="bannerImg" src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/hero.png">
+                <div class="img-banner  pt-10 pb-10">
+                    <img class="bannerImg" src="<?php echo get_template_directory_uri(); ?>./assets/img/HeaderImages/banner-image2.png">
                 </div>
             </div>
             </div>
@@ -102,7 +102,7 @@ if(isset($_POST['submit'])) {
 
     <div class="md:flex-col-reverse login-modal bg-white rounded-xl shadow-black shadow-lg  w-full flex flex-row">
 
-        <div class="left-side sm:p-5  md:h-2/4 md:p-10 h-full w-full p-32 px-42 xl:px-20">
+        <div class="left-side sm:p-5  md:h-2/4 md:p-10 h-full w-full p-32 px-42 xl:px-20 md:pb-8">
             <div class="left-side-top ">
                     <h1 class="font-semibold md:text-xl text-4xl">Login</h1>
                     <h1 class="pt-4 md:hidden text-lg ">How do i get started lorem ispum dolor at?</h1>
@@ -256,7 +256,7 @@ if(count($erorr) ==0) {
         
         <div class="register-modal md:flex-col-reverse   bg-white rounded-xl shadow-black shadow-lg w-full flex flex-row ">
 
-            <div class="left-side md:p-10 md:h-2/4 lg:px-20  h-full w-full p-32 px-32">
+            <div class="left-side md:p-10 md:h-2/4 lg:px-20  h-full w-full p-32 px-32 md:pb-8">
 
                 <h1 class="font-semibold md:mt-0 md:text-base text-4xl 2xl:mt-4">Register</h1>
                 <form method="POST"  class="flex flex-col md:mt-2 2xl:mt-8">
