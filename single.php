@@ -11,8 +11,8 @@
                
 
                 
-        <div class="grid  max-w-screen-xl px-4 pt-20 pb-8 mx-auto 2xl:gap-8 2xl:py-16 2xl:grid-cols-2 xl:gap-8 lg:gap-0 xl:py-16 xl:grid-cols-12 xl:pt-28 ">
-            <div class="mr-auto place-self-center xl:col-span-7 sm:items-center ">
+        <div class="grid  max-w-screen-xl px-4 pt-20 pb-8 mx-auto 2xl:gap-8 2xl:py-16 2xl:grid-cols-2  lg:gap-0 xl:py-16 xl:grid-cols-2 sm:grid-cols-1 xl:pt-28 ">
+            <div class="mr-auto place-self-center lg:col-span-7 sm:items-center ">
                 <h1 class=" mb-4 text-4xl font-extrabold leading-none tracking-tight 2xl:text-7xl md:text-5xl xl:text-6xl sm:justify-center">Hi , my name is  <br><?php the_title(); ?></h1>
                 <p class=" mb-6 font-light text-gray-500 xl:mb-8 md:text-lg 2xl:text-2xl xl:text-xl dark:text-gray-800 sm:col-span-6"><?php the_content(); ?></p>
             <br>
@@ -51,7 +51,7 @@
 
                 </div>
             </div>
-            <div class=" xl:mt-0 xl:col-span-5 xl:flex">
+            <div class=" xl:mt-0 lg:col-span-5 xl:flex">
             <?php  if(have_rows('profile')):?>
             <?php while( have_rows('profile')): the_row(); 
                 $image = get_sub_field('image');
@@ -117,10 +117,10 @@
             </div>
         </div>
         
-        <div class="gap-8 grid 2xl:grid-cols-2 xl:grid-cols-2 lg:gap-16">
+        <div class="gap-8 grid 2xl:grid-cols-2 xl:grid-cols-2 lg:gap-16 sm:grid-cols-1">
             <div class="w-6/12 h-auto mb-4 rounded-xl xl:mb-0 xl:flex sm:hidden lg:w-80 2xl:h-auto 2xl:w-full lg:h-96 md:w-full md:h-full md:justify-center">  <?php the_post_thumbnail('large'); ?> 
             </div>
-                <div class="skillBars w-full flex flex-col">      
+                <div class="skillBars w-full flex flex-col mb-12">      
                     <span class="border-t-2 border-gray-500"></span>            
                     <h2 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-black pt-4">Here are some of my skills :</h2>
                         <div class="w-full flex flex-col justify-end items-end">
