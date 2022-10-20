@@ -644,6 +644,12 @@ video {
 .mt-3 {
   margin-top: 0.75rem;
 }
+.-mt-12 {
+  margin-top: -3rem;
+}
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
 .block {
   display: block;
 }
@@ -1097,6 +1103,10 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 .pt-4 {
   padding-top: 1rem;
@@ -1762,6 +1772,10 @@ video {
     margin-bottom: 9rem;
   }
 
+  .lg\:-mt-24 {
+    margin-top: -6rem;
+  }
+
   .lg\:h-96 {
     height: 24rem;
   }
@@ -1990,6 +2004,10 @@ video {
 
   .md\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:flex-col {

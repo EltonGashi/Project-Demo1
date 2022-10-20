@@ -1,4 +1,14 @@
-<?php $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts
+<?php
+global $wpdb;
+$limit = 4;
+
+if(isset($_POST['page_no'])){
+    $page = $_POST['page_no'];
+}else{
+    $page = 0;
+}
+
+$posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts
                 LEFT JOIN 
                 ratingSystem.rate
                 ON wp_posts.ID = rate.cardID
@@ -7,10 +17,9 @@
                 GROUP BY wp_posts.ID 
                 ORDER BY rate DESC
                 ");
-                $page = $_POST['page']*4;
-                if(isset($page)){
-                $posting = $wpdb->get_results( $posts . "LIMIT 4 OFFSET {$page}", ARRAY_A);
-            }
+
+                $posting = $wpdb->get_results( $posts . "LIMIT {$limit}");
+
 
                 
                 if( $posting ) :
@@ -28,7 +37,7 @@
 
                     }
                     endforeach;
-             
+                    ?> <btn id="ajaxbtn" data-id="">LOAD MORE</div><?php
                 endif;?>
                 <?php $wpdb->print_error();?>
                 <?php $wpdb->flush();?>

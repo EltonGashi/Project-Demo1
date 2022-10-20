@@ -48,7 +48,7 @@ $ud = $user->id;
         </div>
 
         <div class="user-content text-basic mb-5 h-12">
-            <?php echo wp_trim_words( get_the_content(), 5); ?>
+            <?php echo wp_trim_words( get_the_content(), 12); ?>
         </div>
 
 <!-- RATING -->

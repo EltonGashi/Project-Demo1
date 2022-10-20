@@ -56,12 +56,13 @@ var ratedIndex=-1,cardID=-1, uID=0;//no Rating
 $(document).ready(function(){
     resetStarColors();
     var cards =document.querySelectorAll('.fa-star');
-    if(localStorage.getItem('ratedIndex') !=null){
-        setStars(parseInt(localStorage.getItem('ratedIndex')),parseInt(localStorage.getItem('cardID')));//ME e configuru hala
-        uID = localStorage.getItem('uID');
-    }
     
     cards.forEach(card => {
+        if(localStorage.getItem('ratedIndex') !=null){
+            setStars(parseInt(localStorage.getItem('ratedIndex')),parseInt(localStorage.getItem('cardID')));//ME e configuru hala
+            uID = localStorage.getItem('uID');
+        }
+        
         card.addEventListener('click', () => {
             ratedIndex = parseInt($(card).data("index"));
             cardID = parseInt($(card).parent().data("index"));
@@ -86,7 +87,7 @@ $(document).ready(function(){
 });
 function saveToTheDB(){
     $.ajax({
-        url: "index.php",
+        url: "",
         method:"POST",
         dataType:'json',
         data:{

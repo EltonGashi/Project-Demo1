@@ -293,25 +293,24 @@ function my_action(){
         $cat = $_POST['cat'];
 
         if($cat == 'Java Developer'){
-            $args1 =array(
-                'post_type' => 'post',
-                'category_name' =>$_POST['cat'],
-                'paged' => $_POST['page'],
-            ); 
-            $the_query1 = new WP_Query( $args1); 
-            ?>
-            <?php if( $the_query1->have_posts() ): ?>
+            $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts LEFT JOIN ratingSystem.rate ON wp_posts.ID = rate.cardID , wp_terms , wp_term_taxonomy , wp_term_relationships 
+            WHERE  wp_posts.ID = wp_term_relationships.object_id AND wp_terms.term_id = wp_term_taxonomy.term_id AND wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+            AND (wp_term_taxonomy.taxonomy = 'category' AND wp_term_taxonomy.term_id = wp_terms.term_id AND wp_terms.name = 'Java Developer') 
+            GROUP BY wp_posts.ID
+            ORDER BY rate DESC
+            ");
+            
+            $page = $_POST['page']*2;
+            
+            $posting = $wpdb->get_results( $posts . "LIMIT 4 OFFSET {$page}");
+            foreach($posting as $post){
+                get_template_part('/components/home/card_users/user' , 'cards');
+                
+            }
+            $wpdb->flush();
+            wp_reset_postdata();
 
-            <?php while ( $the_query1->have_posts() ) : $the_query1->the_post(); ?> 
 
-                <?php get_template_part('/components/find-talents/developers/java','developer');?>
-
-
-            <?php endwhile; ?>
-
-                <?php wp_reset_postdata(); ?>
-
-            <?php endif;
         }else if($cat == 'It Technichian'){
             $args2 =array(
                 'post_type' => 'post',
@@ -514,46 +513,26 @@ function my_action(){
             <?php endif;
         }
         else{   
+            ob_clean();
+            $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts LEFT JOIN ratingSystem.rate ON wp_posts.ID = rate.cardID , wp_terms , wp_term_taxonomy , wp_term_relationships 
+            WHERE  wp_posts.ID = wp_term_relationships.object_id AND wp_terms.term_id = wp_term_taxonomy.term_id AND wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+            AND (wp_term_taxonomy.taxonomy = 'category' AND wp_term_taxonomy.term_id = wp_terms.term_id AND wp_terms.name = 'Java Developer') 
+            GROUP BY wp_posts.ID
+            ORDER BY rate DESC
+            ");
             
-                $posts = $wpdb->prepare("SELECT *, AVG(rate.rateIndex) AS rate FROM wp_posts
-                LEFT JOIN 
-                ratingSystem.rate
-                ON wp_posts.ID = rate.cardID
-                WHERE wp_posts.post_type = 'post'
-                AND wp_posts.post_status = 'publish' 
-                GROUP BY wp_posts.ID 
-                ORDER BY rate DESC
-                ");
-                $page = $_POST['page']*4;
-                if(isset($page)){
-                $posting = $wpdb->get_results( $posts . "LIMIT 4 OFFSET {$page}", ARRAY_A);
-            }
-
+            $page = $_POST['page']*2;
+            
+            $posting = $wpdb->get_results( $posts . "LIMIT 4 OFFSET {$page}");
+            foreach($posting as $post){
+                get_template_part('/components/home/card_users/user' , 'cards');
                 
-                if( $posting ) :
-
-                    // run the loop
-                    foreach( $posting as $query):
-                        
-                        if(isset($query)){
-                        // look into your theme code how the posts are inserted, but you can use your own HTML of course
-                        // do you remember? - my example is adapted for Twenty Seventeen theme
-                        var_dump($query);
-                        get_template_part('/components/home/card_users/user' , 'cards');
-                        // for the test purposes comment the line above and uncomment the below one
-                        // the_title();
-
-                    }
-                    endforeach;
-             
-                endif;?>
-                <?php $wpdb->print_error();?>
-                <?php $wpdb->flush();?>
-            
-            <?php wp_reset_postdata();
+            }
+            $wpdb->flush();
+            wp_reset_postdata();
             
         }
-    wp_die();
+        wp_die();
 }
 
 add_action('wp_ajax_nopriv_my_action', 'my_action');

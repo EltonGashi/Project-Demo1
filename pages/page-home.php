@@ -1,9 +1,13 @@
 <?php
+
 /*
  * Template Name: Home
  * Template Post Type: post, page, product
  */   
  get_header(); 
+ define( 'SHORTINIT', true );
+$path = preg_replace('/wp-content(?!.*wp-content).*/','',__DIR__);
+require($path.'wp-load.php' );
   ?>
 
     <!-- ////////////// CONTAINER-START ////////////// -->
@@ -133,6 +137,26 @@
     </section>
 </div>
 <!-- /////////// END OF CONTAINER ///////// -->
+<script>
+
+$(document).ready(function(){
+    function loadTable(page){
+        $.ajax({
+            url: "wp-admin/admin-ajax.php",
+            type: "POST",
+            data: {page_no : page},
+            succes: function(data){
+                $('.users').append(data);
+            },
+        });
+    };
+    loadTable();
+    $(document).on("click" , "#ajaxbtn", function(){
+        var pid = $(this).data("id");
+        loadTable(pid);
+    });
+});
+ </script>
 
 <?php get_footer(); ?>
 
